@@ -1,1 +1,3 @@
-  .trust-grid{ grid-template-columns:1fr 1fr 1fr }
+User-agent: *
+Allow: /
+Sitemap: https://www.anakainisou.gr/sitemap.xml
