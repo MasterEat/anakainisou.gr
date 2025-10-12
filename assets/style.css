@@ -44,12 +44,18 @@ img{max-width:100%;height:auto;display:block}
 .under-cta{text-align:center;margin-top:18px}
 
 /* Hero */
-.hero{padding:90px 0 40px}
-.hero-inner{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:32px}
-.hero h1{font-size:clamp(28px,3.4vw,46px);line-height:1.1;margin:0 0 12px}
-.hero-slider{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);min-height:360px}
+.hero{position:relative;padding:140px 0;min-height:520px;color:#fff;overflow:hidden;background:#0f172a}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(15,23,42,.88) 0%,rgba(30,41,59,.6) 52%,rgba(30,64,175,.25) 100%);z-index:1}
+.hero-slider{position:absolute;inset:0;margin:0;z-index:0}
 .hero-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
 .hero-slider img.active{opacity:1}
+.hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:20px;max-width:var(--maxw);margin-inline:auto;padding:0 20px}
+.hero-copy{max-width:560px;display:grid;gap:16px}
+.hero h1{font-size:clamp(30px,3.6vw,50px);line-height:1.05;margin:0}
+.hero .lead{opacity:.92;color:inherit}
+.cta-group{display:flex;flex-wrap:wrap;gap:12px}
+.hero .btn{border-color:rgba(255,255,255,.35)}
+.hero .btn--ghost{background:rgba(255,255,255,.12);color:#fff}
 
 /* About */
 .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
@@ -99,7 +105,8 @@ img{max-width:100%;height:auto;display:block}
 
 /* Responsive */
 @media (max-width: 990px){
-  .hero-inner{grid-template-columns:1fr}
+  .hero{padding:120px 0}
+  .hero-inner{align-items:flex-start}
   .about-grid,.two-col,.contact{grid-template-columns:1fr}
   .services{grid-template-columns:repeat(2,1fr)}
   .process .steps{grid-template-columns:repeat(2,1fr)}
@@ -110,4 +117,9 @@ img{max-width:100%;height:auto;display:block}
   .nav{position:fixed;inset:60px 12px auto 12px;background:#fff;border:1px solid #e8edf4;border-radius:14px;padding:12px;display:none;flex-direction:column;box-shadow:var(--shadow)}
   .nav.open{display:flex}
   .brand-logo{height:60px}
+  .hero{padding:110px 0 100px}
+  .hero-inner{padding:0 16px;align-items:flex-start}
+  .hero h1{font-size:clamp(28px,7vw,42px)}
+  .cta-group{width:100%}
+  .cta-group .btn{flex:1 1 auto;justify-content:center}
 }
