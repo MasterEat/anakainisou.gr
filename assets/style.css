@@ -32,7 +32,7 @@ img{max-width:100%;height:auto;display:block}
 .social{display:flex;gap:10px;margin-left:12px}
 .icon{width:28px;height:28px;display:inline-block;background:var(--text);mask-size:cover;-webkit-mask-size:cover;opacity:.85}
 .icon:hover{opacity:1}
-.fb{mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="white" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06H295V6.26S277.43 0 262.3 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H89.09V288h52.13v224h100.2V288z"/></svg>')}
+.fb{mask-image:url('../images/facebooklogo.svg');-webkit-mask-image:url('../images/facebooklogo.svg')}
 .ig{mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="white" d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.59-30.59c-21.15-8.45-71.32-6.5-94.12-6.5s-72.94-1.9-94.12,6.5a54,54,0,0,0-30.59,30.59c-8.45,21.15-6.5,71.32-6.5,94.12s-1.9,72.94,6.5,94.12a54,54,0,0,0,30.59,30.59c21.15,8.45,71.32,6.5,94.12,6.5s72.94,1.9,94.12-6.5a54,54,0,0,0,30.59-30.59c8.45-21.15,6.5-71.32,6.5-94.12S357.16,182.81,348.71,161.66ZM224,338a82,82,0,1,1,82-82A82,82,0,0,1,224,338Zm85-148a19,19,0,1,1,19-19A19,19,0,0,1,309,190Z"/></svg>')}
 
 /* Buttons */
