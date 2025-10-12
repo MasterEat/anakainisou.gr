@@ -31,8 +31,8 @@ img{max-width:100%;height:auto;display:block}
 .nav a:focus-visible{opacity:1;color:var(--accent);text-shadow:0 3px 14px rgba(15,23,42,.35)}
 .nav-toggle{display:none;background:none;border:1px solid #d8dee9;color:var(--text);padding:6px 10px;border-radius:10px}
 .social{display:flex;gap:10px;margin-left:12px}
-.icon{width:28px;height:28px;display:inline-block;background:var(--text);mask-size:cover;-webkit-mask-size:cover;opacity:.85}
-.icon:hover{opacity:1}
+.icon{width:28px;height:28px;display:inline-block;background:var(--text);mask-size:cover;-webkit-mask-size:cover;opacity:.85;transition:background .2s ease,opacity .2s ease}
+.icon:hover{opacity:1;background:#f59f0b}
 .fb{mask-image:url('../images/facebooklogo.svg');-webkit-mask-image:url('../images/facebooklogo.svg')}
 .ig{mask-image:url('../images/instagramlogo.svg');-webkit-mask-image:url('../images/instagramlogo.svg')}
 
