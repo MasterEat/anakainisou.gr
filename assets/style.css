@@ -34,7 +34,7 @@ img{max-width:100%;height:auto;display:block}
 .icon{width:28px;height:28px;display:inline-block;background:var(--text);mask-size:cover;-webkit-mask-size:cover;opacity:.85}
 .icon:hover{opacity:1}
 .fb{mask-image:url('../images/facebooklogo.svg');-webkit-mask-image:url('../images/facebooklogo.svg')}
-.ig{mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="white" d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.59-30.59c-21.15-8.45-71.32-6.5-94.12-6.5s-72.94-1.9-94.12,6.5a54,54,0,0,0-30.59,30.59c-8.45,21.15-6.5,71.32-6.5,94.12s-1.9,72.94,6.5,94.12a54,54,0,0,0,30.59,30.59c21.15,8.45,71.32,6.5,94.12,6.5s72.94,1.9,94.12-6.5a54,54,0,0,0,30.59-30.59c8.45-21.15,6.5-71.32,6.5-94.12S357.16,182.81,348.71,161.66ZM224,338a82,82,0,1,1,82-82A82,82,0,0,1,224,338Zm85-148a19,19,0,1,1,19-19A19,19,0,0,1,309,190Z"/></svg>')}
+.ig{mask-image:url('../images/instagramlogo.svg');-webkit-mask-image:url('../images/instagramlogo.svg')}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:999px;text-decoration:none;border:1px solid #e0e6ee;transition:.2s transform,.2s box-shadow,.2s background}
