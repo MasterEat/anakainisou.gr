@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40">
-  <rect width="200" height="40" fill="#0f172a"/>
-  <text x="100" y="26" fill="#f59e0b" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">FM Renovation</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="64" viewBox="0 0 300 64" role="img" aria-label="FM Renovation">
+  <rect width="300" height="64" rx="12" fill="#0F172A"/>
+  <text x="20" y="40" font-family="Inter, Arial" font-size="28" fill="#F59E0B" font-weight="700">FM</text>
+  <text x="78" y="40" font-family="Inter, Arial" font-size="22" fill="#ffffff" font-weight="600">Renovation</text>
 </svg>
