@@ -36,15 +36,33 @@
       <a class="brand" href="#top" aria-label="FM Renovation – Αρχική">
         <img class="brand-logo" src="images/logo.png" alt="FM Renovation λογότυπο">
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Μενού">☰</button>
-      <nav id="site-nav" class="nav">
-        <a href="#about">Η Εταιρεία</a>
-        <a href="#services">Υπηρεσίες</a>
-        <a href="#reasons">Γιατί εμείς</a>
-        <a href="#process">Διαδικασία</a>
-        <a href="#gallery">Έργα</a>
-        <a href="#reviews">Μαρτυρίες</a>
-        <a href="#contact" class="btn btn--sm">Ζητήστε Προσφορά</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Άνοιγμα μενού">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav id="site-nav" class="nav" aria-label="Κύρια πλοήγηση">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#about" class="nav__link">Σχετικά</a></li>
+          <li class="nav__item nav-item--has-submenu">
+            <button class="nav__link nav__link--parent" type="button" aria-expanded="false" data-desktop-parent>
+              Υπηρεσίες
+              <span class="nav-caret" aria-hidden="true"></span>
+            </button>
+            <ul class="submenu">
+              <li><a href="#services" class="submenu__link">Ανακαίνιση Κατοικίας</a></li>
+              <li><a href="#services" class="submenu__link">Ανακαίνιση Μπάνιου</a></li>
+              <li><a href="#services" class="submenu__link">Ανακαίνιση Κουζίνας</a></li>
+              <li><a href="#services" class="submenu__link">Επαγγελματικοί Χώροι</a></li>
+              <li><a href="#services" class="submenu__link">Ενεργειακή Αναβάθμιση</a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a href="#reasons" class="nav__link">Γιατί εμείς</a></li>
+          <li class="nav__item"><a href="#process" class="nav__link">Διαδικασία</a></li>
+          <li class="nav__item"><a href="#gallery" class="nav__link">Gallery</a></li>
+          <li class="nav__item"><a href="#reviews" class="nav__link">Μαρτυρίες</a></li>
+          <li class="nav__item nav__item--cta"><a href="#contact" class="btn btn--sm nav-cta">Ζητήστε Προσφορά</a></li>
+        </ul>
       </nav>
       <div class="social">
         <a href="#" aria-label="Facebook" class="icon fb"></a>
@@ -52,6 +70,46 @@
       </div>
     </div>
   </header>
+
+  <div class="nav-backdrop" data-nav-backdrop hidden></div>
+  <div class="nav-overlay" id="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" hidden>
+    <div class="nav-overlay__inner" data-mobile-overlay>
+      <div class="nav-overlay__top">
+        <h2 id="mobile-menu-title" class="nav-overlay__title">Μενού</h2>
+        <button class="nav-close" type="button" data-nav-close aria-label="Κλείσιμο μενού">
+          <span class="nav-close-bar"></span>
+          <span class="nav-close-bar"></span>
+        </button>
+      </div>
+      <nav class="nav-mobile" aria-label="Κύρια πλοήγηση" data-mobile-nav>
+        <ul class="nav-mobile__list">
+          <li class="nav-mobile__item"><a href="#about" class="nav-mobile__link">Σχετικά</a></li>
+          <li class="nav-mobile__item nav-mobile__item--has-submenu">
+            <button class="nav-mobile__link nav-mobile__link--parent" type="button" aria-expanded="false" data-mobile-parent>
+              Υπηρεσίες
+              <span class="nav-caret" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-mobile__submenu" data-mobile-submenu>
+              <li><a href="#services" class="nav-mobile__sublink">Ανακαίνιση Κατοικίας</a></li>
+              <li><a href="#services" class="nav-mobile__sublink">Ανακαίνιση Μπάνιου</a></li>
+              <li><a href="#services" class="nav-mobile__sublink">Ανακαίνιση Κουζίνας</a></li>
+              <li><a href="#services" class="nav-mobile__sublink">Επαγγελματικοί Χώροι</a></li>
+              <li><a href="#services" class="nav-mobile__sublink">Ενεργειακή Αναβάθμιση</a></li>
+            </ul>
+          </li>
+          <li class="nav-mobile__item"><a href="#reasons" class="nav-mobile__link">Γιατί εμείς</a></li>
+          <li class="nav-mobile__item"><a href="#process" class="nav-mobile__link">Διαδικασία</a></li>
+          <li class="nav-mobile__item"><a href="#gallery" class="nav-mobile__link">Gallery</a></li>
+          <li class="nav-mobile__item"><a href="#reviews" class="nav-mobile__link">Μαρτυρίες</a></li>
+          <li class="nav-mobile__item nav-mobile__item--cta"><a href="#contact" class="btn btn--primary nav-mobile__cta">Ζητήστε Προσφορά</a></li>
+        </ul>
+      </nav>
+      <div class="nav-overlay__social">
+        <a href="#" aria-label="Facebook" class="icon fb"></a>
+        <a href="#" aria-label="Instagram" class="icon ig"></a>
+      </div>
+    </div>
+  </div>
 
   <main>
     <!-- HERO: slider 5 εικόνες + CTA -->
