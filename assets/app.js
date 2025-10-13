@@ -4,10 +4,22 @@ const navToggle=document.querySelector('[data-nav-toggle]');
 const navOverlay=document.getElementById('mobile-menu');
 const navBackdrop=document.querySelector('[data-nav-backdrop]');
 const navClose=document.querySelector('[data-nav-close]');
+const siteHeader=document.querySelector('.site-header');
 const desktopMedia=window.matchMedia('(min-width: 768px)');
 const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const focusableSelectors="a[href]:not([tabindex='-1']), button:not([disabled]):not([tabindex='-1']), [tabindex]:not([tabindex='-1'])";
 let menuOpen=false;
+
+function updateHeaderHeight(){
+  if(!siteHeader){return;}
+  const headerHeight=siteHeader.offsetHeight;
+  document.documentElement.style.setProperty('--header-h', headerHeight+'px');
+}
+
+updateHeaderHeight();
+window.addEventListener('load',updateHeaderHeight);
+window.addEventListener('resize',updateHeaderHeight);
+window.addEventListener('orientationchange',updateHeaderHeight);
 
 const mobileParent=document.querySelector('[data-mobile-parent]');
 const mobileItem=mobileParent?mobileParent.closest('.nav-mobile__item'):null;
@@ -56,6 +68,7 @@ function handleOverlayEsc(event){
 
 function openMenu(){
   if(!navToggle||!navOverlay||!navBackdrop||menuOpen){return;}
+  updateHeaderHeight();
   menuOpen=true;
   setMobileSubmenu(false);
   navOverlay.hidden=false;
