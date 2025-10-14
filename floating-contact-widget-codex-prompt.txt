@@ -1,0 +1,73 @@
+PROMPT για Codex — Floating Contact Widget (Viber / Email / Σταθερό)
+
+Στόχος:
+Πρόσθεσε στο site ένα floating contact widget (FAB) με primary χρώμα #F59E0B. Πατώντας το, ανοίγει ένα panel με 3 επιλογές επικοινωνίας: Viber, Email, Σταθερό τηλέφωνο.
+Χρησιμοποίησε relative paths και ΜΗΝ πειράξεις άλλα sections/στυλ/JS του site.
+
+Προδιαγραφές UI/UX
+
+* Θέση: κάτω-δεξιά (bottom-right), offset 16px· σε κινητά σεβασμός safe-area: env(safe-area-inset-bottom/right).
+* Κουμπί Widget (FAB): στρογγυλό, #F59E0B, σκιά, hover/focus states. Περιέχει “τηλεφωνικό” εικονίδιο (placeholder).
+* Πάνελ: εμφανίζεται/κρύβεται με slide/fade. Περιέχει κάθετα 3 actions (Viber, Email, Σταθερό), το καθένα με εικονίδιο + label.
+* Εικονίδια: βάλε placeholders SVG και δώσε δυνατότητα χρωματισμού μέσω CSS (mask-image ή fill).
+
+Συμπεριφορά
+
+* Κλικ στο FAB → ανοίγει/κλείνει.
+* Κλικ έξω (backdrop) ή ESC → κλείνει.
+* Sticky: παραμένει ορατό όταν γίνεται scroll.
+* Z-index αρκετά υψηλό για να μην το καλύπτουν άλλα στοιχεία.
+
+Ανταπόκριση
+
+* Σε mobile τα στοιχεία να έχουν άνετο tap target (≥44px).
+
+Προσβασιμότητα
+
+* FAB με aria-expanded + aria-controls.
+* Το panel με role="dialog" και aria-modal="true".
+* Focus trap μέσα στο panel όταν είναι ανοιχτό, επιστροφή focus στο FAB στο κλείσιμο.
+* Τα εικονίδια να έχουν aria-label/ορατά labels.
+* Υποστήριξη prefers-reduced-motion: reduce (χωρίς animations).
+
+Συνδέσεις (placeholders)
+
+* Viber: viber://chat?number=%2B30XXXXXXXXXX (placeholder π.χ. +30210XXXXXXX)
+* Email: mailto:info@anakainisou.gr?subject=Ενδιαφέρον%20για%20ανακαίνιση
+* Σταθερό: tel:+30210XXXXXXX (placeholder)
+
+Δομή αρχείων (μόνο αυτά)
+
+* index.html: πρόσθεσε markup του widget στο τέλος του <body> (FAB, panel, backdrop).
+* assets/style.css: πρόσθεσε νέο block /* CONTACT WIDGET */ με θέσεις, χρώματα, hover/focus, animations, mask-icon helpers.
+* assets/app.js: πρόσθεσε μόνο τη λογική για toggle, backdrop, ESC, focus-trap και ενημέρωση aria-expanded. Μην πειράξεις υπάρχοντα scripts.
+
+Εικονίδια (placeholders)
+
+* images/icons/viber.svg
+* images/icons/email.svg
+* images/icons/phone.svg
+
+Χρωματική παλέτα
+
+* Primary: #F59E0B (FAB + accents)
+* Text/Icons πάνω στο primary: σκούρο #111 ή λευκό, με contrast AA.
+* Panel: λευκό #fff, σύνορα #e8edf4, σκιά soft.
+
+Μικρο-λεπτομέρειες
+
+* Το panel να έχει τίτλο “Επικοινωνία”.
+* Tooltips (title) προαιρετικά: “Viber”, “Email”, “Τηλέφωνο”.
+* Προσθέστε debounce σε rapid clicks αν χρειάζεται.
+* Μην επηρεάσεις layout του υπόλοιπου site.
+
+Acceptance Criteria
+
+1. Εμφανίζεται ένα FAB κάτω-δεξιά με primary χρώμα #F59E0B.
+2. Κλικ στο FAB ανοίγει panel με 3 επιλογές: Viber, Email, Σταθερό (icon + κείμενο).
+3. Κλικ εκτός/ESC/close μέσα στο panel κλείνει σωστά, focus επιστρέφει στο FAB.
+4. Links οδηγούν σε: viber://…, mailto:…, tel:… (placeholders).
+5. Το widget είναι προσβάσιμο (ARIA, focus-trap, keyboard navigation).
+6. Σε κινητά, tap targets ≥44px, σεβασμός safe areas.
+7. Δεν αλλάζει τίποτα άλλο στο site.
+8. Παρέδωσε στο τέλος σύντομη λίστα ποια αρχεία τροποποιήθηκαν και τι προστέθηκε (χωρίς να επικολλήσεις κώδικα).
