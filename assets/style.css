@@ -100,7 +100,7 @@ body.nav-open{overflow:hidden}
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:999px;text-decoration:none;border:1px solid #e0e6ee;transition:.2s transform,.2s box-shadow,.2s background}
 .nav .btn{border-width:2px;border-color:var(--accent)}
-.btn--primary{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 6px 16px rgba(245,158,11,.35)}
+.btn--primary{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 6px 16px rgba(245,158,11,.35);font-weight:700}
 .btn--primary:hover,
 .btn--primary:focus-visible{background:var(--bg);color:var(--text);border-color:var(--accent-2);transform:translateY(-1px);box-shadow:var(--shadow);outline:none}
 .btn--ghost{background:#fff;color:var(--text)}
