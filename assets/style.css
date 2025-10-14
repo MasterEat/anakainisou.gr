@@ -26,16 +26,7 @@ img{max-width:100%;height:auto;display:block}
 .header-inner{display:flex;align-items:center;gap:12px;padding:12px 0;flex-wrap:wrap}
 .brand{display:inline-flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:inherit}
 .brand-logo{height:60px;width:auto;display:block}
-.brand-tagline{
-  font-family:"Roboto",system-ui,-apple-system,Segoe UI,Inter,Arial,sans-serif;
-  font-weight:700;
-  color:#000;
-  font-size:clamp(.9rem,1.1vw + .85rem,1.1rem);
-  line-height:1;
-  text-decoration:underline;
-  text-decoration-thickness:.12em;
-  text-underline-offset:.2em;
-}
+
 .nav-toggle{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:46px;height:46px;border:1px solid #d8dee9;border-radius:12px;background:rgba(255,255,255,.72);cursor:pointer;transition:background .2s ease,border-color .2s ease}
 .nav-toggle:hover,.nav-toggle:focus-visible{background:#fff;border-color:#cbd4e2;outline:none}
 .nav-toggle-bar{display:block;width:22px;height:2px;border-radius:999px;background:var(--text);transition:transform .3s ease,opacity .3s ease}
@@ -64,7 +55,7 @@ img{max-width:100%;height:auto;display:block}
 .nav-item--has-submenu.is-open .submenu,
 .nav-item--has-submenu:hover .submenu,
 .nav-item--has-submenu:focus-within .submenu{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
-.social{display:flex;gap:10px;margin-left:auto}
+.social{display:flex;gap:10px}
 .icon{width:28px;height:28px;display:inline-block;background:var(--text);mask-size:cover;-webkit-mask-size:cover;opacity:.85;transition:background .2s ease,opacity .2s ease}
 .icon:hover,.icon:focus-visible{opacity:1;background:#f59f0b;outline:none}
 .fb{mask-image:url('../images/facebooklogo.svg');-webkit-mask-image:url('../images/facebooklogo.svg')}
@@ -195,6 +186,12 @@ body.nav-open{overflow:hidden}
   .services{grid-template-columns:repeat(2,minmax(0,1fr))}
   .process .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
   .testimonials{grid-auto-columns:60%}
+}
+
+@media (max-width: 767px){
+  .header-inner{flex-wrap:nowrap}
+  .nav-toggle{margin-left:auto}
+  .site-header .social{display:none}
 }
 
 @media (min-width: 768px){
