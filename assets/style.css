@@ -95,10 +95,18 @@ body.nav-open{overflow:hidden}
 
 @media (prefers-reduced-motion: reduce){
   .nav-toggle,.nav-toggle-bar,.nav-close,.nav-backdrop,.nav-overlay,.nav-overlay__inner,.nav-mobile__submenu,.submenu{transition:none !important}
+  .btn{animation:none !important}
 }
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:999px;text-decoration:none;border:1px solid #e0e6ee;transition:.2s transform,.2s box-shadow,.2s background}
+@keyframes cta-shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-4px)}
+  40%{transform:translateX(4px)}
+  60%{transform:translateX(-3px)}
+  80%{transform:translateX(3px)}
+}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:999px;text-decoration:none;border:1px solid #e0e6ee;transition:.2s transform,.2s box-shadow,.2s background;animation:cta-shake .7s ease both}
 .nav .btn{border-width:2px;border-color:var(--accent)}
 .btn--primary{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 6px 16px rgba(245,158,11,.35);font-weight:700}
 .btn--primary:hover,
