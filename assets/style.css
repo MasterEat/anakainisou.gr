@@ -39,7 +39,7 @@ img{max-width:100%;height:auto;display:block}
 .nav__link:hover,
 .nav__link:focus-visible{opacity:1;color:var(--accent);outline:none}
 .nav__item--cta{margin-left:6px}
-.nav__item--cta .btn{border-width:2px;border-color:var(--accent)}
+.nav__item--cta .btn{border-width:2px;border-color:var(--accent);color:#0F172A}
 .nav-cta{font-weight:600}
 .nav-item--has-submenu{position:relative}
 .nav__link--parent{background:none;border:none;padding:0;font:inherit;cursor:pointer}
