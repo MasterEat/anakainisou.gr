@@ -189,8 +189,18 @@ body.nav-open{overflow:hidden}
 
 /* Footer */
 .site-footer{border-top:1px solid #e8edf4;padding:20px 0;background:#fff}
-.footer-inner{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
-.brand--footer{margin-right:auto}
+.footer-inner{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+.footer-contact,.footer-brand,.footer-social{display:flex;flex-direction:column;align-items:center;gap:10px}
+.footer-social .social{justify-content:center}
+.footer-heading{font-size:1rem;font-weight:700;margin:0}
+.footer-list{list-style:none;display:flex;flex-direction:column;gap:6px;margin:0;padding:0}
+.footer-links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;font-weight:600}
+.footer-links a{color:inherit;text-decoration:none;position:relative}
+.footer-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--accent);opacity:0;transform:scaleX(.6);transition:opacity .2s ease,transform .2s ease}
+.footer-links a:hover::after,.footer-links a:focus-visible::after{opacity:1;transform:scaleX(1)}
+.footer-links a:focus-visible{outline:0;box-shadow:0 0 0 3px var(--ring)}
+.footer-copy{margin:0;font-size:.95rem}
+.brand--footer{margin:0}
 .brand--footer .brand-logo{height:48px}
 .site-footer .social{margin-left:0}
 .site-footer .icon{transition:background .2s ease,opacity .2s ease,transform .2s ease}
@@ -260,7 +270,11 @@ body.nav-open{overflow:hidden}
   .hero-inner{padding:0 20px}
   .car-track{grid-auto-columns:70%}
   .testimonials{grid-auto-columns:32ch}
-  .footer-inner{flex-direction:row;align-items:center}
+  .footer-inner{flex-direction:row;justify-content:space-between;align-items:center;text-align:left}
+  .footer-contact{align-items:flex-start}
+  .footer-brand{align-items:center;text-align:center}
+  .footer-social{align-items:flex-end}
+  .footer-social .social{justify-content:flex-end}
   .brand--footer .brand-logo{height:56px}
 }
 
