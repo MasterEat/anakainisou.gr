@@ -190,10 +190,15 @@ body.nav-open{overflow:hidden}
 /* Footer */
 .site-footer{border-top:1px solid #e8edf4;padding:20px 0;background:#fff}
 .footer-inner{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
-.footer-contact,.footer-brand,.footer-social{display:flex;flex-direction:column;align-items:center;gap:10px}
+.footer-contact,.footer-brand,.footer-social{display:flex;flex-direction:column;align-items:center;gap:12px}
 .footer-social .social{justify-content:center}
 .footer-heading{font-size:1rem;font-weight:700;margin:0}
-.footer-list{list-style:none;display:flex;flex-direction:column;gap:6px;margin:0;padding:0}
+.footer-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:0;padding:0;width:100%;max-width:280px}
+.footer-list__item{display:flex;align-items:center;justify-content:center;gap:12px;color:inherit;font-weight:500;line-height:1.5}
+.footer-list__item a{color:inherit;text-decoration:none}
+.footer-list__item a:hover,.footer-list__item a:focus-visible{color:var(--accent);outline:none}
+.footer-list__icon{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:12px;background:var(--bg-soft);color:var(--accent-2);flex-shrink:0}
+.footer-list__icon svg{display:block;width:20px;height:20px}
 .footer-links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;font-weight:600}
 .footer-links a{color:inherit;text-decoration:none;position:relative}
 .footer-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--accent);opacity:0;transform:scaleX(.6);transition:opacity .2s ease,transform .2s ease}
@@ -206,7 +211,7 @@ body.nav-open{overflow:hidden}
 .site-footer .icon{transition:background .2s ease,opacity .2s ease,transform .2s ease}
 .site-footer .icon:hover,
 .site-footer .icon:focus-visible{opacity:1;background:var(--accent);transform:translateY(-2px);outline:none}
-.legal-links{font-size:.85rem;opacity:.8;margin-top:8px}
+.legal-links{font-size:.85rem;opacity:.8;margin-top:8px;text-align:center;width:100%}
 .legal-links a:hover{color:var(--accent)}
 
 /* CONTACT WIDGET */
@@ -272,8 +277,10 @@ body.nav-open{overflow:hidden}
   .hero-inner{padding:0 20px}
   .car-track{grid-auto-columns:70%}
   .testimonials{grid-auto-columns:32ch}
-  .footer-inner{flex-direction:row;justify-content:space-between;align-items:center;text-align:left}
+  .footer-inner{flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;text-align:left;row-gap:26px}
   .footer-contact{align-items:flex-start}
+  .footer-list{max-width:none}
+  .footer-list__item{justify-content:flex-start}
   .footer-brand{align-items:center;text-align:center}
   .footer-social{align-items:flex-end}
   .footer-social .social{justify-content:flex-end}
