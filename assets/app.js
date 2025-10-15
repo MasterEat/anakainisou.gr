@@ -246,6 +246,28 @@ if(siteHeader){
   window.addEventListener('scroll',updateHeaderShadow,{passive:true});
 }
 
+// Active nav state for services
+const servicesSection=document.getElementById('services');
+const servicesNavLinks=[];
+if(desktopParent){servicesNavLinks.push(desktopParent);}
+if(mobileParent){servicesNavLinks.push(mobileParent);}
+document.querySelectorAll('a.nav__link[href="#services"], a.nav-mobile__link[href="#services"]').forEach(function(link){
+  servicesNavLinks.push(link);
+});
+if('IntersectionObserver'in window&&servicesSection&&servicesNavLinks.length){
+  const toggleActive=function(isActive){
+    servicesNavLinks.forEach(function(link){
+      link.classList.toggle('nav__link--active',isActive);
+    });
+  };
+  const observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      toggleActive(entry.isIntersecting&&entry.intersectionRatio>=0.4);
+    });
+  },{threshold:0.4});
+  observer.observe(servicesSection);
+}
+
 // Footer year
 const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
 
