@@ -345,3 +345,16 @@ if(form){form.addEventListener('submit',e=>{e.preventDefault();alert('Ευχαρ
     }
   });
 })();
+
+// Force homepage refresh when clicking on brand logos
+document.querySelectorAll('a.brand').forEach(function(link){
+  link.addEventListener('click',function(event){
+    const targetUrl=new URL(link.href,window.location.href);
+    const currentUrl=new URL(window.location.href);
+    if(targetUrl.pathname===currentUrl.pathname&&targetUrl.search===currentUrl.search){
+      event.preventDefault();
+      window.location.href=targetUrl.href;
+      window.location.reload();
+    }
+  });
+});
