@@ -409,6 +409,41 @@
     </div>
   </footer>
 
+  <div class="contact-widget" data-contact-widget>
+    <button class="contact-widget__fab" type="button" aria-controls="contact-widget-panel" aria-expanded="false" aria-label="Γρήγορη επικοινωνία" data-contact-toggle>
+      <span class="contact-widget__fab-icon" aria-hidden="true"></span>
+    </button>
+    <div class="contact-widget__panel" id="contact-widget-panel" role="dialog" aria-modal="true" aria-labelledby="contact-widget-title" data-contact-panel hidden>
+      <div class="contact-widget__header">
+        <h2 class="contact-widget__title" id="contact-widget-title">Επικοινωνία</h2>
+        <button class="contact-widget__close" type="button" aria-label="Κλείσιμο επιλογών επικοινωνίας" data-contact-close>
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <ul class="contact-widget__actions">
+        <li>
+          <a class="contact-widget__action" href="viber://chat?number=%2B30XXXXXXXXXX" data-contact-focus>
+            <span class="contact-widget__action-icon contact-widget__action-icon--viber" aria-hidden="true"></span>
+            <span class="contact-widget__action-label">Viber</span>
+          </a>
+        </li>
+        <li>
+          <a class="contact-widget__action" href="mailto:info@anakainisou.gr?subject=%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BD%20%CE%B3%CE%B9%CE%B1%20%CE%B1%CE%BD%CE%B1%CE%BA%CE%B1%CE%AF%CE%BD%CE%B9%CF%83%CE%B7">
+            <span class="contact-widget__action-icon contact-widget__action-icon--email" aria-hidden="true"></span>
+            <span class="contact-widget__action-label">Email</span>
+          </a>
+        </li>
+        <li>
+          <a class="contact-widget__action" href="tel:+30210XXXXXXX">
+            <span class="contact-widget__action-icon contact-widget__action-icon--phone" aria-hidden="true"></span>
+            <span class="contact-widget__action-label">Τηλέφωνο</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="contact-widget__backdrop" data-contact-backdrop hidden aria-hidden="true"></div>
+
   <script src="assets/app.js" defer></script>
 </body>
 </html>
