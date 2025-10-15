@@ -57,8 +57,8 @@ img{max-width:100%;height:auto;display:block}
 .nav-item--has-submenu:hover .submenu,
 .nav-item--has-submenu:focus-within .submenu{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
 .social{display:flex;gap:10px}
-.icon{width:28px;height:28px;display:inline-block;background:var(--text);mask-size:cover;-webkit-mask-size:cover;opacity:.85;transition:background .2s ease,opacity .2s ease}
-.icon:hover,.icon:focus-visible{opacity:1;background:#f59f0b;outline:none}
+.icon{width:28px;height:28px;display:inline-block;background:var(--text);mask-size:cover;-webkit-mask-size:cover;opacity:.85;transform:translateY(0);transition:background .2s ease,opacity .2s ease,transform .2s ease}
+.icon:hover,.icon:focus-visible{opacity:1;background:var(--accent);transform:translateY(-2px);outline:none}
 .fb{mask-image:url('../images/facebooklogo.svg');-webkit-mask-image:url('../images/facebooklogo.svg')}
 .ig{mask-image:url('../images/instagramlogo.svg');-webkit-mask-image:url('../images/instagramlogo.svg')}
 
@@ -193,6 +193,9 @@ body.nav-open{overflow:hidden}
 .footer-nav{display:flex;gap:14px;flex-wrap:wrap}
 .footer-nav a{text-decoration:none;color:var(--text);opacity:.9}
 .site-footer .social{margin-left:0}
+.site-footer .icon{transition:background .2s ease,opacity .2s ease,transform .2s ease}
+.site-footer .icon:hover,
+.site-footer .icon:focus-visible{opacity:1;background:var(--accent);transform:translateY(-2px);outline:none}
 
 /* CONTACT WIDGET */
 .contact-widget{position:fixed;right:clamp(16px,3vw,32px);bottom:clamp(16px,3vw,32px);display:flex;flex-direction:column;align-items:flex-end;gap:12px;z-index:140}
