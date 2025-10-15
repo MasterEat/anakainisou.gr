@@ -206,6 +206,8 @@ body.nav-open{overflow:hidden}
 .site-footer .icon{transition:background .2s ease,opacity .2s ease,transform .2s ease}
 .site-footer .icon:hover,
 .site-footer .icon:focus-visible{opacity:1;background:var(--accent);transform:translateY(-2px);outline:none}
+.legal-links{font-size:.85rem;opacity:.8;margin-top:8px}
+.legal-links a:hover{color:var(--accent)}
 
 /* CONTACT WIDGET */
 .contact-widget{position:fixed;right:clamp(16px,3vw,32px);bottom:clamp(16px,3vw,32px);display:flex;flex-direction:column;align-items:flex-end;gap:12px;z-index:140}
