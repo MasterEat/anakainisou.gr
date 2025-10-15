@@ -214,6 +214,13 @@ body.nav-open{overflow:hidden}
 .legal-links{font-size:.85rem;opacity:.8;margin-top:8px;text-align:center;width:100%}
 .legal-links a:hover{color:var(--accent)}
 
+/* Back to top */
+.back-to-top{position:fixed;bottom:24px;left:24px;padding:6px;background:transparent;border:0;color:#F59E0B;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s ease,transform .25s ease;pointer-events:none;z-index:130;-webkit-tap-highlight-color:transparent}
+.back-to-top:focus-visible{outline:0;box-shadow:0 0 0 3px var(--ring);border-radius:999px}
+.back-to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+.back-to-top__icon{width:32px;height:32px;display:block;background-color:currentColor;mask:url('../images/backtotop.svg') no-repeat center/contain;-webkit-mask:url('../images/backtotop.svg') no-repeat center/contain;filter:drop-shadow(0 6px 14px rgba(0,0,0,.22));transition:transform .2s ease,filter .2s ease}
+.back-to-top:hover .back-to-top__icon,.back-to-top:focus-visible .back-to-top__icon{transform:scale(1.04);filter:drop-shadow(0 8px 20px rgba(0,0,0,.28))}
+
 /* CONTACT WIDGET */
 .contact-widget{position:fixed;right:clamp(16px,3vw,32px);bottom:clamp(16px,3vw,32px);display:flex;flex-direction:column;align-items:flex-end;gap:12px;z-index:140}
 .contact-widget__toggle{width:58px;height:58px;border-radius:999px;border:0;background:var(--accent);color:var(--accent-2);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 14px 32px rgba(245,158,11,.35);transition:transform .25s ease,box-shadow .25s ease,background .25s ease,color .25s ease}
@@ -228,6 +235,11 @@ body.nav-open{overflow:hidden}
 .contact-widget__icon img{width:100%;height:100%}
 
 @media (prefers-reduced-motion: reduce){
+  .back-to-top{transition:none !important;transform:none !important}
+  .back-to-top.is-visible{transform:none !important}
+  .back-to-top__icon{transition:none !important;transform:none !important}
+  .back-to-top:hover .back-to-top__icon,
+  .back-to-top:focus-visible .back-to-top__icon{transform:none !important}
   .contact-widget__toggle,
   .contact-widget__panel,
   .contact-widget__link{transition:none !important}
@@ -263,6 +275,10 @@ body.nav-open{overflow:hidden}
   .header-inner{flex-wrap:nowrap}
   .nav-toggle{margin-left:auto}
   .site-header .social{display:none}
+}
+
+@media (max-width: 768px){
+  .back-to-top{bottom:80px;left:16px}
 }
 
 @media (min-width: 768px){

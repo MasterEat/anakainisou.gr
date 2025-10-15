@@ -346,6 +346,56 @@ if(form){form.addEventListener('submit',e=>{e.preventDefault();alert('Ευχαρ
   });
 })();
 
+(function(){
+  const backToTop=document.getElementById('backToTop');
+  if(!backToTop){return;}
+  let isVisible=false;
+  let footerVisible=false;
+  const showAfter=300;
+
+  function setInteractiveState(active){
+    backToTop.setAttribute('aria-hidden',String(!active));
+    if(active){
+      backToTop.removeAttribute('tabindex');
+    }else{
+      backToTop.setAttribute('tabindex','-1');
+    }
+  }
+
+  setInteractiveState(false);
+
+  const updateVisibility=function(){
+    const shouldShow=window.scrollY>showAfter&&!footerVisible;
+    if(shouldShow===isVisible){
+      return;
+    }
+    isVisible=shouldShow;
+    backToTop.classList.toggle('is-visible',shouldShow);
+    setInteractiveState(shouldShow);
+  };
+
+  window.addEventListener('scroll',updateVisibility,{passive:true});
+  window.addEventListener('resize',updateVisibility);
+  window.addEventListener('load',updateVisibility);
+
+  backToTop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:prefersReducedMotion.matches?'auto':'smooth'});
+  });
+
+  if('IntersectionObserver'in window){
+    const footer=document.querySelector('.site-footer');
+    if(footer){
+      const observer=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          footerVisible=entry.isIntersecting;
+          updateVisibility();
+        });
+      },{threshold:0.1});
+      observer.observe(footer);
+    }
+  }
+})();
+
 // Force homepage refresh when clicking on brand logos
 document.querySelectorAll('a.brand').forEach(function(link){
   link.addEventListener('click',function(event){
