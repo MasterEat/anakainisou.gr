@@ -192,8 +192,6 @@ body.nav-open{overflow:hidden}
 .footer-inner{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
 .brand--footer{margin-right:auto}
 .brand--footer .brand-logo{height:48px}
-.footer-nav{display:flex;gap:14px;flex-wrap:wrap}
-.footer-nav a{text-decoration:none;color:var(--text);opacity:.9}
 .site-footer .social{margin-left:0}
 .site-footer .icon{transition:background .2s ease,opacity .2s ease,transform .2s ease}
 .site-footer .icon:hover,
