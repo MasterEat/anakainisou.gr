@@ -668,6 +668,33 @@ if(form){form.addEventListener('submit',e=>{e.preventDefault();alert('Ευχαρ
   }
 })();
 
+(function(){
+  const fadeEls=document.querySelectorAll('[data-animate="fade-up"]');
+  if(!fadeEls.length){
+    return;
+  }
+
+  if(!('IntersectionObserver'in window)){
+    fadeEls.forEach(function(el){
+      el.classList.add('visible');
+    });
+    return;
+  }
+
+  const observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.2});
+
+  fadeEls.forEach(function(el){
+    observer.observe(el);
+  });
+})();
+
 // Force homepage refresh when clicking on brand logos
 document.querySelectorAll('a.brand').forEach(function(link){
   link.addEventListener('click',function(event){

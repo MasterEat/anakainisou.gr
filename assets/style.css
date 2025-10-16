@@ -185,15 +185,25 @@ body.nav-open{overflow:hidden}
 .under-cta .btn{font-weight:700}
 .under-cta .btn:hover,.under-cta .btn:focus-visible{color:var(--accent-2)}
 
-/* Reasons & Process */
-.two-col{display:grid;gap:28px}
-.reasons{list-style:none;padding:0;display:grid;gap:10px}
-.reasons li{background:#fff;border:1px solid #e8edf4;border-radius:12px;padding:12px}
-.process .steps{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-bottom:8px}
-.step{background:#fff;border:1px solid #e8edf4;border-radius:12px;padding:12px;cursor:pointer;text-align:left;display:flex;gap:10px;align-items:center}
-.step span{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#111;font-weight:700}
-.step[aria-current="true"]{outline:2px solid var(--accent)}
-.step-desc{background:#fff;border:1px solid #e8edf4;border-radius:12px;padding:14px;min-height:60px}
+/* Process & Reasons */
+.section-light{background:linear-gradient(180deg,#ffffff 0%,#f5f7fa 100%);padding:72px 0}
+.subtitle{margin:12px 0 32px;font-size:1.125rem;font-weight:500;opacity:.85;max-width:720px}
+.steps-list{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.step{background:#fff;border-radius:24px;padding:28px;border:1px solid rgba(15,23,42,.08);box-shadow:0 16px 32px rgba(15,23,42,.08);display:grid;gap:18px;position:relative;overflow:hidden}
+.step-number{position:absolute;top:20px;right:20px;width:48px;height:48px;border-radius:50%;background:rgba(245,158,11,.14);color:#b45309;display:grid;place-items:center;font-weight:700;font-size:1.1rem}
+.step h4{margin:0;font-size:1.25rem;font-weight:700;color:var(--accent-2)}
+.step p{margin:0;color:rgba(15,23,42,.85);line-height:1.6}
+.step img{border-radius:16px;box-shadow:0 12px 24px rgba(15,23,42,.08);width:100%;height:auto}
+.reasons-list{display:grid;gap:28px;margin-top:48px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.reason{background:#fff;border-radius:24px;padding:28px;border:1px solid rgba(15,23,42,.08);box-shadow:0 16px 32px rgba(15,23,42,.08);display:grid;gap:18px;text-align:left}
+.reason h4{margin:0;font-size:1.25rem;font-weight:700;color:var(--accent-2)}
+.reason p{margin:0;color:rgba(15,23,42,.85);line-height:1.6}
+.reason img{border-radius:16px;box-shadow:0 12px 24px rgba(15,23,42,.08);width:100%;height:auto}
+.section-cta{margin-top:56px;display:flex;justify-content:center}
+.btn-accent{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 32px;border-radius:999px;font-weight:700;text-decoration:none;color:#fff;background:linear-gradient(135deg,#f59e0b 0%,#f97316 100%);box-shadow:0 14px 30px rgba(245,158,11,.28);border:none;transition:transform .2s ease,box-shadow .2s ease}
+.btn-accent:hover,.btn-accent:focus-visible{transform:translateY(-2px);box-shadow:0 20px 38px rgba(245,158,11,.32);outline:none}
+[data-animate="fade-up"]{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease}
+[data-animate="fade-up"].visible{opacity:1;transform:translateY(0)}
 
 /* Carousel */
 .carousel{position:relative}
@@ -289,16 +299,11 @@ body.nav-open{overflow:hidden}
 @media (min-width: 640px){
   .brand-logo{height:68px}
   .services{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .process .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
   .testimonials{grid-auto-columns:60%}
 }
 
 @media (max-width: 639px){
   .service{min-height:340px}
-}
-
-@media (max-width: 520px){
-  .process .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
 @media (max-width: 767px){
@@ -356,8 +361,6 @@ body.nav-open{overflow:hidden}
 
 @media (min-width: 900px){
   .section{padding:72px 0}
-  .two-col{grid-template-columns:1fr 1fr}
-  .process .steps{grid-template-columns:repeat(4,minmax(0,1fr))}
   .contact{grid-template-columns:1fr 1fr}
   .car-track{grid-auto-columns:60%}
 }
@@ -376,4 +379,5 @@ body.nav-open{overflow:hidden}
   .card:hover,.card:focus-within{transform:none !important;box-shadow:0 10px 25px rgba(15,23,42,.08)}
   .service__internal{transition:none !important}
   .services-chip,.services-mobile-controls,.service__toggle,.service__panel,.service__panel-inner{transition:none !important}
+  [data-animate="fade-up"],[data-animate="fade-up"].visible{transition:none !important;transform:none !important}
 }
