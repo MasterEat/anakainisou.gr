@@ -695,15 +695,15 @@ if(form){form.addEventListener('submit',e=>{e.preventDefault();alert('Ευχαρ
   });
 })();
 
-// Force homepage refresh when clicking on brand logos
-document.querySelectorAll('a.brand').forEach(function(link){
+// Homepage refresh behaviour for logo links
+document.querySelectorAll('.logo-link').forEach(function(link){
   link.addEventListener('click',function(event){
-    const targetUrl=new URL(link.href,window.location.href);
-    const currentUrl=new URL(window.location.href);
-    if(targetUrl.pathname===currentUrl.pathname&&targetUrl.search===currentUrl.search){
+    if(window.location.pathname.endsWith('index.html')||window.location.pathname==='/'){
       event.preventDefault();
-      window.location.href=targetUrl.href;
-      window.location.reload();
+      window.scrollTo({top:0,behavior:'smooth'});
+      setTimeout(function(){
+        window.location.reload();
+      },300);
     }
   });
 });
