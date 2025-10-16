@@ -229,266 +229,127 @@
     <section id="services" class="section section--muted">
       <div class="container">
         <h2>Υπηρεσίες</h2>
-        <div class="services-mobile-controls" data-services-controls>
-          <div class="services-chips" role="tablist" aria-label="Κατηγορίες υπηρεσιών">
-            <button class="services-chip is-active" type="button" role="tab" aria-selected="true" data-services-chip data-filter="all">Όλα</button>
-            <button class="services-chip" type="button" role="tab" aria-selected="false" data-services-chip data-filter="basics">Βασικές εργασίες</button>
-            <button class="services-chip" type="button" role="tab" aria-selected="false" data-services-chip data-filter="installations">Εγκαταστάσεις</button>
-            <button class="services-chip" type="button" role="tab" aria-selected="false" data-services-chip data-filter="openings">Κουφώματα &amp; πόρτες</button>
-            <button class="services-chip" type="button" role="tab" aria-selected="false" data-services-chip data-filter="surfaces">Δάπεδα &amp; επιφάνειες</button>
-            <button class="services-chip" type="button" role="tab" aria-selected="false" data-services-chip data-filter="carpentry">Ξυλουργικά</button>
-            <button class="services-chip" type="button" role="tab" aria-selected="false" data-services-chip data-filter="permits">Άδειες &amp; όψεις</button>
+        <div id="services-carousel" class="services-carousel" role="region" aria-label="Υπηρεσίες Ανακαίνισης" tabindex="0" data-services-carousel>
+          <div class="services-carousel__viewport" data-carousel-viewport>
+            <div class="services-carousel__stage">
+              <div class="services-carousel__ring" data-carousel-ring>
+                <div class="card service" id="service-demolition">
+                  <div class="service__inner">
+                    <h3 class="service__title">Γκρεμίσματα – αποξηλώσεις – απομάκρυνση παλαιών υλικών με κάδο</h3>
+                    <p class="service__description">Οργανώνουμε γκρεμίσματα και αποξηλώσεις με ασφαλή απομάκρυνση μπαζών και προστασία κοινόχρηστων χώρων.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-masonry">
+                  <div class="service__inner">
+                    <h3 class="service__title">Χτισίματα – σοβατίσματα – ελαιοχρωματισμοί τοιχοποιίας</h3>
+                    <p class="service__description">Εφαρμόζουμε επιμελημένα χτισίματα και σοβατίσματα με ομοιόμορφους ελαιοχρωματισμούς για ανθεκτικό αποτέλεσμα.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-plumbing">
+                  <div class="service__inner">
+                    <h3 class="service__title">Υδραυλικές εργασίες</h3>
+                    <p class="service__description">Οι τεχνικοί μας εγκαθιστούν δίκτυα υδραυλικών με ελέγχους διαρροών και σταθερή παροχή νερού.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-electrical">
+                  <div class="service__inner">
+                    <h3 class="service__title">Ηλεκτρολογικές εργασίες – Έκδοση Υ.Δ.Ε.</h3>
+                    <p class="service__description">Σχεδιάζουμε ηλεκτρολογικές εγκαταστάσεις με μελέτες φορτίων, αναβαθμισμένους πίνακες και υπεύθυνη έκδοση Υ.Δ.Ε.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-frames">
+                  <div class="service__inner">
+                    <h3 class="service__title">Κουφώματα αλουμινίου – PVC</h3>
+                    <p class="service__description">Τοποθετούμε κουφώματα αλουμινίου και PVC με θερμοδιακοπή και ασφαλή στεγανότητα για άνεση και αισθητική.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-tiles">
+                  <div class="service__inner">
+                    <h3 class="service__title">Τοποθέτηση πλακιδίων τοίχου – δαπέδου</h3>
+                    <p class="service__description">Αναλαμβάνουμε τοποθέτηση πλακιδίων με ευθυγράμμιση ακριβείας και προσεγμένο αρμολόγημα για χώρους που ξεχωρίζουν.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-flooring">
+                  <div class="service__inner">
+                    <h3 class="service__title">Τοποθέτηση πατωμάτων laminate – αποκατάσταση ξύλινων πατωμάτων</h3>
+                    <p class="service__description">Τοποθετούμε πατώματα laminate και αποκαθιστούμε ξύλινες επιφάνειες με ανθεκτικές επιστρώσεις.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-mosaic">
+                  <div class="service__inner">
+                    <h3 class="service__title">Τρίψιμο – γυάλισμα μωσαϊκών δαπέδων</h3>
+                    <p class="service__description">Προσφέρουμε τρίψιμο και γυάλισμα μωσαϊκών για να επαναφέρουμε λάμψη και ομοιομορφία σε κάθε χώρο.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-kitchen-cabinets">
+                  <div class="service__inner">
+                    <h3 class="service__title">Κατασκευή – τοποθέτηση ντουλαπιών κουζίνας</h3>
+                    <p class="service__description">Σχεδιάζουμε ντουλάπια κουζίνας στα μέτρα σας με εργονομική οργάνωση και ανθεκτικά φινιρίσματα.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-wardrobes">
+                  <div class="service__inner">
+                    <h3 class="service__title">Κατασκευή – τοποθέτηση ντουλαπών</h3>
+                    <p class="service__description">Κατασκευάζουμε ντουλάπες υπνοδωματίου με λειτουργική εσωτερική διαρρύθμιση και αξιόπιστους μηχανισμούς.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-doors">
+                  <div class="service__inner">
+                    <h3 class="service__title">Πόρτες εισόδου (ασφαλείας) – εσωτερικές πόρτες</h3>
+                    <p class="service__description">Παρέχουμε πόρτες ασφαλείας και εσωτερικές πόρτες με πιστοποιήσεις, ηχομονωτικές λύσεις και ακριβή τοποθέτηση.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-metal">
+                  <div class="service__inner">
+                    <h3 class="service__title">Μεταλλικές κατασκευές</h3>
+                    <p class="service__description">Μελετάμε μεταλλικές κατασκευές μικρής και μεγάλης κλίμακας με στατική επάρκεια και προστασία από διάβρωση.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-insulation">
+                  <div class="service__inner">
+                    <h3 class="service__title">Μονώσεις παντός τύπου</h3>
+                    <p class="service__description">Υλοποιούμε μονώσεις παντός τύπου με θερμοπρόσοψη, υγρομόνωση και λύσεις εξοικονόμησης ενέργειας.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-permits">
+                  <div class="service__inner">
+                    <h3 class="service__title">Έκδοση οικοδομικών αδειών</h3>
+                    <p class="service__description">Αναλαμβάνουμε έκδοση οικοδομικών αδειών με πλήρη φάκελο μελετών και συντονισμό με τις αρμόδιες υπηρεσίες.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-facade">
+                  <div class="service__inner">
+                    <h3 class="service__title">Αποκατάσταση προσόψεων σε πολυκατοικίες</h3>
+                    <p class="service__description">Οργανώνουμε αποκατάσταση προσόψεων με ασφαλή σκαλωσιά, επισκευή στηθαίων και εφαρμογή νέων επιστρώσεων.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+                <div class="card service" id="service-gypsum">
+                  <div class="service__inner">
+                    <h3 class="service__title">Γυψοσανίδες – Ψευδοροφές</h3>
+                    <p class="service__description">Κατασκευάζουμε γυψοσανίδες και ψευδοροφές για κατοικίες και επαγγελματικούς χώρους με άριστο φινίρισμα.</p>
+                    <a href="#contact" class="service__cta-button">Ζητήστε Προσφορά</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <label class="services-search">
-            <span class="visually-hidden">Αναζήτηση υπηρεσιών</span>
-            <input type="search" placeholder="Αναζήτηση υπηρεσίας…" aria-label="Αναζήτηση υπηρεσιών" data-services-search>
-          </label>
-        </div>
-        <div class="grid services" data-services-grid>
-          <article class="card service" id="service-demolition" data-cat="basics" data-search="γκρεμίσματα αποξηλώσεις απομάκρυνση κάδος ανακαίνιση βασικές εργασίες demolition demo removal debris">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-demolition-panel" aria-labelledby="service-demolition-label">
-                <span class="service__title" id="service-demolition-label">Γκρεμίσματα – αποξηλώσεις – απομάκρυνση παλαιών υλικών με κάδο</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-demolition-panel" role="region" aria-labelledby="service-demolition-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Οργανώνουμε <a href="#service-demolition" class="service__internal">γκρεμίσματα και αποξηλώσεις</a> με ασφαλιστική κάλυψη, καθαρή απομάκρυνση μπαζών και προστασία κοινόχρηστων χώρων σε όλη την Αττική.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-masonry" data-cat="basics" data-search="χτισίματα σοβατίσματα ελαιοχρωματισμοί τοιχοποιία βασικές εργασίες masonry plaster painting walls">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-masonry-panel" aria-labelledby="service-masonry-label">
-                <span class="service__title" id="service-masonry-label">Χτισίματα – σοβατίσματα – ελαιοχρωματισμοί τοιχοποιίας</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-masonry-panel" role="region" aria-labelledby="service-masonry-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Εφαρμόζουμε επιμελημένα χτισίματα και σοβατίσματα, ενώ οι <a href="#service-masonry" class="service__internal">ελαιοχρωματισμοί τοιχοποιίας</a> προσφέρουν ομοιομορφία και αντοχή στον χρόνο.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-plumbing" data-cat="installations" data-search="υδραυλικά εγκαταστάσεις δίκτυα νερό συντήρηση hydraulika plumbing pipes water">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-plumbing-panel" aria-labelledby="service-plumbing-label">
-                <span class="service__title" id="service-plumbing-label">Υδραυλικές εργασίες</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-plumbing-panel" role="region" aria-labelledby="service-plumbing-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Οι τεχνικοί μας για <a href="#service-plumbing" class="service__internal">υδραυλικές εργασίες</a> εγκαθιστούν δίκτυα με ανθεκτικά υλικά, ελέγχουν διαρροές και εξασφαλίζουν σταθερή παροχή νερού.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-electrical" data-cat="installations" data-search="ηλεκτρολογικά υδε πίνακας εγκαταστάσεις ρεύμα ilektrologika electrical ude power">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-electrical-panel" aria-labelledby="service-electrical-label">
-                <span class="service__title" id="service-electrical-label">Ηλεκτρολογικές εργασίες – Έκδοση Υ.Δ.Ε.</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-electrical-panel" role="region" aria-labelledby="service-electrical-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Σχεδιάζουμε <a href="#service-electrical" class="service__internal">ηλεκτρολογικές εργασίες</a> με μελέτες φορτίων, αναβαθμισμένους πίνακες και υπεύθυνη έκδοση Υ.Δ.Ε. για έργα στην Αθήνα.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-frames" data-cat="openings" data-search="κουφώματα αλουμίνιο pvc ενεργειακά παράθυρα πόρτες koufomata frames aluminum windows doors">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-frames-panel" aria-labelledby="service-frames-label">
-                <span class="service__title" id="service-frames-label">Κουφώματα αλουμινίου – PVC</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-frames-panel" role="region" aria-labelledby="service-frames-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Τοποθετούμε <a href="#service-frames" class="service__internal">κουφώματα αλουμινίου και PVC</a> με θερμοδιακοπή και ασφαλή στεγανότητα για άνεση και αισθητική σε κάθε χώρο.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-tiles" data-cat="surfaces" data-search="πλακίδια τοποθέτηση δάπεδο επένδυση μπάνιο κουζίνα plakidia tiles tiling floor wall">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-tiles-panel" aria-labelledby="service-tiles-label">
-                <span class="service__title" id="service-tiles-label">Τοποθέτηση πλακιδίων τοίχου – δαπέδου</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-tiles-panel" role="region" aria-labelledby="service-tiles-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Αναλαμβάνουμε <a href="#service-tiles" class="service__internal">τοποθέτηση πλακιδίων</a> με ευθυγράμμιση ακριβείας, προσεγμένο αρμολόγημα και ανθεκτικά υλικά για χώρους που ξεχωρίζουν.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-flooring" data-cat="surfaces" data-search="laminate πάτωμα ξύλινα πατώματα αποκατάσταση flooring floors wood refinishing">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-flooring-panel" aria-labelledby="service-flooring-label">
-                <span class="service__title" id="service-flooring-label">Τοποθέτηση πατωμάτων laminate – αποκατάσταση ξύλινων πατωμάτων</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-flooring-panel" role="region" aria-labelledby="service-flooring-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Εξειδικευόμαστε σε <a href="#service-flooring" class="service__internal">τοποθέτηση πατωμάτων laminate</a> και αναζωογόνηση ξύλινων επιφανειών με ελεγχόμενες λειάνσεις και ανθεκτικές επιστρώσεις.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-mosaic" data-cat="surfaces" data-search="μωσαϊκό τρίψιμο γυάλισμα επιφάνειες mosaiko terrazzo polishing grinding">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-mosaic-panel" aria-labelledby="service-mosaic-label">
-                <span class="service__title" id="service-mosaic-label">Τρίψιμο – γυάλισμα μωσαϊκών δαπέδων</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-mosaic-panel" role="region" aria-labelledby="service-mosaic-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Το συνεργείο μωσαϊκών προσφέρει <a href="#service-mosaic" class="service__internal">τρίψιμο και γυάλισμα</a> με σταδιακό φινίρισμα, επαναφέροντας λάμψη και ομοιομορφία σε κάθε χώρο.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-kitchen-cabinets" data-cat="carpentry" data-search="ντουλάπια κουζίνας ξυλουργός κατασκευή custom kitchen cabinets joinery cabinetry">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-kitchen-cabinets-panel" aria-labelledby="service-kitchen-cabinets-label">
-                <span class="service__title" id="service-kitchen-cabinets-label">Κατασκευή – τοποθέτηση ντουλαπιών κουζίνας</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-kitchen-cabinets-panel" role="region" aria-labelledby="service-kitchen-cabinets-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Σχεδιάζουμε <a href="#service-kitchen-cabinets" class="service__internal">ντουλάπια κουζίνας</a> στα μέτρα σας, με μηχανισμούς soft-close, εργονομικές ζώνες αποθήκευσης και φινίρισμα υψηλής αντοχής.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-wardrobes" data-cat="carpentry" data-search="ντουλάπες ξυλουργικά συρόμενες ντουλάπες αποθήκευση wardrobes closets storage joinery">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-wardrobes-panel" aria-labelledby="service-wardrobes-label">
-                <span class="service__title" id="service-wardrobes-label">Κατασκευή – τοποθέτηση ντουλαπών</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-wardrobes-panel" role="region" aria-labelledby="service-wardrobes-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Κατασκευάζουμε <a href="#service-wardrobes" class="service__internal">ντουλάπες υπνοδωματίου</a> με λειτουργική εσωτερική διαρρύθμιση, ανθεκτικούς μηχανισμούς και αισθητικές επιλογές για κάθε χώρο.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-doors" data-cat="openings" data-search="πόρτες ασφαλείας εσωτερικές θυρόφυλλα κουφώματα doors security interior entries">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-doors-panel" aria-labelledby="service-doors-label">
-                <span class="service__title" id="service-doors-label">Πόρτες εισόδου (ασφαλείας) – εσωτερικές πόρτες</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-doors-panel" role="region" aria-labelledby="service-doors-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Παρέχουμε <a href="#service-doors" class="service__internal">πόρτες ασφαλείας και εσωτερικές πόρτες</a> με πιστοποιήσεις, ηχομονωτικές λύσεις και ακριβή τοποθέτηση για μέγιστη λειτουργικότητα.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-metal" data-cat="basics" data-search="μεταλλικές κατασκευές κιγκλιδώματα στέγες στατικά metal constructions steel structures">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-metal-panel" aria-labelledby="service-metal-label">
-                <span class="service__title" id="service-metal-label">Μεταλλικές κατασκευές</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-metal-panel" role="region" aria-labelledby="service-metal-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Μελετάμε <a href="#service-metal" class="service__internal">μεταλλικές κατασκευές</a> μικρής και μεγάλης κλίμακας, εξασφαλίζοντας στατική επάρκεια, προστασία από διάβρωση και άψογη εφαρμογή.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-insulation" data-cat="permits" data-search="μονώσεις θερμομόνωση υγρομόνωση ταράτσα όψεις monoseis insulation waterproofing facade">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-insulation-panel" aria-labelledby="service-insulation-label">
-                <span class="service__title" id="service-insulation-label">Μονώσεις παντός τύπου</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-insulation-panel" role="region" aria-labelledby="service-insulation-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Προτείνουμε <a href="#service-insulation" class="service__internal">μονώσεις παντός τύπου</a> με θερμοπρόσοψη, υγρομόνωση και λύσεις εξοικονόμησης που βελτιώνουν την ενεργειακή απόδοση στην Αττική.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-permits" data-cat="permits" data-search="οικοδομικές άδειες μελέτη πολεοδομία adeies permits building licensing">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-permits-panel" aria-labelledby="service-permits-label">
-                <span class="service__title" id="service-permits-label">Έκδοση οικοδομικών αδειών</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-permits-panel" role="region" aria-labelledby="service-permits-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Αναλαμβάνουμε <a href="#service-permits" class="service__internal">έκδοση οικοδομικών αδειών</a> με πλήρη φάκελο μελετών, συντονισμό με υπηρεσίες και συνεχή ενημέρωση για κάθε στάδιο.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-          <article class="card service" id="service-facade" data-cat="permits" data-search="προσόψεις στηθαία ανακαίνιση όψης αποκατάσταση facade restoration balconies prosopseis">
-            <h3 class="service__heading">
-              <button class="service__toggle" type="button" aria-expanded="false" aria-controls="service-facade-panel" aria-labelledby="service-facade-label">
-                <span class="service__title" id="service-facade-label">Αποκατάσταση προσόψεων (στηθαία) σε πολυκατοικίες με χρήση σκαλωσιάς</span>
-                <span class="service__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="service__panel" id="service-facade-panel" role="region" aria-labelledby="service-facade-label">
-              <div class="service__panel-inner">
-                <div class="service__content">
-                  <p>Οργανώνουμε <a href="#service-facade" class="service__internal">αποκατάσταση προσόψεων</a> με ασφαλή σκαλωσιά, αποκαθιστούμε στηθαία και εφαρμόζουμε νέες επιστρώσεις γι πολυκατοικίες στην Αττική.</p>
-                </div>
-                <a href="#contact" class="link service__cta">Ζητήστε Προσφορά</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <p class="services-empty" data-services-empty hidden>Δεν βρέθηκαν υπηρεσίες για τα κριτήρια αναζήτησης.</p>
-        <div class="services__actions">
-          <button class="btn btn--ghost services__more" type="button" data-services-more>Εμφάνιση περισσότερων</button>
+          <button class="carousel-btn prev" type="button" role="button" aria-label="Προηγούμενη Υπηρεσία" aria-controls="services-carousel" data-carousel-prev>‹</button>
+          <button class="carousel-btn next" type="button" role="button" aria-label="Επόμενη Υπηρεσία" aria-controls="services-carousel" data-carousel-next>›</button>
         </div>
         <div class="under-cta"><a href="#contact" class="btn btn--primary">Θέλω Προσφορά για Υπηρεσία</a></div>
       </div>
