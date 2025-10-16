@@ -60,8 +60,8 @@ img{max-width:100%;height:auto;display:block}
 .nav-item--has-submenu:hover .submenu,
 .nav-item--has-submenu:focus-within .submenu{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
 .social{display:flex;gap:10px}
-.icon{width:28px;height:28px;display:inline-block;background:var(--text);mask-size:cover;-webkit-mask-size:cover;opacity:.85;transform:translateY(0);transition:background .2s ease,opacity .2s ease,transform .2s ease}
-.icon:hover,.icon:focus-visible{opacity:1;background:var(--accent);transform:translateY(-2px);outline:none}
+.icon{width:28px;height:28px;display:inline-block;background:var(--text);mask-size:cover;-webkit-mask-size:cover;opacity:.85;transform:translateY(0);filter:drop-shadow(0 0 0 rgba(15,23,42,0));transition:background .2s ease,opacity .2s ease,transform .2s ease,filter .2s ease}
+.icon:hover,.icon:focus-visible{opacity:1;background:var(--accent);transform:translateY(-2px);filter:drop-shadow(0 8px 18px rgba(15,23,42,.2));outline:none}
 .fb{mask-image:url('../images/facebooklogo.svg');-webkit-mask-image:url('../images/facebooklogo.svg')}
 .ig{mask-image:url('../images/instagramlogo.svg');-webkit-mask-image:url('../images/instagramlogo.svg')}
 
