@@ -249,11 +249,7 @@ body.nav-open{overflow:hidden}
 .site-footer .social{margin-left:0}
 .site-footer .icon{background:var(--accent-2);transition:background .2s ease,opacity .2s ease,transform .2s ease}
 .site-footer .icon:hover,
-.site-footer .icon:focus-visible{opacity:1;transform:translateY(-2px);outline:none}
-.site-footer .icon.fb:hover,
-.site-footer .icon.fb:focus-visible{background:#1877F2}
-.site-footer .icon.ig:hover,
-.site-footer .icon.ig:focus-visible{background:#E4405F}
+.site-footer .icon:focus-visible{opacity:1;transform:translateY(-2px);background:#F59E0B;outline:none}
 .legal-links{font-size:.85rem;opacity:.8;margin-top:8px;text-align:center;width:100%}
 .legal-links a:hover{color:var(--accent)}
 
