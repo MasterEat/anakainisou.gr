@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title>Επίσκεψη τεχνικού στον χώρο</title>
+  <desc>Αφαιρετική απεικόνιση τεχνικού που ελέγχει σχέδια σε εσωτερικό χώρο.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7f9fb" />
+      <stop offset="100%" stop-color="#dde5ec" />
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#edf1f6" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)" />
+  <rect x="120" y="120" width="960" height="560" rx="24" fill="url(#wall)" />
+  <rect x="180" y="180" width="360" height="220" fill="#cfe0f2" />
+  <rect x="220" y="420" width="320" height="180" fill="#f3f5f8" />
+  <rect x="660" y="220" width="280" height="160" fill="#f2d4a5" />
+  <path d="M540 420h360c20 0 40 20 40 44v116H500V464c0-24 20-44 40-44z" fill="#ffffff" />
+  <path d="M660 420v160" stroke="#d4d9df" stroke-width="6" />
+  <circle cx="900" cy="360" r="40" fill="#ffc65c" />
+  <g fill="#1f3c88">
+    <circle cx="780" cy="420" r="60" />
+    <rect x="750" y="460" width="60" height="140" rx="20" />
+  </g>
+  <g fill="#3359c8">
+    <rect x="720" y="560" width="120" height="120" rx="36" />
+    <rect x="780" y="560" width="160" height="120" rx="36" />
+  </g>
+  <rect x="600" y="520" width="120" height="36" rx="18" fill="#ff8a65" opacity="0.7" />
+  <path d="M460 300h260" stroke="#aab5c4" stroke-width="14" stroke-linecap="round" />
+  <path d="M460 330h200" stroke="#aab5c4" stroke-width="10" stroke-linecap="round" />
+  <path d="M260 520h180" stroke="#d7dde6" stroke-width="16" stroke-linecap="round" />
+  <text x="200" y="620" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="48" fill="#3a4a65">Επίσκεψη στον χώρο</text>
+</svg>
