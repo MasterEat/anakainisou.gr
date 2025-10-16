@@ -185,15 +185,18 @@ body.nav-open{overflow:hidden}
 .under-cta .btn{font-weight:700}
 .under-cta .btn:hover,.under-cta .btn:focus-visible{color:var(--accent-2)}
 
-/* Reasons & Process */
-.two-col{display:grid;gap:28px}
-.reasons{list-style:none;padding:0;display:grid;gap:10px}
-.reasons li{background:#fff;border:1px solid #e8edf4;border-radius:12px;padding:12px}
-.process .steps{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-bottom:8px}
-.step{background:#fff;border:1px solid #e8edf4;border-radius:12px;padding:12px;cursor:pointer;text-align:left;display:flex;gap:10px;align-items:center}
-.step span{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#111;font-weight:700}
-.step[aria-current="true"]{outline:2px solid var(--accent)}
-.step-desc{background:#fff;border:1px solid #e8edf4;border-radius:12px;padding:14px;min-height:60px}
+/* Process & Reasons Sections */
+.process-section,.reasons-section{padding:80px 20px;max-width:1200px;margin:0 auto;text-align:center}
+.process-section h2,.reasons-section h2{font-size:2rem;color:var(--accent,#F59E0B);margin-bottom:40px;text-transform:uppercase;letter-spacing:1px}
+.process-grid{display:flex;flex-wrap:wrap;gap:32px;justify-content:center}
+.process-grid .step{flex:1 1 280px;max-width:360px}
+.reasons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px}
+.process-section .step,.reasons-section .reason{background:#fff;border-radius:12px;padding:24px;box-shadow:0 4px 16px rgba(0,0,0,0.06);transition:transform .3s ease,box-shadow .3s ease}
+.process-section .step:hover,.process-section .step:focus-within,.reasons-section .reason:hover,.reasons-section .reason:focus-within{transform:translateY(-5px);box-shadow:0 6px 22px rgba(0,0,0,0.12)}
+.process-section .step img,.reasons-section .reason img{width:100%;height:auto;margin-top:16px;border-radius:10px;box-shadow:0 3px 12px rgba(0,0,0,0.08);transition:transform .3s ease}
+.process-section .step img:hover,.process-section .step img:focus-visible,.reasons-section .reason img:hover,.reasons-section .reason img:focus-visible{transform:scale(1.03)}
+[data-animate="fade-up"]{opacity:0;transform:translateY(20px);transition:all .6s ease-out}
+[data-animate="fade-up"].visible{opacity:1;transform:translateY(0)}
 
 /* Carousel */
 .carousel{position:relative}

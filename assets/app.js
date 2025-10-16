@@ -556,21 +556,6 @@ const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullY
 })();
 
 // Process interactive description
-const stepDesc=document.getElementById('step-desc');
-document.querySelectorAll('.step').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.step').forEach(b=>b.removeAttribute('aria-current'));
-    btn.setAttribute('aria-current','true');
-    const m={
-      1:'Επίσκεψη στον χώρο, αποτύπωση και μελέτη αναγκών.',
-      2:'Γραπτή προσφορά με σαφή παραδοτέα και χρονοδιάγραμμα.',
-      3:'Συντονισμός συνεργείων & ποιοτικός έλεγχος.',
-      4:'Καθαρή παράδοση και after-sales υποστήριξη.'
-    };
-    stepDesc.textContent=m[btn.dataset.step]||'';
-  });
-});
-
 // Gallery carousel buttons
 document.querySelectorAll('[data-carousel]').forEach(car=>{
   const track=car.querySelector('[data-track]');
@@ -680,3 +665,21 @@ document.querySelectorAll('a.brand').forEach(function(link){
     }
   });
 });
+
+// Fade-up animation observer
+const fadeEls=document.querySelectorAll('[data-animate="fade-up"]');
+if(fadeEls.length){
+  if('IntersectionObserver'in window){
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.15});
+    fadeEls.forEach(el=>observer.observe(el));
+  }else{
+    fadeEls.forEach(el=>el.classList.add('visible'));
+  }
+}
