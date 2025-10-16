@@ -29,7 +29,7 @@ img{max-width:100%;height:auto;display:block}
 .brand-logo{height:52px;width:auto}
 /* Logo hover animation */
 .logo-link img{transition:transform .3s ease,opacity .3s ease}
-.logo-link:hover img{transform:scale(1.05);opacity:.9}
+
 
 
 .nav-toggle{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:46px;height:46px;border:1px solid #d8dee9;border-radius:12px;background:rgba(255,255,255,.72);cursor:pointer;transition:background .2s ease,border-color .2s ease}
