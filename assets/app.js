@@ -688,7 +688,10 @@ if(form){form.addEventListener('submit',e=>{e.preventDefault();alert('Ευχαρ
         observer.unobserve(entry.target);
       }
     });
-  },{threshold:0.2});
+  },{
+    threshold:0.1,
+    rootMargin:'0px 0px 20% 0px'
+  });
 
   fadeEls.forEach(function(el){
     observer.observe(el);
