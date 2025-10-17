@@ -219,11 +219,20 @@ body.nav-open{overflow:hidden}
 .testimonials{display:grid;grid-auto-flow:column;grid-auto-columns:85%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory}
 .t-card{scroll-snap-align:start;background:#fff;border:1px solid #e8edf4;border-radius:14px;padding:16px;box-shadow:var(--shadow)}
 
-/* Contact + Map */
+/* Contact section */
+.contact-section{background:#f8f8f8;padding:80px 20px;text-align:center}
+.contact-intro{max-width:640px;margin:0 auto 32px;color:#333}
+.contact-form{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px;text-align:left;background:#fff;border:1px solid #e8edf4;border-radius:16px;padding:32px;box-shadow:var(--shadow)}
+#contactForm{display:flex;flex-direction:column;gap:16px}
 .contact{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start}
-.form{display:grid;gap:12px;background:#fff;border:1px solid #e8edf4;border-radius:14px;padding:16px;box-shadow:var(--shadow)}
-.form input,.form textarea{width:100%;padding:12px 14px;border:1px solid #dfe6ef;border-radius:10px}
-.form input:focus,.form textarea:focus{outline:2px solid var(--accent)}
+.form-group label{font-weight:600;margin-bottom:6px;display:block}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 14px;border:1px solid #cfd3d9;border-radius:10px;font:inherit}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--accent,#F59E0B);box-shadow:0 0 0 3px rgba(245,158,11,.2)}
+.btn-submit{background:var(--accent,#F59E0B);color:#fff;border:0;padding:14px 20px;border-radius:10px;font-weight:600;cursor:pointer;transition:.25s}
+.btn-submit:hover{background:#e48e0a;transform:translateY(-1px)}
+.form-status{margin-top:8px;font-size:.95rem}
+.gdpr{display:block;font-size:.95rem}
+.gdpr a{color:var(--accent,#F59E0B);text-decoration:underline}
 .map iframe{width:100%;min-height:360px;border:0;border-radius:14px;box-shadow:var(--shadow)}
 
 /* Footer */

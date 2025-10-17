@@ -710,3 +710,32 @@ document.querySelectorAll('.logo-link').forEach(function(link){
     }
   });
 });
+
+// Formspree inline submit (ID: mkgqykrp)
+(()=>{
+  const form=document.getElementById('contactForm');
+  if(!form){return;}
+  const status=document.getElementById('formStatus');
+
+  form.addEventListener('submit',async event=>{
+    event.preventDefault();
+    if(status){status.hidden=false;status.textContent='Αποστολή...';}
+
+    try{
+      const data=new FormData(form);
+      const res=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}});
+
+      if(res.ok){
+        form.reset();
+        if(status){status.textContent='✅ Το μήνυμά σας στάλθηκε με επιτυχία! Θα επικοινωνήσουμε σύντομα.';}
+        // window.gtag?.('event','form_submit',{form:'contact'}); // optional analytics
+      }else if(status){
+        status.textContent='❌ Κάτι πήγε στραβά. Δοκιμάστε ξανά ή καλέστε μας.';
+      }
+    }catch(error){
+      if(status){status.textContent='❌ Πρόβλημα δικτύου. Δοκιμάστε ξανά.';}
+    }
+
+    setTimeout(()=>{if(status){status.hidden=true;}},7000);
+  });
+})();
