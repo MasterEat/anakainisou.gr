@@ -607,17 +607,70 @@
     </section>
 
     <!-- CONTACT + MAP -->
-    <section id="contact" class="section section--cta">
+    <section id="contact" class="section contact-section">
       <div class="container contact">
-        <form class="form" method="post" onsubmit="return false" aria-label="Φόρμα επικοινωνίας">
+        <div class="contact-form">
           <h2>Επικοινωνία</h2>
-          <label>Ονοματεπώνυμο <input type="text" required></label>
-          <label>Email <input type="email" required></label>
-          <label>Τηλέφωνο <input type="tel" required></label>
-          <label>Μήνυμα <textarea rows="4" required></textarea></label>
-          <button class="btn btn--primary" type="submit">Αποστολή</button>
-          <p class="form-note">Με την αποστολή αποδέχεστε την επεξεργασία των δεδομένων σύμφωνα με την πολιτική απορρήτου.</p>
-        </form>
+          <p class="contact-intro">Στείλτε μας ένα μήνυμα και θα επικοινωνήσουμε μαζί σας το συντομότερο.</p>
+
+          <form id="contactForm" action="https://formspree.io/f/mkgqykrp" method="POST" novalidate>
+            <div class="form-group">
+              <label for="name">Ονοματεπώνυμο</label>
+              <input id="name" name="name" type="text" placeholder="Πλήρες όνομα" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="Το email σας" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Τηλέφωνο</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="Π.χ. 2101234567">
+            </div>
+
+            <div class="form-group">
+              <label for="service">Υπηρεσία</label>
+              <select id="service" name="service">
+                <option value="">Επιλέξτε υπηρεσία (προαιρετικό)</option>
+                <option>Γκρεμίσματα / αποξηλώσεις</option>
+                <option>Χτισίματα – σοβατίσματα – ελαιοχρωματισμοί</option>
+                <option>Υδραυλικές εργασίες</option>
+                <option>Ηλεκτρολογικές εργασίες – Υ.Δ.Ε.</option>
+                <option>Κουφώματα αλουμινίου / PVC</option>
+                <option>Πλακίδια – Δάπεδα</option>
+                <option>Γυψοσανίδες – Ψευδοροφές</option>
+                <option>Μονώσεις</option>
+                <option>Άλλο</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Μήνυμα</label>
+              <textarea id="message" name="message" rows="5" placeholder="Πείτε μας λίγα λόγια για το έργο…" required></textarea>
+            </div>
+
+            <!-- GDPR -->
+            <label class="gdpr">
+              <input type="checkbox" name="gdpr" required>
+              Συμφωνώ με την <a href="/privacy-policy.html" target="_blank" rel="noopener">Πολιτική Απορρήτου</a>.
+            </label>
+
+            <!-- Honeypot (spam trap) -->
+            <input type="text" name="_gotcha" style="display:none">
+
+            <!-- Subject & Reply-To -->
+            <input type="hidden" name="_subject" value="Νέο μήνυμα από τη φόρμα – FM Renovation">
+            <input type="hidden" name="_replyto" value="{{email}}">
+
+            <!-- <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div> -->
+
+            <button type="submit" class="btn-submit">Αποστολή Μηνύματος</button>
+
+            <!-- Inline feedback -->
+            <p id="formStatus" class="form-status" aria-live="polite" hidden></p>
+          </form>
+        </div>
         <div class="map">
           <iframe title="Χάρτης" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151!2d23.7275!3d37.9838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zQXRoZW5z!5e0!3m2!1sel!2sgr!4v0000000000"></iframe>
