@@ -190,7 +190,7 @@ body.nav-open{overflow:hidden}
 .step-number{position:absolute;top:20px;right:20px;width:48px;height:48px;border-radius:50%;background:rgba(245,158,11,.14);color:#b45309;display:grid;place-items:center;font-weight:700;font-size:1.1rem}
 .step h4{margin:0;font-size:1.25rem;font-weight:700;color:var(--accent-2)}
 .step p{margin:0;color:rgba(15,23,42,.85);line-height:1.6}
-.step img{border-radius:16px;box-shadow:0 12px 24px rgba(15,23,42,.08);width:100%;height:auto}
+.step img{border-radius:16px;box-shadow:0 12px 24px rgba(15,23,42,.08);width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
 .reasons-list{display:grid;gap:28px;margin-top:48px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
 .reason{background:#fff;border-radius:24px;padding:28px;border:1px solid rgba(15,23,42,.08);box-shadow:0 16px 32px rgba(15,23,42,.08);display:grid;gap:18px;text-align:left}
 .reason h4{margin:0;font-size:1.25rem;font-weight:700;color:var(--accent-2)}
