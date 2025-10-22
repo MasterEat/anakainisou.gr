@@ -268,17 +268,85 @@ if('IntersectionObserver'in window&&servicesSection&&servicesNavLinks.length){
   observer.observe(servicesSection);
 }
 
+// Accordion toggle + aria
+document.querySelectorAll('.service-card .service-header').forEach(btn=>{
+  const card=btn.closest('.service-card');
+  const content=card?card.querySelector('.service-content'):null;
+  let closeTimer=null;
+  let closeHandler=null;
+
+  const clearPendingClose=()=>{
     if(closeTimer!==null){
       clearTimeout(closeTimer);
       closeTimer=null;
     }
-
+    if(content&&closeHandler){
       content.removeEventListener('transitionend',closeHandler);
       closeHandler=null;
     }
   };
 
+  const scheduleHide=()=>{
+    if(!content){return;}
+    clearPendingClose();
+    closeHandler=()=>{
+      content.hidden=true;
+      clearPendingClose();
+    };
+    content.addEventListener('transitionend',closeHandler);
+    closeTimer=window.setTimeout(closeHandler,360);
+  };
 
+  if(content){
+    if(card&&card.classList.contains('open')){
+      content.hidden=false;
+      btn.setAttribute('aria-expanded','true');
+    }else{
+      content.hidden=true;
+      btn.setAttribute('aria-expanded','false');
+    }
+  }
+
+  btn.addEventListener('click',()=>{
+    if(!card){return;}
+    const isOpen=card.classList.contains('open');
+    if(isOpen){
+      card.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+      if(content){
+        clearPendingClose();
+        if(prefersReducedMotion.matches){
+          content.hidden=true;
+        }else{
+          scheduleHide();
+        }
+      }
+    }else{
+      if(content){
+        clearPendingClose();
+        content.hidden=false;
+      }
+      card.classList.add('open');
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+
+  btn.addEventListener('pointerdown',event=>{
+    const rect=event.currentTarget.getBoundingClientRect();
+    event.currentTarget.style.setProperty('--rx',`${event.clientX-rect.left}px`);
+    event.currentTarget.style.setProperty('--ry',`${event.clientY-rect.top}px`);
+  });
+});
+
+// Scroll-reveal on first view
+if('IntersectionObserver'in window){
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
   },{threshold:0.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 }else{

@@ -170,7 +170,11 @@ body.nav-open{overflow:hidden}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .45s ease,transform .45s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
 @media (min-width:480px){.service-header{font-size:17px;}}
-
+@media (min-width:640px){
+  .services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+  .service-card{margin:0;}
+}
+@media (min-width:1024px){
   .services{grid-template-columns:repeat(3,minmax(0,1fr));}
 }
 .under-cta{text-align:center;margin-top:18px;}
