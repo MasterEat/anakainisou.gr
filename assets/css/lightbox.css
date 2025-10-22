@@ -1,0 +1,139 @@
+:root {
+  --lb-bg: rgba(255, 255, 255, 0.92);
+  --lb-fg: #0f172a;
+  --lb-amber: #f59e0b;
+}
+
+.lb {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+  outline: none;
+}
+
+.lb.on {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.lb-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--lb-bg);
+}
+
+.lb-frame {
+  position: relative;
+  margin: 0;
+  max-width: min(92vw, 1200px);
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.lb-img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 6px 26px rgba(0, 0, 0, 0.18);
+}
+
+.lb-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 0;
+  background: #fff;
+  color: var(--lb-fg);
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: grid;
+  place-items: center;
+  line-height: 1;
+}
+
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  font-size: 26px;
+  line-height: 1;
+  color: var(--lb-fg);
+  display: grid;
+  place-items: center;
+}
+
+.lb-nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.lb-prev {
+  left: -52px;
+}
+
+.lb-next {
+  right: -52px;
+}
+
+.lb-meta {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 700;
+  color: var(--lb-fg);
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 72px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .lb-close {
+    top: -52px;
+    right: 0;
+  }
+
+  .lb-prev {
+    left: 8px;
+  }
+
+  .lb-next {
+    right: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb {
+    transition: none;
+  }
+}
+
+.car-img[role="button"]:focus-visible {
+  outline: 3px solid var(--lb-amber);
+  outline-offset: 4px;
+}
