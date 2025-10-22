@@ -252,9 +252,9 @@ body.nav-open{overflow:hidden}
 .brand--footer{margin:0}
 .brand--footer .brand-logo{height:48px}
 .site-footer .social{margin-left:0}
-.site-footer .icon{background:var(--accent-2);transition:background .2s ease,opacity .2s ease,transform .2s ease}
+.site-footer .icon{background:var(--accent-2);filter:drop-shadow(0 0 0 rgba(15,23,42,0));transition:background .2s ease,opacity .2s ease,transform .2s ease,filter .2s ease}
 .site-footer .icon:hover,
-.site-footer .icon:focus-visible{opacity:1;transform:translateY(-2px);background:#F59E0B;outline:none}
+.site-footer .icon:focus-visible{opacity:1;transform:translateY(-2px);background:#F59E0B;filter:drop-shadow(0 8px 18px rgba(15,23,42,.2));outline:none}
 .legal-links{font-size:.85rem;opacity:.8;margin-top:8px;text-align:center;width:100%}
 .legal-links a:hover{color:var(--accent)}
 
