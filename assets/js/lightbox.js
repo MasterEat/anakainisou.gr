@@ -1,6 +1,9 @@
 (function () {
   const lightbox = document.getElementById('lightbox');
   if (!lightbox) {
+    window.registerLightboxThumbs = function () {};
+    window.openLightboxFromThumb = function () {};
+    window.dispatchEvent(new CustomEvent('lightbox:ready'));
     return;
   }
 
@@ -13,23 +16,17 @@
   const html = document.documentElement;
 
   if (!imageEl || !countEl || !prevBtn || !nextBtn || !dialogFrame) {
+    window.registerLightboxThumbs = function () {};
+    window.openLightboxFromThumb = function () {};
+    window.dispatchEvent(new CustomEvent('lightbox:ready'));
     return;
   }
 
   dialogFrame.setAttribute('tabindex', '-1');
 
-  const thumbnails = Array.from(
-    document.querySelectorAll('.car-img, .gallery img')
-  ).filter((el, index, arr) => el instanceof HTMLImageElement && arr.indexOf(el) === index);
-
-  if (!thumbnails.length) {
-    return;
-  }
-
-  const sources = thumbnails.map((thumb) => ({
-    src: thumb.currentSrc || thumb.src,
-    alt: thumb.alt || ''
-  }));
+  const THUMB_SELECTOR = '.car-img, .gallery img, [data-lightbox-thumb]';
+  const thumbnails = [];
+  const seenThumbs = new WeakSet();
 
   let activeIndex = 0;
   let previousFocus = null;
@@ -37,7 +34,18 @@
   let firstFocusable = null;
   let lastFocusable = null;
 
-  thumbnails.forEach((thumb, index) => {
+  function registerThumb(thumb) {
+    if (!(thumb instanceof HTMLImageElement)) {
+      return;
+    }
+
+    if (seenThumbs.has(thumb)) {
+      return;
+    }
+
+    seenThumbs.add(thumb);
+    const index = thumbnails.push(thumb) - 1;
+
     thumb.style.cursor = 'zoom-in';
     thumb.setAttribute('data-lb-index', String(index));
     thumb.setAttribute('role', 'button');
@@ -51,16 +59,56 @@
         open(index);
       }
     });
-  });
+  }
+
+  function registerThumbs(list) {
+    if (!list) {
+      list = document.querySelectorAll(THUMB_SELECTOR);
+    } else if (typeof list === 'string') {
+      list = document.querySelectorAll(list);
+    }
+
+    if (list instanceof Element) {
+      registerThumb(list);
+      return;
+    }
+
+    if (typeof list[Symbol.iterator] !== 'function') {
+      return;
+    }
+
+    Array.from(list).forEach(registerThumb);
+  }
+
+  function getActiveThumb() {
+    return thumbnails[activeIndex] || null;
+  }
+
+  function getThumbSource(thumb) {
+    if (!thumb) {
+      return { src: '', alt: '' };
+    }
+
+    const src = thumb.dataset.full || thumb.currentSrc || thumb.src || '';
+    const alt = thumb.alt || '';
+    return { src, alt };
+  }
 
   function open(index) {
-    activeIndex = index;
+    if (!thumbnails.length) {
+      return;
+    }
+
+    const maxIndex = thumbnails.length - 1;
+    activeIndex = Math.min(Math.max(index, 0), maxIndex);
     previousFocus = document.activeElement;
+
     render();
     lightbox.classList.add('on');
     lightbox.setAttribute('aria-hidden', 'false');
     html.style.overflow = 'hidden';
     updateFocusable();
+
     requestAnimationFrame(() => {
       dialogFrame.focus({ preventScroll: true });
     });
@@ -83,19 +131,27 @@
   }
 
   function render() {
-    const currentItem = sources[activeIndex];
-    if (!currentItem) {
+    const thumb = getActiveThumb();
+    const total = thumbnails.length;
+
+    if (!thumb || !total) {
+      countEl.textContent = '0/0';
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+      prevBtn.setAttribute('aria-disabled', 'true');
+      nextBtn.setAttribute('aria-disabled', 'true');
       return;
     }
 
-    if (imageEl.src !== currentItem.src) {
-      imageEl.src = currentItem.src;
+    const { src, alt } = getThumbSource(thumb);
+    if (src && imageEl.src !== src) {
+      imageEl.src = src;
     }
-    imageEl.alt = currentItem.alt;
-    countEl.textContent = `${activeIndex + 1}/${sources.length}`;
+    imageEl.alt = alt;
+    countEl.textContent = `${activeIndex + 1}/${total}`;
 
     const isFirst = activeIndex === 0;
-    const isLast = activeIndex === sources.length - 1;
+    const isLast = activeIndex === total - 1;
 
     prevBtn.disabled = isFirst;
     nextBtn.disabled = isLast;
@@ -114,7 +170,7 @@
   }
 
   function goNext() {
-    if (activeIndex < sources.length - 1) {
+    if (activeIndex < thumbnails.length - 1) {
       activeIndex += 1;
       render();
     }
@@ -185,4 +241,26 @@
   });
 
   document.addEventListener('keydown', trapFocus, true);
+
+  registerThumbs(document.querySelectorAll(THUMB_SELECTOR));
+
+  window.registerLightboxThumbs = function (nodes) {
+    registerThumbs(nodes);
+  };
+
+  window.openLightboxFromThumb = function (target) {
+    if (typeof target === 'number') {
+      open(target);
+      return;
+    }
+
+    if (target instanceof Element) {
+      const index = thumbnails.indexOf(target);
+      if (index !== -1) {
+        open(index);
+      }
+    }
+  };
+
+  window.dispatchEvent(new CustomEvent('lightbox:ready'));
 })();
