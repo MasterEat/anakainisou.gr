@@ -268,134 +268,17 @@ if('IntersectionObserver'in window&&servicesSection&&servicesNavLinks.length){
   observer.observe(servicesSection);
 }
 
-// Accordion toggle + aria with desktop reset
-const serviceCardsData=[];
-document.querySelectorAll('.service-card').forEach(card=>{
-  const btn=card.querySelector('.service-header');
-  const content=card.querySelector('.service-content');
-  if(!btn||!content){return;}
-  let closeTimer=null;
-  let closeHandler=null;
-
-  const clearPending=()=>{
     if(closeTimer!==null){
       clearTimeout(closeTimer);
       closeTimer=null;
     }
-    if(closeHandler){
+
       content.removeEventListener('transitionend',closeHandler);
       closeHandler=null;
     }
   };
 
-  const showContent=()=>{
-    clearPending();
-    content.hidden=false;
-  };
 
-  const hideContent=()=>{
-    clearPending();
-    if(prefersReducedMotion.matches){
-      content.hidden=true;
-      return;
-    }
-    closeHandler=function handler(){
-      content.hidden=true;
-      clearPending();
-    };
-    content.addEventListener('transitionend',closeHandler);
-    closeTimer=window.setTimeout(closeHandler,360);
-  };
-
-  const expand=(storeState=true)=>{
-    showContent();
-    card.classList.add('open');
-    btn.setAttribute('aria-expanded','true');
-    if(storeState){
-      card.dataset.expanded='true';
-    }
-  };
-
-  const collapse=(storeState=true)=>{
-    card.classList.remove('open');
-    btn.setAttribute('aria-expanded','false');
-    if(storeState){
-      delete card.dataset.expanded;
-    }
-    hideContent();
-  };
-
-  if(card.classList.contains('open')){
-    content.hidden=false;
-    btn.setAttribute('aria-expanded','true');
-    card.dataset.expanded='true';
-  }else{
-    content.hidden=true;
-    btn.setAttribute('aria-expanded','false');
-  }
-
-  btn.addEventListener('click',()=>{
-    if(btn.getAttribute('aria-disabled')==='true'||desktopMedia.matches){return;}
-    if(card.classList.contains('open')){
-      collapse();
-    }else{
-      expand();
-    }
-  });
-
-  btn.addEventListener('pointerdown',event=>{
-    if(btn.getAttribute('aria-disabled')==='true'||desktopMedia.matches){return;}
-    const rect=event.currentTarget.getBoundingClientRect();
-    event.currentTarget.style.setProperty('--rx',`${event.clientX-rect.left}px`);
-    event.currentTarget.style.setProperty('--ry',`${event.clientY-rect.top}px`);
-  });
-
-  serviceCardsData.push({card,btn,content,expand,collapse,clearPending,showContent});
-});
-
-if(serviceCardsData.length){
-  const applyServiceLayout=()=>{
-    const isDesktop=desktopMedia.matches;
-    serviceCardsData.forEach(({card,btn,content,expand,clearPending})=>{
-      clearPending();
-      if(isDesktop){
-        btn.setAttribute('aria-disabled','true');
-        btn.setAttribute('tabindex','-1');
-        expand(false);
-        content.hidden=false;
-      }else{
-        btn.removeAttribute('aria-disabled');
-        btn.removeAttribute('tabindex');
-        if(card.dataset.expanded==='true'){
-          expand(false);
-        }else{
-          card.classList.remove('open');
-          btn.setAttribute('aria-expanded','false');
-          content.hidden=true;
-        }
-      }
-    });
-  };
-
-  applyServiceLayout();
-
-  const handleServicesLayoutChange=()=>applyServiceLayout();
-  if(typeof desktopMedia.addEventListener==='function'){
-    desktopMedia.addEventListener('change',handleServicesLayoutChange);
-  }else if(typeof desktopMedia.addListener==='function'){
-    desktopMedia.addListener(handleServicesLayoutChange);
-  }
-}
-
-// Scroll-reveal on first view
-if('IntersectionObserver'in window){
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('in');
-        io.unobserve(entry.target);
-      }
-    });
   },{threshold:0.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 }else{
