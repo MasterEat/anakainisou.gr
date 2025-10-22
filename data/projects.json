@@ -1,0 +1,35 @@
+[
+  {
+    "id": "kitchen-athens-2025",
+    "title": "Ανακαίνιση Κουζίνας",
+    "category": "Κουζίνα",
+    "location": "Αθήνα",
+    "date": "2025-09",
+    "summary": "Αλλαγή πάγκου, νέες πρόσοψεις, αναβάθμιση φωτισμού και υδραυλικών.",
+    "aspect": "4:3",
+    "cover": "cover-1200.webp",
+    "gallery": [
+      "img-01-1200.webp",
+      "img-02-1200.webp",
+      "img-03-1200.webp",
+      "img-04-1200.webp"
+    ],
+    "folder": "/photos/projects/kitchen-athens-2025/"
+  },
+  {
+    "id": "bathroom-piraeus-2025",
+    "title": "Ανακαίνιση Μπάνιου",
+    "category": "Μπάνιο",
+    "location": "Πειραιάς",
+    "date": "2025-07",
+    "summary": "Νέα πλακίδια, walk-in ντουζ, νιπτήρας & φωτισμός.",
+    "aspect": "4:3",
+    "cover": "cover-1200.webp",
+    "gallery": [
+      "img-01-1200.webp",
+      "img-02-1200.webp",
+      "img-03-1200.webp"
+    ],
+    "folder": "/photos/projects/bathroom-piraeus-2025/"
+  }
+]
