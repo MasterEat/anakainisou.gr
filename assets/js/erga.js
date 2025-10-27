@@ -26,9 +26,7 @@
       if (!Array.isArray(json)) {
         return [];
       }
-      return json
-        .filter((item) => item && typeof item === 'object')
-        .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+      return json.filter((item) => item && typeof item === 'object');
     } catch (error) {
       return [];
     }
