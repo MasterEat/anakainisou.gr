@@ -9,20 +9,6 @@ const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)')
 const focusableSelectors="a[href]:not([tabindex='-1']), button:not([disabled]):not([tabindex='-1']), [tabindex]:not([tabindex='-1'])";
 let menuOpen=false;
 
-const mobileParent=document.querySelector('[data-mobile-parent]');
-const mobileItem=mobileParent?mobileParent.closest('.nav-mobile__item'):null;
-const mobileSubLinks=mobileItem?Array.from(mobileItem.querySelectorAll('.nav-mobile__submenu a')):[];
-function setMobileSubmenu(open){
-  if(!mobileParent||!mobileItem){return;}
-  mobileParent.setAttribute('aria-expanded',String(open));
-  mobileItem.classList.toggle('nav-mobile__item--open',open);
-  mobileSubLinks.forEach(function(link){
-    if(open){link.removeAttribute('tabindex');}
-    else{link.setAttribute('tabindex','-1');}
-  });
-}
-if(mobileSubLinks.length){setMobileSubmenu(false);}else if(mobileParent){mobileParent.setAttribute('aria-expanded','false');}
-
 function getFocusableElements(){
   if(!navOverlay){return[];}
   return Array.from(navOverlay.querySelectorAll(focusableSelectors)).filter(function(el){
@@ -57,7 +43,6 @@ function handleOverlayEsc(event){
 function openMenu(){
   if(!navToggle||!navOverlay||!navBackdrop||menuOpen){return;}
   menuOpen=true;
-  setMobileSubmenu(false);
   navOverlay.hidden=false;
   navBackdrop.hidden=false;
   body.classList.add('nav-open');
@@ -93,7 +78,6 @@ function closeMenu(returnFocus){
   navToggle.setAttribute('aria-label','Άνοιγμα μενού');
   document.removeEventListener('keydown',handleOverlayEsc);
   navOverlay.removeEventListener('keydown',trapFocus);
-  setMobileSubmenu(false);
   const finalize=function(){
     navOverlay.hidden=true;
     navBackdrop.hidden=true;
@@ -121,7 +105,7 @@ if(navToggle&&navOverlay&&navBackdrop){
   if(navClose){navClose.addEventListener('click',function(){closeMenu();});}
   navBackdrop.addEventListener('click',function(){closeMenu();});
   if(navOverlay){
-    var overlayLinks=navOverlay.querySelectorAll('a.nav-mobile__link, a.nav-mobile__sublink, a.nav-mobile__cta');
+    var overlayLinks=navOverlay.querySelectorAll('a.nav-mobile__link, a.nav-mobile__cta');
     overlayLinks.forEach(function(link){
       link.addEventListener('click',function(){closeMenu();});
     });
@@ -134,103 +118,6 @@ if(navToggle&&navOverlay&&navBackdrop){
   }else if(typeof desktopMedia.addListener==='function'){
     desktopMedia.addListener(handleDesktopChange);
   }
-}
-
-if(mobileParent&&mobileItem){
-  mobileParent.addEventListener('click',function(){
-    const expanded=mobileParent.getAttribute('aria-expanded')==='true';
-    setMobileSubmenu(!expanded);
-    if(!expanded&&mobileSubLinks.length){
-      mobileSubLinks[0].focus({preventScroll:true});
-    }
-  });
-  mobileParent.addEventListener('keydown',function(event){
-    if(event.key==='Escape'){
-      event.preventDefault();
-      setMobileSubmenu(false);
-      mobileParent.focus({preventScroll:true});
-    }
-  });
-  mobileSubLinks.forEach(function(link){
-    link.addEventListener('keydown',function(event){
-      if(event.key==='Escape'){
-        event.preventDefault();
-        setMobileSubmenu(false);
-        mobileParent.focus({preventScroll:true});
-      }
-    });
-  });
-}
-
-const desktopParent=document.querySelector('[data-desktop-parent]');
-const desktopItem=desktopParent?desktopParent.closest('.nav-item--has-submenu'):null;
-const desktopSubLinks=desktopItem?Array.from(desktopItem.querySelectorAll('.submenu__link')):[];
-function setDesktopSubmenu(open){
-  if(!desktopParent||!desktopItem){return;}
-  desktopParent.setAttribute('aria-expanded',String(open));
-  desktopItem.classList.toggle('is-open',open);
-  desktopSubLinks.forEach(function(link){
-    if(open){link.removeAttribute('tabindex');}
-    else{link.setAttribute('tabindex','-1');}
-  });
-}
-if(desktopSubLinks.length){setDesktopSubmenu(false);}else if(desktopParent){desktopParent.setAttribute('aria-expanded','false');}
-
-if(desktopParent&&desktopItem){
-  const openDesktop=function(){
-    if(!desktopMedia.matches){return;}
-    setDesktopSubmenu(true);
-  };
-  const closeDesktop=function(){
-    setDesktopSubmenu(false);
-  };
-  desktopParent.addEventListener('click',function(event){
-    event.preventDefault();
-    const expanded=desktopParent.getAttribute('aria-expanded')==='true';
-    if(expanded){
-      closeDesktop();
-    }else{
-      openDesktop();
-      if(desktopSubLinks.length){
-        desktopSubLinks[0].focus({preventScroll:true});
-      }
-    }
-  });
-  desktopParent.addEventListener('keydown',function(event){
-    if(event.key===' '||event.key==='Enter'){
-      event.preventDefault();
-      const expanded=desktopParent.getAttribute('aria-expanded')==='true';
-      if(expanded){
-        closeDesktop();
-      }else{
-        openDesktop();
-        if(desktopSubLinks.length){
-          desktopSubLinks[0].focus({preventScroll:true});
-        }
-      }
-    }else if(event.key==='Escape'){
-      event.preventDefault();
-      closeDesktop();
-      desktopParent.focus({preventScroll:true});
-    }
-  });
-  desktopItem.addEventListener('mouseenter',openDesktop);
-  desktopItem.addEventListener('mouseleave',closeDesktop);
-  desktopItem.addEventListener('focusin',openDesktop);
-  desktopItem.addEventListener('focusout',function(event){
-    if(!desktopItem.contains(event.relatedTarget)){
-      closeDesktop();
-    }
-  });
-  desktopSubLinks.forEach(function(link){
-    link.addEventListener('keydown',function(event){
-      if(event.key==='Escape'){
-        event.preventDefault();
-        closeDesktop();
-        desktopParent.focus({preventScroll:true});
-      }
-    });
-  });
 }
 
 const siteHeader=document.querySelector('.site-header');
@@ -248,12 +135,7 @@ if(siteHeader){
 
 // Active nav state for services
 const servicesSection=document.getElementById('services');
-const servicesNavLinks=[];
-if(desktopParent){servicesNavLinks.push(desktopParent);}
-if(mobileParent){servicesNavLinks.push(mobileParent);}
-document.querySelectorAll('a.nav__link[href="#services"], a.nav-mobile__link[href="#services"]').forEach(function(link){
-  servicesNavLinks.push(link);
-});
+const servicesNavLinks=Array.from(document.querySelectorAll('a.nav__link[href="#services"], a.nav-mobile__link[href="#services"]'));
 if('IntersectionObserver'in window&&servicesSection&&servicesNavLinks.length){
   const toggleActive=function(isActive){
     servicesNavLinks.forEach(function(link){
