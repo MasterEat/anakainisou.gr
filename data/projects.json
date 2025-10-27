@@ -1,5 +1,54 @@
 [
   {
+    "id": "piraeus-ground-floor-renovation",
+    "title": "Ολική Ανακαίνιση Ισόγειας Κατοικίας",
+    "category": "Ολική Ανακαίνιση",
+    "location": "Πειραιάς",
+    "date": "2025-02",
+    "summary": "Ολική ανακαίνιση σε ισόγεια, πολύ παλαιά κατοικία με νέες εγκαταστάσεις, κουζίνα και μπάνιο.",
+    "aspect": "4:3",
+    "cover": "renovation1*.jpg",
+    "folder": "erga/",
+    "details": [
+      "Αποξηλώθηκαν και απομακρύνθηκαν με κάδους η κουζίνα και το μπάνιο.",
+      "Δημιουργήθηκαν εξ ολοκλήρου νέες υδραυλικές και ηλεκτρολογικές εγκαταστάσεις.",
+      "Κατασκευάστηκαν και τοποθετήθηκαν νέα ντουλάπια κουζίνας.",
+      "Στο μπάνιο δημιουργήθηκε χτιστή ντουζιέρα και τοποθετήθηκαν νέα πλακάκια, είδη υγιεινής και αξεσουάρ.",
+      "Το δάπεδο από πλακάκι μωσαϊκού τρίφτηκε, γυαλίστηκε και αναδείχθηκαν τα χρώματά του.",
+      "Αντικαταστάθηκαν οι εσωτερικές πόρτες και η ντουλάπα στο υπνοδωμάτιο.",
+      "Όλη η τοιχοποιία, καθώς και τα παλαιά εξωτερικά ξύλινα κουφώματα, ασταρώθηκαν και βάφτηκαν."
+    ],
+    "note": "Η οικία ήταν ηλικίας 100 και πλέον ετών, οπότε υπήρχαν εγγενείς περιορισμοί στις εργασίες που μπορούσαν να γίνουν.",
+    "gallery": [
+      {
+        "title": "Μετά",
+        "images": [
+          "renovation1*.jpg",
+          "renovation2*.jpg",
+          "renovation3*.jpg",
+          "renovation4*.jpg",
+          "renovation5*.jpg",
+          "renovation6*.jpg",
+          "renovation7*.jpg",
+          "renovation8*.jpg"
+        ]
+      },
+      {
+        "title": "Πριν",
+        "images": [
+          "renovation1.jpg",
+          "renovation2.jpg",
+          "renovation3.jpg",
+          "renovation4.jpg",
+          "renovation5.jpg",
+          "renovation6.jpg",
+          "renovation7.jpg",
+          "renovation8.jpg"
+        ]
+      }
+    ]
+  },
+  {
     "id": "kitchen-athens-2025",
     "title": "Ανακαίνιση Κουζίνας",
     "category": "Κουζίνα",
@@ -14,7 +63,7 @@
       "img-03-1200.webp",
       "img-04-1200.webp"
     ],
-    "folder": "/photos/projects/kitchen-athens-2025/"
+    "folder": "photos/projects/kitchen-athens-2025/"
   },
   {
     "id": "bathroom-piraeus-2025",
@@ -30,6 +79,6 @@
       "img-02-1200.webp",
       "img-03-1200.webp"
     ],
-    "folder": "/photos/projects/bathroom-piraeus-2025/"
+    "folder": "photos/projects/bathroom-piraeus-2025/"
   }
 ]
