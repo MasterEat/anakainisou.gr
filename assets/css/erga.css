@@ -134,6 +134,41 @@
   line-height: 1.6;
 }
 
+.card-details {
+  margin: 0;
+  padding-left: 20px;
+  color: #334155;
+  font-size: 15px;
+  line-height: 1.6;
+  display: grid;
+  gap: 6px;
+}
+
+.card-details li::marker {
+  color: var(--erga-amber);
+}
+
+.card-note {
+  margin: 4px 0 0;
+  color: #475569;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.gallery-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.gallery-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--erga-muted);
+}
+
 .strip {
   display: flex;
   gap: 10px;
