@@ -142,7 +142,6 @@ body.nav-open{overflow:hidden}
 
 /* About */
 .about-grid{display:grid;gap:20px}
-.about-card{background:var(--card);border:1px solid #e8edf4;border-radius:16px;padding:20px;box-shadow:var(--shadow)}
 .bullets{padding-left:18px}
 
 /* Services */
