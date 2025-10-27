@@ -4,7 +4,7 @@
     return;
   }
 
-  const dataUrl = mount.dataset.json || '/data/projects.json';
+  const dataUrl = mount.dataset.json || 'data/projects.json';
 
   fetchProjects(dataUrl)
     .then((projects) => {

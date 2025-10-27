@@ -8,7 +8,7 @@
     "summary": "Ολική ανακαίνιση σε ισόγεια, πολύ παλαιά κατοικία με νέες εγκαταστάσεις, κουζίνα και μπάνιο.",
     "aspect": "4:3",
     "cover": "renovation1*.jpg",
-    "folder": "/erga/",
+
     "details": [
       "Αποξηλώθηκαν και απομακρύνθηκαν με κάδους η κουζίνα και το μπάνιο.",
       "Δημιουργήθηκαν εξ ολοκλήρου νέες υδραυλικές και ηλεκτρολογικές εγκαταστάσεις.",
@@ -63,7 +63,7 @@
       "img-03-1200.webp",
       "img-04-1200.webp"
     ],
-    "folder": "/photos/projects/kitchen-athens-2025/"
+    "folder": "photos/projects/kitchen-athens-2025/"
   },
   {
     "id": "bathroom-piraeus-2025",
@@ -79,6 +79,6 @@
       "img-02-1200.webp",
       "img-03-1200.webp"
     ],
-    "folder": "/photos/projects/bathroom-piraeus-2025/"
+    "folder": "photos/projects/bathroom-piraeus-2025/"
   }
 ]
