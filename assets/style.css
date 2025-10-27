@@ -185,8 +185,9 @@ body.nav-open{overflow:hidden}
 .section-light{background:linear-gradient(180deg,#ffffff 0%,#f5f7fa 100%);padding:72px 0}
 .subtitle{margin:12px 0 32px;font-size:1.125rem;font-weight:500;opacity:.85;max-width:720px}
 .steps-list{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.step{background:#fff;border-radius:24px;padding:28px;border:1px solid rgba(15,23,42,.08);box-shadow:0 16px 32px rgba(15,23,42,.08);display:grid;gap:18px;position:relative;overflow:hidden}
-.step-number{position:absolute;top:20px;right:20px;width:48px;height:48px;border-radius:50%;background:rgba(245,158,11,.14);color:#b45309;display:grid;place-items:center;font-weight:700;font-size:1.1rem}
+.step{background:#fff;border-radius:24px;padding:28px;border:1px solid rgba(15,23,42,.08);box-shadow:0 16px 32px rgba(15,23,42,.08);display:grid;gap:18px;overflow:hidden}
+.step-header{display:flex;align-items:center;gap:12px}
+.step-number{width:48px;height:48px;border-radius:50%;background:rgba(245,158,11,.14);color:#b45309;display:grid;place-items:center;font-weight:700;font-size:1.1rem}
 .step h4{margin:0;font-size:1.25rem;font-weight:700;color:var(--accent-2)}
 .step p{margin:0;color:rgba(15,23,42,.85);line-height:1.6}
 .step img{border-radius:16px;box-shadow:0 12px 24px rgba(15,23,42,.08);width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
