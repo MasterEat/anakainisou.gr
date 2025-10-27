@@ -76,7 +76,8 @@
     const aspect = String(project.aspect || '4:3').trim();
     const folder = typeof project.folder === 'string' ? project.folder : '';
     const cover = toSrcset(folder, project.cover);
-    const gallery = Array.isArray(project.gallery) ? project.gallery.slice(0, 6) : [];
+    const galleryGroups = normalizeGallery(project.gallery);
+    const hasGallery = galleryGroups.some((group) => group.images.length);
     const cardId = project.id ? String(project.id) : `project-${index + 1}`;
     const badges = [project.category, project.location].filter(Boolean).map(escapeHtml);
     const metaParts = [];
@@ -90,18 +91,36 @@
       metaParts.push(`<time datetime="${escapeAttr(normalizeDate(project.date))}">${escapeHtml(formatted)}</time>`);
     }
 
-    const thumbMarkup = gallery
-      .map((file, imageIndex) => {
-        const srcset = toSrcset(folder, file);
-        const thumbAlt = `${project.title || 'Project'} – φωτογραφία ${imageIndex + 1}`;
+    const galleryMarkup = galleryGroups
+      .map((group) => {
+        const sectionTitle = group.title ? `<h3 class="gallery-title">${escapeHtml(group.title)}</h3>` : '';
+        const imagesMarkup = group.images
+          .map((image, imageIndex) => {
+            const srcset = toSrcset(folder, image.file);
+            const thumbAlt = image.alt
+              ? image.alt
+              : `${project.title || 'Project'}${group.title ? ` – ${group.title}` : ''} – φωτογραφία ${imageIndex + 1}`;
+            return `
+            <picture>
+              ${srcset.webp ? `<source type="image/webp" srcset="${escapeAttr(srcset.webp)}" sizes="140px">` : ''}
+              <source type="${escapeAttr(srcset.type || 'image/jpeg')}" srcset="${escapeAttr(srcset.jpg)}" sizes="140px">
+              <img src="${escapeAttr(srcset.jpg800)}" srcset="${escapeAttr(srcset.jpg)}" sizes="140px"
+                   alt="${escapeAttr(thumbAlt)}" loading="lazy" decoding="async"
+                   data-full="${escapeAttr(srcset.best)}" data-lightbox-thumb>
+            </picture>`;
+          })
+          .join('');
+
+        if (!imagesMarkup) {
+          return '';
+        }
+
         return `
-        <picture>
-          <source type="image/webp" srcset="${escapeAttr(srcset.webp)}" sizes="140px">
-          <source type="image/jpeg" srcset="${escapeAttr(srcset.jpg)}" sizes="140px">
-          <img src="${escapeAttr(srcset.jpg800)}" srcset="${escapeAttr(srcset.jpg)}" sizes="140px"
-               alt="${escapeAttr(thumbAlt)}" loading="lazy" decoding="async"
-               data-full="${escapeAttr(srcset.best)}" data-lightbox-thumb>
-        </picture>`;
+          <section class="gallery-group">
+            ${sectionTitle}
+            <div class="strip gallery">${imagesMarkup}</div>
+          </section>
+        `;
       })
       .join('');
 
@@ -111,12 +130,21 @@
 
     const metaMarkup = metaParts.join('<span aria-hidden="true">•</span>');
 
+    const detailList = Array.isArray(project.details)
+      ? project.details
+          .map((detail) => (typeof detail === 'string' && detail.trim() ? `<li>${escapeHtml(detail)}</li>` : ''))
+          .filter(Boolean)
+          .join('')
+      : '';
+
+    const noteMarkup = project.note ? `<p class="card-note">${escapeHtml(project.note)}</p>` : '';
+
     return `
       <article class="card" id="${escapeAttr(cardId)}">
         <div class="card-cover" data-aspect="${escapeAttr(aspect)}">
           <picture>
-            <source type="image/webp" srcset="${escapeAttr(cover.webp)}" sizes="(min-width: 980px) 50vw, 100vw">
-            <source type="image/jpeg" srcset="${escapeAttr(cover.jpg)}" sizes="(min-width: 980px) 50vw, 100vw">
+            ${cover.webp ? `<source type="image/webp" srcset="${escapeAttr(cover.webp)}" sizes="(min-width: 980px) 50vw, 100vw">` : ''}
+            <source type="${escapeAttr(cover.type || 'image/jpeg')}" srcset="${escapeAttr(cover.jpg)}" sizes="(min-width: 980px) 50vw, 100vw">
             <img src="${escapeAttr(cover.jpg800)}" srcset="${escapeAttr(cover.jpg)}" sizes="(min-width: 980px) 50vw, 100vw"
                  alt="${escapeAttr(project.title || 'Project cover')}" loading="lazy" decoding="async">
           </picture>
@@ -126,14 +154,73 @@
           <h2 class="card-title">${escapeHtml(project.title || 'Project')}</h2>
           ${metaMarkup ? `<div class="card-meta">${metaMarkup}</div>` : ''}
           ${project.summary ? `<p class="card-summary">${escapeHtml(project.summary)}</p>` : ''}
-          ${thumbMarkup ? `<div class="strip gallery">${thumbMarkup}</div>` : ''}
+          ${detailList ? `<ul class="card-details">${detailList}</ul>` : ''}
+          ${noteMarkup}
+          ${galleryMarkup}
         </div>
         <div class="card-footer">
           <a class="btn btn-ghost" href="/epikoinonia">Ζητήστε Προσφορά</a>
-          ${thumbMarkup ? '<button class="btn btn-primary" type="button" data-open-gallery>Προβολή Gallery</button>' : ''}
+          ${hasGallery ? '<button class="btn btn-primary" type="button" data-open-gallery>Προβολή Gallery</button>' : ''}
         </div>
       </article>
     `;
+  }
+
+  function normalizeGallery(gallery) {
+    if (!Array.isArray(gallery) || !gallery.length) {
+      return [];
+    }
+
+    const isFlat = gallery.every((item) => typeof item === 'string' || (item && typeof item === 'object' && !Array.isArray(item.images)));
+
+    if (isFlat) {
+      const images = gallery
+        .map((item) => normalizeImage(item))
+        .filter(Boolean);
+
+      return images.length ? [{ title: '', images }] : [];
+    }
+
+    return gallery
+      .map((group) => {
+        if (!group || typeof group !== 'object' || !Array.isArray(group.images)) {
+          return null;
+        }
+
+        const images = group.images
+          .map((item) => normalizeImage(item))
+          .filter(Boolean);
+
+        if (!images.length) {
+          return null;
+        }
+
+        return {
+          title: typeof group.title === 'string' ? group.title : '',
+          images
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function normalizeImage(item) {
+    if (typeof item === 'string') {
+      return { file: item, alt: '' };
+    }
+
+    if (!item || typeof item !== 'object') {
+      return null;
+    }
+
+    const file = typeof item.file === 'string' ? item.file : typeof item.src === 'string' ? item.src : '';
+    if (!file) {
+      return null;
+    }
+
+    return {
+      file,
+      alt: typeof item.alt === 'string' ? item.alt : ''
+    };
   }
 
   function updateSchema(items) {
@@ -180,18 +267,40 @@
 
   function toSrcset(folder, filename) {
     if (!filename) {
-      return { webp: '', jpg: '', jpg800: '', best: '' };
+      return { webp: '', jpg: '', jpg800: '', best: '', type: 'image/jpeg' };
     }
 
     const basePath = joinPath(folder, filename);
-    const withoutExt = basePath.replace(/\.(webp|jpe?g|png)$/i, '');
-    const root = withoutExt.replace(/-(800|1200|1600)$/i, '');
+    const extensionMatch = basePath.match(/\.(webp|jpe?g|png)$/i);
+
+    if (!extensionMatch) {
+      return { webp: '', jpg: `${basePath} 1x`, jpg800: basePath, best: basePath, type: 'image/jpeg' };
+    }
+
+    const ext = extensionMatch[1].toLowerCase();
+    const withoutExt = basePath.slice(0, -extensionMatch[0].length);
+    const sizeMatch = withoutExt.match(/-(800|1200|1600)$/i);
+
+    if (sizeMatch) {
+      const root = withoutExt.replace(/-(800|1200|1600)$/i, '');
+      return {
+        webp: `${root}-800.webp 800w, ${root}-1200.webp 1200w, ${root}-1600.webp 1600w`,
+        jpg: `${root}-800.jpg 800w, ${root}-1200.jpg 1200w, ${root}-1600.jpg 1600w`,
+        jpg800: `${root}-800.jpg`,
+        best: `${root}-1600.webp`,
+        type: 'image/jpeg'
+      };
+    }
+
+    const jpgSrcset = `${basePath} 1x`;
+    const best = basePath;
 
     return {
-      webp: `${root}-800.webp 800w, ${root}-1200.webp 1200w, ${root}-1600.webp 1600w`,
-      jpg: `${root}-800.jpg 800w, ${root}-1200.jpg 1200w, ${root}-1600.jpg 1600w`,
-      jpg800: `${root}-800.jpg`,
-      best: `${root}-1600.webp`
+      webp: ext === 'webp' ? `${basePath} 1x` : '',
+      jpg: jpgSrcset,
+      jpg800: basePath,
+      best,
+      type: ext === 'png' ? 'image/png' : ext === 'webp' ? 'image/webp' : 'image/jpeg'
     };
   }
 
