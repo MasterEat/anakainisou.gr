@@ -230,7 +230,7 @@ body.nav-open{overflow:hidden}
 .footer-links a:focus-visible{outline:0;box-shadow:0 0 0 3px var(--ring)}
 .footer-copy{margin:0;font-size:.95rem}
 .brand--footer{margin:0}
-.brand--footer .brand-logo{height:48px}
+.brand--footer .brand-logo{height:56px}
 .site-footer .social{margin-left:0}
 
 .legal-links{font-size:.85rem;opacity:.8;margin-top:8px;text-align:center;width:100%}
@@ -333,7 +333,7 @@ body.nav-open{overflow:hidden}
   .footer-brand{align-items:center;text-align:center}
   .footer-social{align-items:flex-end}
   .footer-social .social{justify-content:flex-end}
-  .brand--footer .brand-logo{height:56px}
+  .brand--footer .brand-logo{height:64px}
   .service{gap:18px}
   .service__toggle{cursor:default;padding:0;border-bottom:none;min-height:auto}
   .service__chevron{display:none}
