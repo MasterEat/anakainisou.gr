@@ -203,21 +203,33 @@
 
   function normalizeImage(item) {
     if (typeof item === 'string') {
-      return { file: item, alt: '' };
+      const file = item.trim();
+      if (!file) {
+        return null;
+      }
+
+      return { file, alt: '' };
     }
 
     if (!item || typeof item !== 'object') {
       return null;
     }
 
-    const file = typeof item.file === 'string' ? item.file : typeof item.src === 'string' ? item.src : '';
+    const rawFile =
+      typeof item.file === 'string'
+        ? item.file
+        : typeof item.src === 'string'
+          ? item.src
+          : '';
+
+    const file = rawFile.trim();
     if (!file) {
       return null;
     }
 
     return {
       file,
-      alt: typeof item.alt === 'string' ? item.alt : ''
+      alt: typeof item.alt === 'string' ? item.alt.trim() : ''
     };
   }
 
