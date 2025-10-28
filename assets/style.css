@@ -100,6 +100,8 @@ body.nav-open{overflow:hidden}
 .btn--primary:hover,
 .btn--primary:focus-visible{background:var(--bg);color:var(--text);border-color:var(--accent-2);transform:translateY(-1px);box-shadow:var(--shadow);outline:none}
 .btn--ghost{background:#fff;color:var(--text)}
+.btn--ghost:hover,
+.btn--ghost:focus-visible{background:#F59E0B;color:#fff;border-color:#F59E0B;outline:none}
 .btn--sm{padding:8px 12px}
 .under-cta{text-align:center;margin-top:18px}
 
