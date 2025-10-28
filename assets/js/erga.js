@@ -157,8 +157,8 @@
           ${galleryMarkup}
         </div>
         <div class="card-footer">
-          <a class="btn btn-ghost" href="/epikoinonia">Ζητήστε Προσφορά</a>
-          ${hasGallery ? '<button class="btn btn-primary" type="button" data-open-gallery>Προβολή Gallery</button>' : ''}
+          <a class="btn btn--ghost" href="index.html#contact">Ζητήστε Προσφορά</a>
+          ${hasGallery ? '<button class="btn btn--primary" type="button" data-open-gallery>Προβολή Gallery</button>' : ''}
         </div>
       </article>
     `;
