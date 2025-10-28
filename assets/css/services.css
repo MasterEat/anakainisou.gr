@@ -1,0 +1,119 @@
+:root{
+  --amber:#F59E0B;
+  --slate:#0F172A;
+  --muted:#64748b;
+  --card:#ffffff;
+  --bg:#f8fafc;
+}
+
+#services{background:var(--bg);}
+
+.services{
+  padding:32px 16px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.services-head{
+  text-align:center;
+  margin-bottom:12px;
+}
+
+.section-title{
+  margin:0 0 6px;
+  font-size:clamp(24px,3.2vw,36px);
+  color:var(--slate);
+}
+
+.section-sub{
+  margin:0;
+  color:#475569;
+}
+
+.services-grid{
+  display:grid;
+  gap:16px;
+  margin-top:16px;
+  grid-template-columns:1fr;
+}
+
+@media (min-width:640px){
+  .services-grid{grid-template-columns:1fr 1fr;}
+}
+
+@media (min-width:1024px){
+  .services-grid{grid-template-columns:1fr 1fr 1fr;}
+}
+
+.svc{
+  background:var(--card);
+  border-radius:16px;
+  padding:16px;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  min-height:180px;
+  transform:translateZ(0);
+}
+
+.svc-icon svg{
+  width:28px;
+  height:28px;
+  color:var(--amber);
+}
+
+.svc-title{
+  margin:2px 0 0;
+  font-size:18px;
+  color:var(--slate);
+}
+
+.svc-desc{
+  margin:0;
+  color:#334155;
+  line-height:1.55;
+}
+
+@media (hover:hover){
+  .svc{
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .svc:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 24px rgba(0,0,0,.10);
+  }
+}
+
+.services-cta{
+  display:flex;
+  justify-content:center;
+  margin-top:12px;
+}
+
+.services-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 20px;
+  border-radius:999px;
+  font-weight:700;
+  text-decoration:none;
+  color:#1f2937;
+  background:var(--amber);
+  box-shadow:0 6px 18px rgba(245,158,11,.28);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+
+.services-btn:hover,
+.services-btn:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(245,158,11,.36);
+  outline:none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .svc{transition:none;}
+  .services-btn{transition:none;}
+}
