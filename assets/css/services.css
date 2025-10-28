@@ -1,0 +1,51 @@
+:root{
+  --amber:#F59E0B; --slate:#0F172A; --muted:#64748b;
+}
+
+.services{ padding: 24px 16px; max-width: 1100px; margin: 0 auto; }
+.section-title{ font-size: clamp(24px, 3.2vw, 34px); margin: 0 0 6px; color: var(--slate); }
+.section-sub{ margin: 0 0 12px; color:#475569; }
+
+.service-card{
+  background:#fff; border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,.06);
+  margin:12px 0; overflow:hidden; transition: box-shadow .25s ease;
+}
+.service-card.open{ box-shadow:0 6px 18px rgba(0,0,0,.10); }
+
+.service-header{
+  -webkit-tap-highlight-color:transparent;
+  width:100%; display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:14px 16px; background:#F9FAFB; border:0; text-align:left;
+  font-weight:700; font-size:16px; color:#0F172A; position:relative; overflow:hidden;
+}
+.service-header .left{ display:flex; align-items:center; gap:12px; min-width:0; }
+.service-icon{ width:24px; height:24px; color: var(--amber); flex: 0 0 24px; }
+.service-title{ white-space:normal; line-height:1.2; }
+
+.service-arrow{ width:20px; height:20px; color: var(--amber); transition: transform .25s ease; flex:0 0 20px; }
+.service-card.open .service-arrow{ transform: rotate(180deg); }
+
+.service-content{
+  max-height:0; overflow:hidden; background:#fff; padding:0 16px;
+  transition:max-height .3s ease, padding .3s ease; line-height:1.6;
+}
+.service-card.open .service-content{ max-height:440px; padding:12px 16px 16px; }
+.service-content p{ margin:0; color:#334155; }
+.service-meta{ margin-top:8px; color:#64748b; font-size:13px; }
+
+.ripple::after{
+  content:""; position:absolute; left:var(--rx,50%); top:var(--ry,50%);
+  width:0; height:0; transform:translate(-50%,-50%);
+  background:radial-gradient(circle, #d7c9a9 0%, rgba(215,201,169,0) 70%);
+  opacity:.4; border-radius:50%; pointer-events:none;
+  transition: width .45s ease, height .45s ease, opacity .6s ease;
+}
+.ripple:active::after{ width:220px; height:220px; opacity:.15; }
+
+.services-cta{ display:flex; justify-content:center; padding-top:8px; }
+.services-cta .btn{ appearance:none; border:0; border-radius:999px; padding:10px 16px; font-weight:700; cursor:pointer; }
+.services-cta .btn-primary{ background:var(--amber); color:#1f2937; }
+
+@media (min-width:680px){
+  .service-header{ font-size:17px; }
+}
