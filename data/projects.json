@@ -24,27 +24,23 @@
       {
         "title": "Μετά",
         "images": [
-          "renovation1*.jpg",
-          "renovation2*.jpg",
-          "renovation3*.jpg",
-          "renovation4*.jpg",
-          "renovation5*.jpg",
           "renovation6*.jpg",
-          "renovation7*.jpg",
-          "renovation8*.jpg"
+          "renovation2.jpg",
+          "renovation**.jpg",
+          "renovation88.jpg",
+          "renovation4*.jpg",
+          "renovation2*.jpg",
+          "renovation1*.jpg"
         ]
       },
       {
         "title": "Πριν",
         "images": [
-          "renovation1.jpg",
-          "renovation2.jpg",
           "renovation3.jpg",
           "renovation4.jpg",
           "renovation5.jpg",
-          "renovation6.jpg",
           "renovation7.jpg",
-          "renovation8.jpg"
+          "renovation8*.jpg"
         ]
       }
     ]
