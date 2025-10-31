@@ -74,6 +74,12 @@
     const aspect = String(project.aspect || '4:3').trim();
     const folder = typeof project.folder === 'string' ? project.folder : '';
     const cover = toSrcset(folder, project.cover);
+    const layout = typeof project.layout === 'string' ? project.layout.trim().toLowerCase() : '';
+    const isMinimalGrid = layout === 'minimal-grid';
+    const cardClasses = ['card'];
+    if (isMinimalGrid) {
+      cardClasses.push('card--minimal');
+    }
     const galleryGroups = normalizeGallery(project.gallery);
     const hasGallery = galleryGroups.some((group) => group.images.length);
     const cardId = project.id ? String(project.id) : `project-${index + 1}`;
@@ -89,6 +95,7 @@
       metaParts.push(`<time datetime="${escapeAttr(normalizeDate(project.date))}">${escapeHtml(formatted)}</time>`);
     }
 
+    const galleryWrapperClass = isMinimalGrid ? 'gallery gallery--grid' : 'strip gallery';
     const galleryMarkup = galleryGroups
       .map((group) => {
         const sectionTitle = group.title ? `<h3 class="gallery-title">${escapeHtml(group.title)}</h3>` : '';
@@ -116,7 +123,7 @@
         return `
           <section class="gallery-group">
             ${sectionTitle}
-            <div class="strip gallery">${imagesMarkup}</div>
+            <div class="${escapeAttr(galleryWrapperClass)}">${imagesMarkup}</div>
           </section>
         `;
       })
@@ -137,8 +144,9 @@
 
     const noteMarkup = project.note ? `<p class="card-note">${escapeHtml(project.note)}</p>` : '';
 
-    return `
-      <article class="card" id="${escapeAttr(cardId)}">
+    const coverMarkup = isMinimalGrid
+      ? ''
+      : `
         <div class="card-cover" data-aspect="${escapeAttr(aspect)}">
           <picture>
             ${cover.webp ? `<source type="image/webp" srcset="${escapeAttr(cover.webp)}" sizes="(min-width: 980px) 50vw, 100vw">` : ''}
@@ -148,6 +156,20 @@
           </picture>
           ${badgeMarkup ? `<div class="badges">${badgeMarkup}</div>` : ''}
         </div>
+      `;
+
+    const footerMarkup = isMinimalGrid
+      ? ''
+      : `
+        <div class="card-footer">
+          <a class="btn btn--ghost" href="index.html#contact">Ζητήστε Προσφορά</a>
+          ${hasGallery ? '<button class="btn btn--primary" type="button" data-open-gallery>Προβολή Gallery</button>' : ''}
+        </div>
+      `;
+
+    return `
+      <article class="${escapeAttr(cardClasses.join(' '))}" id="${escapeAttr(cardId)}">
+        ${coverMarkup}
         <div class="card-body">
           <h2 class="card-title">${escapeHtml(project.title || 'Project')}</h2>
           ${metaMarkup ? `<div class="card-meta">${metaMarkup}</div>` : ''}
@@ -156,10 +178,7 @@
           ${noteMarkup}
           ${galleryMarkup}
         </div>
-        <div class="card-footer">
-          <a class="btn btn--ghost" href="index.html#contact">Ζητήστε Προσφορά</a>
-          ${hasGallery ? '<button class="btn btn--primary" type="button" data-open-gallery>Προβολή Gallery</button>' : ''}
-        </div>
+        ${footerMarkup}
       </article>
     `;
   }
