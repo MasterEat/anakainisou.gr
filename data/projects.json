@@ -105,32 +105,5 @@
       "img-03-1200.webp"
     ],
     "folder": "photos/projects/bathroom-piraeus-2025/"
-  },
-  {
-    "id": "metallikes-kataskeves",
-    "title": "Μεταλλικές Κατασκευές",
-    "category": "Κατασκευές",
-    "aspect": "16:9",
-    "folder": "photos/",
-    "cover": "fm1.jpg",
-    "gallery": [
-      {
-        "file": "fm1.jpg",
-        "alt": "Μεταλλική κατασκευή με καθαρές γεωμετρίες"
-      },
-      {
-        "file": "fm2.jpg",
-        "alt": "Λεπτομέρεια σύνδεσης μεταλλικού φορέα"
-      },
-      {
-        "file": "fm3.jpg",
-        "alt": "Μεταλλική εγκατάσταση με βιομηχανικό χαρακτήρα"
-      },
-      {
-        "file": "fm4.jpg",
-        "alt": "Μοντέρνα μεταλλική εγκατάσταση"
-      }
-    ],
-    "layout": "minimal-grid"
   }
 ]
