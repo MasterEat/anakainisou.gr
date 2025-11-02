@@ -23,6 +23,17 @@
   font-size: 18px;
 }
 
+.page-hero__actions {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.page-hero__cta {
+  font-weight: 700;
+  min-width: 220px;
+}
+
 .projects {
   max-width: 1200px;
   margin: 0 auto;
