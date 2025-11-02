@@ -1,0 +1,9 @@
+{
+  "name": "anakainisou-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "audit:lazy": "node tools/report-lazy-images.js",
+    "fix:lazy": "node tools/fix-lazy-images.js"
+  }
+}
