@@ -1,3 +1,36 @@
+// Dynamic home link handling for GitHub Pages vs custom domain
+(function setDynamicHome(){
+  var isGh=location.hostname.endsWith('github.io');
+  var projSeg=(location.pathname.split('/')[1]||'').trim();
+  var proj=projSeg?('/'+projSeg+'/'):'/';
+  var homeHref=isGh?proj:'/';
+
+  var normalize=function(path){
+    var normalized=(path||'/').replace(/\/+$/,'');
+    if(normalized.toLowerCase().endsWith('/index.html')){
+      normalized=normalized.slice(0,-11).replace(/\/+$/,'');
+    }
+    if(!normalized){return '/';}
+    return normalized;
+  };
+
+  var here=normalize(location.pathname||'/');
+  var target=normalize(homeHref);
+
+  document.querySelectorAll('a[data-home]').forEach(function(a){
+    a.href=homeHref;
+    a.addEventListener('click',function(event){
+      if(here===target){
+        event.preventDefault();
+        window.scrollTo({top:0,behavior:'smooth'});
+      }
+    });
+    if(here===target){
+      a.setAttribute('aria-current','page');
+    }
+  });
+})();
+
 // Navigation interactions
 const body=document.body;
 const navToggle=document.querySelector('[data-nav-toggle]');
