@@ -3,6 +3,7 @@
   if (!lightbox) {
     window.registerLightboxThumbs = function () {};
     window.openLightboxFromThumb = function () {};
+    window.openLightboxFromEl = function () {};
     window.dispatchEvent(new CustomEvent('lightbox:ready'));
     return;
   }
@@ -18,92 +19,60 @@
   if (!imageEl || !countEl || !prevBtn || !nextBtn || !dialogFrame) {
     window.registerLightboxThumbs = function () {};
     window.openLightboxFromThumb = function () {};
+    window.openLightboxFromEl = function () {};
     window.dispatchEvent(new CustomEvent('lightbox:ready'));
     return;
   }
 
   dialogFrame.setAttribute('tabindex', '-1');
 
-  const THUMB_SELECTOR = '.car-img, .gallery img, [data-lightbox-thumb]';
-  const thumbnails = [];
-  const seenThumbs = new WeakSet();
-
-  let activeIndex = 0;
+  let currentGroup = [];
+  let currentIndex = 0;
   let previousFocus = null;
   let focusableElements = [];
   let firstFocusable = null;
   let lastFocusable = null;
 
-  function registerThumb(thumb) {
-    if (!(thumb instanceof HTMLImageElement)) {
-      return;
-    }
-
-    if (seenThumbs.has(thumb)) {
-      return;
-    }
-
-    seenThumbs.add(thumb);
-    const index = thumbnails.push(thumb) - 1;
-
-    thumb.style.cursor = 'zoom-in';
-    thumb.setAttribute('data-lb-index', String(index));
-    thumb.setAttribute('role', 'button');
-    thumb.setAttribute('tabindex', '0');
-    thumb.setAttribute('aria-haspopup', 'dialog');
-
-    thumb.addEventListener('click', () => open(index));
-    thumb.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        open(index);
-      }
-    });
-  }
-
-  function registerThumbs(list) {
-    if (!list) {
-      list = document.querySelectorAll(THUMB_SELECTOR);
-    } else if (typeof list === 'string') {
-      list = document.querySelectorAll(list);
-    }
-
-    if (list instanceof Element) {
-      registerThumb(list);
-      return;
-    }
-
-    if (typeof list[Symbol.iterator] !== 'function') {
-      return;
-    }
-
-    Array.from(list).forEach(registerThumb);
-  }
-
-  function getActiveThumb() {
-    return thumbnails[activeIndex] || null;
-  }
-
-  function getThumbSource(thumb) {
-    if (!thumb) {
+  function resolveImageSource(el) {
+    if (!el) {
       return { src: '', alt: '' };
     }
 
-    const src = thumb.dataset.full || thumb.currentSrc || thumb.src || '';
-    const alt = thumb.alt || '';
+    const src = el.dataset.full || el.currentSrc || el.src || '';
+    const alt = el.alt || '';
+
     return { src, alt };
   }
 
-  function open(index) {
-    if (!thumbnails.length) {
+  function openFromElement(el) {
+    if (!(el instanceof Element)) {
       return;
     }
 
-    const maxIndex = thumbnails.length - 1;
-    activeIndex = Math.min(Math.max(index, 0), maxIndex);
-    previousFocus = document.activeElement;
+    const groupId = el.dataset.lbGroup || 'default';
+    const selector = `.lb-trigger[data-lb-group="${groupId}"]`;
+    const groupItems = Array.from(document.querySelectorAll(selector));
+
+    if (!groupItems.length) {
+      currentGroup = [el];
+      currentIndex = 0;
+    } else {
+      currentGroup = groupItems;
+      const index = currentGroup.indexOf(el);
+      currentIndex = index === -1 ? 0 : index;
+    }
+
+    previousFocus = document.activeElement instanceof Element ? document.activeElement : el;
 
     render();
+    open();
+  }
+
+  function open() {
+    if (!currentGroup.length) {
+      return;
+    }
+
     lightbox.classList.add('on');
     lightbox.setAttribute('aria-hidden', 'false');
     html.style.overflow = 'hidden';
@@ -131,10 +100,10 @@
   }
 
   function render() {
-    const thumb = getActiveThumb();
-    const total = thumbnails.length;
+    const activeEl = currentGroup[currentIndex];
+    const total = currentGroup.length;
 
-    if (!thumb || !total) {
+    if (!activeEl || !total) {
       countEl.textContent = '0/0';
       prevBtn.disabled = true;
       nextBtn.disabled = true;
@@ -143,37 +112,32 @@
       return;
     }
 
-    const { src, alt } = getThumbSource(thumb);
+    const { src, alt } = resolveImageSource(activeEl);
     if (src && imageEl.src !== src) {
       imageEl.src = src;
     }
     imageEl.alt = alt;
-    countEl.textContent = `${activeIndex + 1}/${total}`;
+    countEl.textContent = `${currentIndex + 1}/${total}`;
 
-    const isFirst = activeIndex === 0;
-    const isLast = activeIndex === total - 1;
+    const disableNav = total <= 1;
 
-    prevBtn.disabled = isFirst;
-    nextBtn.disabled = isLast;
+    prevBtn.disabled = disableNav;
+    nextBtn.disabled = disableNav;
 
-    prevBtn.setAttribute('aria-disabled', String(isFirst));
-    nextBtn.setAttribute('aria-disabled', String(isLast));
+    prevBtn.setAttribute('aria-disabled', String(disableNav));
+    nextBtn.setAttribute('aria-disabled', String(disableNav));
 
     updateFocusable();
   }
 
-  function goPrev() {
-    if (activeIndex > 0) {
-      activeIndex -= 1;
-      render();
+  function go(delta) {
+    const total = currentGroup.length;
+    if (!total) {
+      return;
     }
-  }
 
-  function goNext() {
-    if (activeIndex < thumbnails.length - 1) {
-      activeIndex += 1;
-      render();
-    }
+    currentIndex = (currentIndex + delta + total) % total;
+    render();
   }
 
   function updateFocusable() {
@@ -209,8 +173,8 @@
     }
   }
 
-  prevBtn.addEventListener('click', goPrev);
-  nextBtn.addEventListener('click', goNext);
+  prevBtn.addEventListener('click', () => go(-1));
+  nextBtn.addEventListener('click', () => go(1));
 
   closeTriggers.forEach((trigger) => {
     trigger.addEventListener('click', close);
@@ -229,38 +193,22 @@
 
     if (event.key === 'ArrowLeft') {
       event.preventDefault();
-      goPrev();
+      go(-1);
       return;
     }
 
     if (event.key === 'ArrowRight') {
       event.preventDefault();
-      goNext();
+      go(1);
       return;
     }
   });
 
   document.addEventListener('keydown', trapFocus, true);
 
-  registerThumbs(document.querySelectorAll(THUMB_SELECTOR));
-
-  window.registerLightboxThumbs = function (nodes) {
-    registerThumbs(nodes);
-  };
-
-  window.openLightboxFromThumb = function (target) {
-    if (typeof target === 'number') {
-      open(target);
-      return;
-    }
-
-    if (target instanceof Element) {
-      const index = thumbnails.indexOf(target);
-      if (index !== -1) {
-        open(index);
-      }
-    }
-  };
+  window.openLightboxFromEl = openFromElement;
+  window.openLightboxFromThumb = openFromElement;
+  window.registerLightboxThumbs = function () {};
 
   window.dispatchEvent(new CustomEvent('lightbox:ready'));
 })();

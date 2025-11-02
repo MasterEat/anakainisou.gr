@@ -44,29 +44,67 @@
 
     mount.innerHTML = markup;
 
-    const thumbs = mount.querySelectorAll('[data-lightbox-thumb]');
-    const registerThumbs = () => {
-      if (typeof window.registerLightboxThumbs === 'function') {
-        window.registerLightboxThumbs(thumbs);
-      }
-    };
+    const cards = mount.querySelectorAll('.card');
+    cards.forEach((card, groupIndex) => {
+      const groupId = `proj-${groupIndex}`;
+      const triggers = card.querySelectorAll('.strip img, .gallery img, .card-cover picture img');
 
-    if (typeof window.registerLightboxThumbs === 'function') {
-      registerThumbs();
-    } else {
-      window.addEventListener('lightbox:ready', function handleReady() {
-        registerThumbs();
-        window.removeEventListener('lightbox:ready', handleReady);
-      });
-    }
-
-    mount.querySelectorAll('[data-open-gallery]').forEach((button) => {
-      button.addEventListener('click', () => {
-        const firstThumb = button.closest('.card')?.querySelector('[data-lightbox-thumb]');
-        if (firstThumb && typeof firstThumb.click === 'function') {
-          firstThumb.click();
+      triggers.forEach((img, imageIndex) => {
+        if (!(img instanceof HTMLImageElement)) {
+          return;
         }
+
+        img.classList.add('lb-trigger');
+        img.dataset.lbGroup = groupId;
+        img.dataset.lbIndex = String(imageIndex);
+        img.setAttribute('role', 'button');
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('aria-haspopup', 'dialog');
+        img.style.cursor = 'zoom-in';
+
+        if (!img.dataset.full) {
+          const picture = img.closest('picture');
+          const source = picture?.querySelector('source[type="image/webp"]') || picture?.querySelector('source');
+          if (source && source.getAttribute('srcset')) {
+            const bestSrc = source
+              .getAttribute('srcset')
+              .split(',')
+              .map((entry) => entry.trim().split(' ')[0])
+              .filter(Boolean)
+              .pop();
+            if (bestSrc) {
+              img.dataset.full = bestSrc;
+            }
+          }
+        }
+
+        if (!img.alt) {
+          const title = card.querySelector('.card-title')?.textContent?.trim();
+          img.alt = title || 'Project image';
+        }
+
+        img.addEventListener('click', () => {
+          if (typeof window.openLightboxFromEl === 'function') {
+            window.openLightboxFromEl(img);
+          }
+        });
+
+        img.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            if (typeof window.openLightboxFromEl === 'function') {
+              window.openLightboxFromEl(img);
+            }
+          }
+        });
       });
+
+      const cta = card.querySelector('[data-open-gallery]');
+      if (cta && triggers[0]) {
+        cta.addEventListener('click', () => {
+          triggers[0].dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+        });
+      }
     });
   }
 
@@ -152,7 +190,8 @@
             ${cover.webp ? `<source type="image/webp" srcset="${escapeAttr(cover.webp)}" sizes="(min-width: 980px) 50vw, 100vw">` : ''}
             <source type="${escapeAttr(cover.type || 'image/jpeg')}" srcset="${escapeAttr(cover.jpg)}" sizes="(min-width: 980px) 50vw, 100vw">
             <img src="${escapeAttr(cover.jpg800)}" srcset="${escapeAttr(cover.jpg)}" sizes="(min-width: 980px) 50vw, 100vw"
-                 alt="${escapeAttr(project.title || 'Project cover')}" loading="lazy" decoding="async">
+                 alt="${escapeAttr(project.title || 'Project cover')}" loading="lazy" decoding="async"
+                 data-full="${escapeAttr(cover.best)}">
           </picture>
           ${badgeMarkup ? `<div class="badges">${badgeMarkup}</div>` : ''}
         </div>
