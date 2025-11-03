@@ -47,13 +47,28 @@
     const cards = mount.querySelectorAll('.card');
     cards.forEach((card, groupIndex) => {
       const groupId = `proj-${groupIndex}`;
-      const triggers = card.querySelectorAll('.strip img, .gallery img, .card-cover picture img');
-
-      triggers.forEach((img, imageIndex) => {
+      const triggerNodes = Array.from(
+        card.querySelectorAll('.strip img, .gallery img, .card-cover picture img')
+      );
+      const seenKeys = new Set();
+      const triggers = triggerNodes.filter((img) => {
         if (!(img instanceof HTMLImageElement)) {
-          return;
+          return false;
         }
 
+        const key = getImageKey(img);
+        if (key && seenKeys.has(key)) {
+          return false;
+        }
+
+        if (key) {
+          seenKeys.add(key);
+        }
+
+        return true;
+      });
+
+      triggers.forEach((img, imageIndex) => {
         img.classList.add('lb-trigger');
         img.dataset.lbGroup = groupId;
         img.dataset.lbIndex = String(imageIndex);
@@ -289,6 +304,24 @@
       file,
       alt: typeof item.alt === 'string' ? item.alt.trim() : ''
     };
+  }
+
+  function getImageKey(img) {
+    if (!(img instanceof HTMLImageElement)) {
+      return '';
+    }
+
+    const fromDataset = typeof img.dataset.full === 'string' ? img.dataset.full.trim() : '';
+    if (fromDataset) {
+      return fromDataset;
+    }
+
+    const fromCurrentSrc = typeof img.currentSrc === 'string' ? img.currentSrc.trim() : '';
+    if (fromCurrentSrc) {
+      return fromCurrentSrc;
+    }
+
+    return typeof img.src === 'string' ? img.src.trim() : '';
   }
 
   function updateSchema(items) {
