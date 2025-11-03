@@ -13,7 +13,10 @@
   const prevBtn = lightbox.querySelector('.lb-prev');
   const nextBtn = lightbox.querySelector('.lb-next');
   const dialogFrame = lightbox.querySelector('.lb-frame');
-  const closeTriggers = lightbox.querySelectorAll('[data-lb-close]');
+  const closeTriggers = Array.from(
+    lightbox.querySelectorAll('[data-lb-close]')
+  ).filter((el) => !el.classList.contains('lb-backdrop'));
+  const backdrop = lightbox.querySelector('.lb-backdrop');
   const html = document.documentElement;
 
   if (!imageEl || !countEl || !prevBtn || !nextBtn || !dialogFrame) {
@@ -179,6 +182,14 @@
   closeTriggers.forEach((trigger) => {
     trigger.addEventListener('click', close);
   });
+
+  if (backdrop) {
+    backdrop.addEventListener('click', (event) => {
+      if (event.target === backdrop) {
+        close();
+      }
+    });
+  }
 
   document.addEventListener('keydown', (event) => {
     if (!lightbox.classList.contains('on')) {
