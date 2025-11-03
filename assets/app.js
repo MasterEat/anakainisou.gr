@@ -443,10 +443,22 @@ document.querySelectorAll('.logo-link').forEach(function(link){
 (()=>{
   const form=document.getElementById('contactForm');
   if(!form){return;}
-  const status=document.getElementById('formStatus');
+  const status=document.getElementById('form-status');
 
   form.addEventListener('submit',async event=>{
     event.preventDefault();
+    if(!form.checkValidity()){
+      if(status){
+        status.hidden=false;
+        status.textContent='Παρακαλώ συμπληρώστε τα απαραίτητα πεδία.';
+      }
+      if(typeof form.reportValidity==='function'){
+        form.reportValidity();
+      }
+      setTimeout(()=>{if(status){status.hidden=true;}},7000);
+      return;
+    }
+
     if(status){status.hidden=false;status.textContent='Αποστολή...';}
 
     try{
