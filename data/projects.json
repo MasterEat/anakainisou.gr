@@ -23,26 +23,26 @@
     "gallery": [
       {
         "title": "Μετά",
-        "images": [
-          "renovation6*.jpg",
-          "renovation2.jpg",
-          "renovation**.jpg",
-          "renovation88.jpg",
-          "renovation4*.jpg",
-          "renovation2*.jpg",
-          "renovation1*.jpg"
-        ]
-      },
-      {
-        "title": "Πριν",
-        "images": [
-          "renovation3.jpg",
-          "renovation4.jpg",
-          "renovation5.jpg",
-          "renovation7.jpg",
-          "renovation8*.jpg"
-        ]
-      }
+      "images": [
+        "renovation6*.jpg",
+        "renovation2.jpg",
+        "renovation**.jpg",
+        "renovation88.jpg",
+        "renovation4*.jpg",
+        "renovation2*.jpg",
+        "renovation1*.jpg",
+        "renovation8*.jpg"
+      ]
+    },
+    {
+      "title": "Πριν",
+      "images": [
+        "renovation3.jpg",
+        "renovation4.jpg",
+        "renovation5.jpg",
+        "renovation7.jpg"
+      ]
+    }
     ]
   },
   {
