@@ -325,8 +325,8 @@
     "location": "Αττική",
     "summary": "Κουφώματα αλουμινίου - pvc: Συρόμενα ή ανοιγόμενα με ανάκλιση, με σήτα, με ρολό ή παντζούρι, με ιμάντα ή button, τα κουφώματα προσφέρουν θερμομόνωση, ηχομόνωση και ασφάλεια.",
     "aspect": "4:3",
-    "folder": "images/",
-    "cover": "project-1.webp",
+    "folder": "erga/",
+    "cover": "windows1.jpg",
     "details": [
       "Επιλογές σε συρόμενα ή ανοιγόμενα κουφώματα με ανάκλιση ανάλογα με το δωμάτιο.",
       "Ενσωμάτωση σίτας, ρολού ή παντζουριού με χειρισμό ιμάντα ή button.",
@@ -336,11 +336,11 @@
       {
         "title": "Gallery",
         "images": [
-          "project-1.webp",
-          "project-2.webp",
-          "project-3.webp",
-          "project-4.webp",
-          "visit.jpg"
+          "windows1.jpg",
+          "windows2.jpg",
+          "windows3.jpg",
+          "windows4.jpg",
+          "windows5.jpg"
         ]
       }
     ]
