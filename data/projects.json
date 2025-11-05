@@ -155,7 +155,7 @@
     "summary": "Τα μωσαϊκά δάπεδα τρίφτηκαν με ειδικό μηχάνημα και λουστραρίστηκαν. Το αποτέλεσμα εντυπωσιακό!",
     "aspect": "4:3",
     "folder": "erga/",
-    "cover": "floor1.jpg",
+    "cover": "masaiko3.jpg",
     "details": [
       "Τα μωσαϊκά δάπεδα τρίφτηκαν προσεκτικά με ειδικό μηχάνημα για να απομακρυνθούν οι φθορές.",
       "Εφαρμόστηκε λουστράρισμα που ανέδειξε τα χρώματα και την υφή του μωσαϊκού.",
@@ -165,10 +165,10 @@
       {
         "title": "Gallery",
         "images": [
-          "floor1.jpg",
-          "floor2.jpg",
-          "renovation2.jpg",
-          "renovation4.jpg"
+          "masaiko1.jpg",
+          "masaiko2.jpg",
+          "masaiko4.jpg",
+          "renovation2.jpg"
         ]
       }
     ]
