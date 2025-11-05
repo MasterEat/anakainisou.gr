@@ -67,7 +67,7 @@
 }
 
 .lb-nav {
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
   width: 44px;
@@ -82,6 +82,7 @@
   color: var(--lb-fg);
   display: grid;
   place-items: center;
+  z-index: 1;
 }
 
 .lb-nav:disabled {
@@ -90,11 +91,11 @@
 }
 
 .lb-prev {
-  left: -52px;
+  left: 16px;
 }
 
 .lb-next {
-  right: -52px;
+  right: 16px;
 }
 
 .lb-meta {
