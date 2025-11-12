@@ -31,6 +31,60 @@
   });
 })();
 
+// SEO metadata updates for hash-based sections
+(()=>{
+  const descriptionMeta=document.querySelector('meta[name="description"]');
+  const aboutSection=document.getElementById('about');
+  if(!descriptionMeta||!aboutSection){return;}
+
+  const seoMap={
+    '':{
+      title:'Ανακαινίσεις Σπιτιών & Επαγγελματικών Αθήνα | FM Renovation',
+      description:'Ολικές & μερικές ανακαινίσεις σε Αθήνα και Αττική με ποιότητα, συνέπεια και προσιτό κόστος από την FM Renovation. Ζητήστε προσφορά σήμερα.'
+    },
+    '#about':{
+      title:'Σχετικά με την FM Renovation στην Αθήνα | FM Renovation',
+      description:'Γνωρίστε την ομάδα της FM Renovation στην Αθήνα με εμπειρία σε ανακαινίσεις κατοικιών και επαγγελματικών χώρων σε όλη την Αττική. Επικοινωνήστε μαζί μας.'
+    },
+    '#services':{
+      title:'Υπηρεσίες Ανακαίνισης Αθήνα | FM Renovation',
+      description:'Ανακαινίσεις κουζίνας, μπάνιου και επαγγελματικών χώρων στην Αθήνα & Αττική από την FM Renovation. Επιλέξτε ολοκληρωμένες λύσεις και ζητήστε προσφορά σήμερα.'
+    },
+    '#contact':{
+      title:'Επικοινωνία για Ανακαινίσεις Αθήνα | FM Renovation',
+      description:'Επικοινωνήστε με την FM Renovation στην Αθήνα για ανακαινίσεις κατοικιών ή επαγγελματικών χώρων σε όλη την Αττική. Κλείστε ραντεβού ή ζητήστε προσφορά τώρα.'
+    }
+  };
+
+  const normalizeHash=function(rawHash){
+    if(!rawHash){return'';}
+    const hash=rawHash.trim();
+    if(hash===''||hash==='#'||hash==='#top'||hash==='#home'){return'';}
+    if(hash.toLowerCase()==='#contactform'){return'#contact';}
+    return hash.toLowerCase();
+  };
+
+  const applySeo=function(targetHash){
+    const normalized=normalizeHash(targetHash);
+    const config=seoMap.hasOwnProperty(normalized)?seoMap[normalized]:seoMap[''];
+    if(!config){return;}
+    if(document.title!==config.title){
+      document.title=config.title;
+    }
+    if(descriptionMeta.getAttribute('content')!==config.description){
+      descriptionMeta.setAttribute('content',config.description);
+    }
+  };
+
+  window.addEventListener('hashchange',function(){
+    applySeo(location.hash);
+  });
+
+  document.addEventListener('DOMContentLoaded',function(){
+    applySeo(location.hash);
+  });
+})();
+
 // Navigation interactions
 const body=document.body;
 const navToggle=document.querySelector('[data-nav-toggle]');
@@ -168,7 +222,7 @@ if(siteHeader){
 
 // Active nav state for services
 const servicesSection=document.getElementById('services');
-const servicesNavLinks=Array.from(document.querySelectorAll('a.nav__link[href="#services"], a.nav-mobile__link[href="#services"]'));
+const servicesNavLinks=Array.from(document.querySelectorAll('a.nav__link[href$="#services"], a.nav-mobile__link[href$="#services"]'));
 if('IntersectionObserver'in window&&servicesSection&&servicesNavLinks.length){
   const toggleActive=function(isActive){
     servicesNavLinks.forEach(function(link){
@@ -351,10 +405,6 @@ document.querySelectorAll('[data-carousel]').forEach(car=>{
   register();
   window.addEventListener('lightbox:ready',register);
 })();
-
-// Dummy form handler
-const form=document.querySelector('form.form');
-if(form){form.addEventListener('submit',e=>{e.preventDefault();alert('Ευχαριστούμε! Θα επικοινωνήσουμε σύντομα.');form.reset();});}
 
 // Contact widget interactions
 (function(){
