@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const files = ['index.html', 'erga.html', 'privacy-policy.html', 'terms.html'];
+const files = ['index.html', 'erga/index.html', 'privacy-policy.html', 'terms.html'];
 
 const titleRegex = /<title\b[^>]*>[\s\S]*?<\/title>/gi;
 const metaDescriptionRegex = /<meta[^>]+name=["']description["'][^>]*>/gi;
@@ -88,7 +88,7 @@ files.forEach((file) => {
   let anchorMatch;
   while ((anchorMatch = anchorRegex.exec(html)) !== null) {
     const href = anchorMatch[1];
-    if (href.includes('index.html') || href.includes('erga.html')) {
+    if (href.includes('index.html') || href.includes('erga.html') || href.includes('erga/index.html')) {
       invalidLinks.push(href);
     }
   }
