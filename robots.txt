@@ -1,10 +1,3 @@
 User-agent: *
 Allow: /
-Allow: /css/
-Allow: /js/
-Allow: /images/
-Allow: /assets/
-Disallow: /search
-Disallow: /*?s=
-
 Sitemap: https://anakainisou.gr/sitemap.xml
