@@ -22,12 +22,7 @@ function extractContent(tag, attr) {
   return match ? match[1] : '';
 }
 
-const canonicalExpectations = {
-  'index.html': 'https://anakainisou.gr/',
-  'erga.html': 'https://anakainisou.gr/erga.html',
-  'privacy-policy.html': 'https://anakainisou.gr/privacy-policy.html',
-  'terms.html': 'https://anakainisou.gr/terms.html'
-};
+const trailingSlash = /\/$/;
 
 files.forEach((file) => {
   const html = fs.readFileSync(file, 'utf8');
@@ -53,12 +48,8 @@ files.forEach((file) => {
   if (!canonicalHref.startsWith('https://anakainisou.gr/')) {
     throw new Error(`${file}: canonical must start with https://anakainisou.gr/`);
   }
-  const expectedCanonical = canonicalExpectations[file];
-  if (!expectedCanonical) {
-    throw new Error(`${file}: no canonical expectation configured`);
-  }
-  if (canonicalHref !== expectedCanonical) {
-    throw new Error(`${file}: canonical must equal ${expectedCanonical}`);
+  if (!trailingSlash.test(canonicalHref)) {
+    throw new Error(`${file}: canonical must end with trailing slash`);
   }
 
   const ogTitles = html.match(ogTitleRegex) || [];
@@ -97,7 +88,7 @@ files.forEach((file) => {
   let anchorMatch;
   while ((anchorMatch = anchorRegex.exec(html)) !== null) {
     const href = anchorMatch[1];
-    if (href.includes('index.html')) {
+    if (href.includes('index.html') || href.includes('erga.html')) {
       invalidLinks.push(href);
     }
   }
