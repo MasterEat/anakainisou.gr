@@ -17,6 +17,8 @@ module.exports = [
         IntersectionObserver: 'readonly',
         HTMLImageElement: 'readonly',
         MouseEvent: 'readonly',
+        CustomEvent: 'readonly',
+        Element: 'readonly',
         URL: 'readonly'
       }
     },
