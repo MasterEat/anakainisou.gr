@@ -1,37 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://anakainisou.gr/</loc>
-    <lastmod>2025-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://anakainisou.gr/erga/</loc>
-    <lastmod>2025-11-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://anakainisou.gr/erga/renovation2.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://anakainisou.gr/erga/ampelokipoi6.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://anakainisou.gr/erga/windows1.jpg</image:loc>
-    </image:image>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://anakainisou.gr/privacy-policy/</loc>
-    <lastmod>2025-11-12</lastmod>
-    <changefreq>quarterly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://anakainisou.gr/terms/</loc>
-    <lastmod>2025-11-12</lastmod>
-    <changefreq>quarterly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>
