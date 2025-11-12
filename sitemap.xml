@@ -8,7 +8,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://anakainisou.gr/erga/</loc>
+    <loc>https://anakainisou.gr/erga.html</loc>
 
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -23,7 +23,13 @@
     </image:image>
   </url>
   <url>
-    <loc>https://anakainisou.gr/privacy-policy/</loc>
-
+    <loc>https://anakainisou.gr/privacy-policy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://anakainisou.gr/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
