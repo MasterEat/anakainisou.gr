@@ -216,7 +216,7 @@
       ? ''
       : `
         <div class="card-footer">
-          <a class="btn btn--ghost" href="/#contact">Ζητήστε Προσφορά</a>
+          <a class="btn btn--ghost" href="index.html#contact">Ζητήστε Προσφορά</a>
           ${hasGallery ? '<button class="btn btn--primary" type="button" data-open-gallery>Προβολή Gallery</button>' : ''}
         </div>
       `;
