@@ -13,20 +13,11 @@
   <meta property="og:url" content="https://anakainisou.gr/">
   <meta property="og:image" content="https://anakainisou.gr/images/hero.webp">
   <link rel="canonical" href="https://anakainisou.gr/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@700&display=swap" as="style">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@700&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@700&display=swap"></noscript>
-  <link rel="preload" href="assets/dist/base.min.css" as="style">
-  <link rel="stylesheet" href="assets/dist/base.min.css" media="print" onload="this.media='all'">
-  <link rel="preload" href="assets/dist/home.min.css" as="style">
-  <link rel="stylesheet" href="assets/dist/home.min.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="assets/dist/base.min.css">
-    <link rel="stylesheet" href="assets/dist/home.min.css">
-  </noscript>
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1600&fm=webp&fit=crop" imagesrcset="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=960&fm=webp&fit=crop 960w, https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1600&fm=webp&fit=crop 1600w" imagesizes="(max-width: 960px) 100vw, 1600px" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/css/services.css">
+  <link rel="stylesheet" href="assets/css/lightbox.css">
   <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
   <link rel="shortcut icon" href="favicon/favicon.ico">
@@ -109,7 +100,7 @@
     <div class="container header-inner">
       <div class="brand">
         <a href="/" class="logo-link" aria-label="Αρχική σελίδα">
-          <img class="brand-logo" src="images/logo.png" width="1024" height="1024" alt="FM Renovation λογότυπο" decoding="async">
+          <img class="brand-logo" src="images/logo.png" width="1024" height="1024" alt="FM Renovation λογότυπο">
         </a>
         <span class="brand-tagline"><strong>Ανακαίνιση χώρου</strong></span>
       </div>
@@ -168,31 +159,11 @@
     <section class="hero">
       <figure class="hero-slider" aria-label="Προβολή έργων">
         <!-- Χρησιμοποιούμε καθαρές εικόνες από Unsplash για άμεση προεπισκόπηση -->
-        <picture>
-          <source type="image/avif" srcset="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=70&w=960&fm=avif&fit=crop 960w, https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=70&w=1600&fm=avif&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px">
-          <source type="image/webp" srcset="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=960&fm=webp&fit=crop 960w, https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1600&fm=webp&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px">
-          <img data-hero src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1600&fit=crop" srcset="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=960&fit=crop 960w, https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1600&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px" width="1600" height="1067" alt="Ανακαίνιση σαλονιού στην Αθήνα από FM Renovation με νέα διάταξη επίπλων και φωτισμό που αναδεικνύει τον χώρο της κατοικίας." fetchpriority="high" decoding="async">
-        </picture>
-        <picture>
-          <source type="image/avif" srcset="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=70&w=960&fm=avif&fit=crop 960w, https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=70&w=1600&fm=avif&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px">
-          <source type="image/webp" srcset="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=80&w=960&fm=webp&fit=crop 960w, https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=80&w=1600&fm=webp&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px">
-          <img data-hero src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=80&w=1600&fit=crop" srcset="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=80&w=960&fit=crop 960w, https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=80&w=1600&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px" width="1600" height="1067" loading="lazy" alt="Ανακαίνιση κουζίνας στην Αθήνα από FM Renovation με εργονομικές λύσεις και φωτεινά υλικά για σύγχρονη καθημερινότητα." decoding="async">
-        </picture>
-        <picture>
-          <source type="image/avif" srcset="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d55?q=70&w=960&fm=avif&fit=crop 960w, https://images.unsplash.com/photo-1505691723518-36a5ac3b2d55?q=70&w=1600&fm=avif&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px">
-          <source type="image/webp" srcset="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d55?q=80&w=960&fm=webp&fit=crop 960w, https://images.unsplash.com/photo-1505691723518-36a5ac3b2d55?q=80&w=1600&fm=webp&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px">
-          <img data-hero src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d55?q=80&w=1600&fit=crop" srcset="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d55?q=80&w=960&fit=crop 960w, https://images.unsplash.com/photo-1505691723518-36a5ac3b2d55?q=80&w=1600&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px" width="1600" height="1067" loading="lazy" alt="Ανακαίνιση επαγγελματικού χώρου στην Αττική από FM Renovation με προσεγμένο φωτισμό και καθαρές γραμμές για λειτουργική εργασία." decoding="async">
-        </picture>
-        <picture>
-          <source type="image/avif" srcset="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=70&w=960&fm=avif&fit=crop 960w, https://images.unsplash.com/photo-1484154218962-a197022b5858?q=70&w=1600&fm=avif&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px">
-          <source type="image/webp" srcset="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=960&fm=webp&fit=crop 960w, https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1600&fm=webp&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px">
-          <img data-hero src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1600&fit=crop" srcset="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=960&fit=crop 960w, https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1600&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px" width="1600" height="1067" loading="lazy" alt="Ανακαίνιση μπάνιου στην Αθήνα από FM Renovation με μινιμαλιστική αισθητική και ανθεκτικά υλικά για καθημερινή άνεση." decoding="async">
-        </picture>
-        <picture>
-          <source type="image/avif" srcset="https://images.unsplash.com/photo-1494526585095-c41746248156?q=70&w=960&fm=avif&fit=crop 960w, https://images.unsplash.com/photo-1494526585095-c41746248156?q=70&w=1600&fm=avif&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px">
-          <source type="image/webp" srcset="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=960&fm=webp&fit=crop 960w, https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&fm=webp&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px">
-          <img data-hero src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&fit=crop" srcset="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=960&fit=crop 960w, https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&fit=crop 1600w" sizes="(max-width: 960px) 100vw, 1600px" width="1600" height="1067" loading="lazy" alt="Ανακαίνιση υπνοδωματίου στην Αττική από FM Renovation με γήινους τόνους και φωτισμό που προσφέρει ζεστή ατμόσφαιρα χαλάρωσης." decoding="async">
-        </picture>
+        <img data-hero src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1600&auto=format&fit=crop" width="1600" height="1067" alt="Ανακαίνιση σαλονιού στην Αθήνα από FM Renovation με νέα διάταξη επίπλων και φωτισμό που αναδεικνύει τον χώρο της κατοικίας.">
+        <img data-hero src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=80&w=1600&auto=format&fit=crop" width="1600" height="1067" loading="lazy" alt="Ανακαίνιση κουζίνας στην Αθήνα από FM Renovation με εργονομικές λύσεις και φωτεινά υλικά για σύγχρονη καθημερινότητα.">
+        <img data-hero src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d55?q=80&w=1600&auto=format&fit=crop" width="1600" height="1067" loading="lazy" alt="Ανακαίνιση επαγγελματικού χώρου στην Αττική από FM Renovation με προσεγμένο φωτισμό και καθαρές γραμμές για λειτουργική εργασία.">
+        <img data-hero src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1600&auto=format&fit=crop" width="1600" height="1067" loading="lazy" alt="Ανακαίνιση μπάνιου στην Αθήνα από FM Renovation με μινιμαλιστική αισθητική και ανθεκτικά υλικά για καθημερινή άνεση.">
+        <img data-hero src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop" width="1600" height="1067" loading="lazy" alt="Ανακαίνιση υπνοδωματίου στην Αττική από FM Renovation με γήινους τόνους και φωτισμό που προσφέρει ζεστή ατμόσφαιρα χαλάρωσης.">
       </figure>
       <div class="container hero-inner">
         <div class="hero-copy">
@@ -595,7 +566,7 @@
       <div class="footer-brand">
         <div class="brand brand--footer">
           <a href="/" class="logo-link" aria-label="Αρχική σελίδα">
-            <img class="brand-logo" src="images/logo.png" width="1024" height="1024" alt="FM Renovation λογότυπο" loading="lazy" decoding="async">
+            <img class="brand-logo" src="images/logo.png" width="1024" height="1024" alt="FM Renovation λογότυπο">
           </a>
         </div>
         <nav class="footer-links" aria-label="Χρήσιμες σύνδεσμοι">
@@ -641,7 +612,7 @@
     </button>
   </div>
 
-  <script src="assets/dist/lightbox.min.js" defer></script>
-  <script src="assets/dist/app.min.js" defer></script>
+  <script src="assets/js/lightbox.js" defer></script>
+  <script src="assets/app.js" defer></script>
 </body>
 </html>
