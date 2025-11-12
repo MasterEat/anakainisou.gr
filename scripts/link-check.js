@@ -2,9 +2,9 @@ const https = require('https');
 
 const urls = [
   'https://anakainisou.gr/',
-  'https://anakainisou.gr/erga.html',
-  'https://anakainisou.gr/privacy-policy.html',
-  'https://anakainisou.gr/terms.html'
+  'https://anakainisou.gr/erga/',
+  'https://anakainisou.gr/privacy-policy/',
+  'https://anakainisou.gr/terms/'
 ];
 
 function formatError(error) {
@@ -49,10 +49,6 @@ function checkUrl(url) {
     await Promise.all(urls.map(checkUrl));
     console.log('Link check passed for canonical URLs.');
   } catch (error) {
-    if (error.message && /ENETUNREACH|EAI_AGAIN|ECONNREFUSED/.test(error.message)) {
-      console.warn(`Link check skipped due to network connectivity issue: ${error.message}`);
-      return;
-    }
     console.error(error.message);
     process.exit(1);
   }
