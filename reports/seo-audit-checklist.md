@@ -1,4 +1,4 @@
-# anakainisou.gr — Final SEO Audit (June 2024)
+# anakainisou.gr — Final SEO Audit (November 2025)
 
 | # | Area | Status | Notes |
 |---|------|:------:|-------|
