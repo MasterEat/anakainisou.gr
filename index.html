@@ -25,57 +25,59 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "name": "Anakainisou",
-    "url": "https://anakainisou.gr/",
-    "image": "https://anakainisou.gr/images/hero.webp",
-    "logo": "https://anakainisou.gr/images/logo.png",
-    "description": "Ολική ή μερική ανακαίνιση οικίας και επαγγελματικού χώρου — με τεχνική ακρίβεια, συνέπεια και διαφάνεια.",
-    "telephone": "+30 211 404 4496",
-    "email": "fmren2021@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Λεωφόρος Παραδείγματος 1",
-      "addressLocality": "Αθήνα",
-      "postalCode": "11111",
-      "addressCountry": "GR"
-    },
-    "areaServed": [
-      {"@type": "City", "name": "Αθήνα"},
-      {"@type": "Country", "name": "Ελλάδα"}
-    ],
-    "serviceType": [
-      "Ανακαινίσεις κατοικιών",
-      "Ανακαινίσεις επαγγελματικών χώρων",
-      "Ανακαινίσεις μπάνιων",
-      "Ανακαινίσεις κουζινών",
-      "Ηλεκτρολογικές εργασίες",
-      "Υδραυλικές εργασίες",
-      "Μονώσεις",
-      "Τοποθέτηση πλακιδίων και δαπέδων"
-    ],
-    "sameAs": [
-      "https://www.facebook.com/anakainisou",
-      "https://www.instagram.com/anakainisou"
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Anakainisou",
-    "url": "https://anakainisou.gr/",
-    "inLanguage": "el-GR"
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Αρχική", "item": "https://anakainisou.gr/"},
-      {"@type": "ListItem", "position": 2, "name": "Υπηρεσίες", "item": "https://anakainisou.gr/#services"}
+    "@graph": [
+      {
+        "@type": "HomeAndConstructionBusiness",
+        "@id": "https://anakainisou.gr/#identity",
+        "name": "FM Renovation",
+        "url": "https://anakainisou.gr/",
+        "description": "Η FM Renovation υλοποιεί ολοκληρωμένες ανακαινίσεις κατοικιών και επαγγελματικών χώρων στην Αθήνα και την Αττική με συντονισμό έργου και εξειδικευμένα συνεργεία.",
+        "image": "https://anakainisou.gr/images/hero.webp",
+        "logo": "https://anakainisou.gr/images/logo.png",
+        "telephone": "+30 211 404 4496",
+        "email": "fmren2021@gmail.com",
+        "priceRange": "€€",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Δοϊράνης 180",
+          "addressLocality": "Καλλιθέα",
+          "postalCode": "17673",
+          "addressRegion": "Attica",
+          "addressCountry": "GR"
+        },
+        "areaServed": [
+          {
+            "@type": "AdministrativeArea",
+            "name": "Athens"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Attica"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://anakainisou.gr/#website",
+        "url": "https://anakainisou.gr/",
+        "name": "FM Renovation — Ανακαινίσεις Αθήνα/Αττική",
+        "inLanguage": "el-GR",
+        "publisher": {
+          "@id": "https://anakainisou.gr/#identity"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://anakainisou.gr/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Αρχική",
+            "item": "https://anakainisou.gr/"
+          }
+        ]
+      }
     ]
   }
   </script>
