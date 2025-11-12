@@ -168,7 +168,7 @@ if(siteHeader){
 
 // Active nav state for services
 const servicesSection=document.getElementById('services');
-const servicesNavLinks=Array.from(document.querySelectorAll('a.nav__link[href="#services"], a.nav-mobile__link[href="#services"]'));
+const servicesNavLinks=Array.from(document.querySelectorAll('a.nav__link[href$="#services"], a.nav-mobile__link[href$="#services"]'));
 if('IntersectionObserver'in window&&servicesSection&&servicesNavLinks.length){
   const toggleActive=function(isActive){
     servicesNavLinks.forEach(function(link){
