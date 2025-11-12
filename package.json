@@ -6,7 +6,6 @@
     "lint": "eslint assets/**/*.js",
     "schema-validate": "node scripts/schema-validate.js",
     "html-validate": "node scripts/html-validate.js",
-    "link-check": "node scripts/link-check.js",
-    "build": "node scripts/build.js"
+    "link-check": "node scripts/link-check.js"
   }
 }
