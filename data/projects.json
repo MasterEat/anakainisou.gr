@@ -8,7 +8,7 @@
     "summary": "Ολική ανακαίνιση σε ισόγεια, πολύ παλαιά κατοικία με νέες εγκαταστάσεις, κουζίνα και μπάνιο.",
     "aspect": "4:3",
     "folder": "erga/",
-    "cover": "renovation2.jpg",
+    "cover": "renovation2*.jpg",
     "details": [
       "Αποξηλώθηκαν και απομακρύνθηκαν με κάδους η κουζίνα και το μπάνιο.",
       "Δημιουργήθηκαν εξ ολοκλήρου νέες υδραυλικές και ηλεκτρολογικές εγκαταστάσεις.",
@@ -23,14 +23,14 @@
       {
         "title": "Μετά",
         "images": [
-          "renovation6.jpg",
+          "renovation6*.jpg",
           "renovation2.jpg",
-          "renovation8.jpg",
+          "renovation**.jpg",
           "renovation88.jpg",
-          "renovation4.jpg",
-          "renovation5.jpg",
-          "renovation1.jpg",
-          "renovation7.jpg"
+          "renovation4*.jpg",
+          "renovation2*.jpg",
+          "renovation1*.jpg",
+          "renovation8*.jpg"
         ]
       },
       {
