@@ -4,12 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>Έργα Ανακαινίσεων | FM Renovation</title>
+  <meta name="description" content="Δείτε πρόσφατα έργα ανακαίνισης κατοικιών και επαγγελματικών χώρων από την FM Renovation στην Αττική με λεπτομερείς φωτογραφίες και περιγραφές.">
   <link rel="canonical" href="https://anakainisou.gr/erga/">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
-  <link rel="stylesheet" href="assets/css/erga.css">
-  <link rel="stylesheet" href="assets/css/lightbox.css">
+  <meta property="og:title" content="Έργα Ανακαινίσεων | FM Renovation">
+  <meta property="og:description" content="Ενδεικτικά case studies ανακαίνισης με καθαρές φωτογραφίες, εργασίες και λύσεις από την FM Renovation σε όλη την Αττική.">
+  <meta property="og:image" content="https://anakainisou.gr/images/project-1.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@700&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@700&display=swap"></noscript>
+  <link rel="preload" href="assets/dist/base.min.css" as="style">
+  <link rel="stylesheet" href="assets/dist/base.min.css" media="print" onload="this.media='all'">
+  <link rel="preload" href="assets/dist/projects.min.css" as="style">
+  <link rel="stylesheet" href="assets/dist/projects.min.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="assets/dist/base.min.css">
+    <link rel="stylesheet" href="assets/dist/projects.min.css">
+  </noscript>
   <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
   <link rel="shortcut icon" href="favicon/favicon.ico">
@@ -28,7 +41,7 @@
     <div class="container header-inner">
       <div class="brand">
         <a href="/" class="logo-link" aria-label="Αρχική σελίδα">
-          <img class="brand-logo" src="images/logo.png" width="1024" height="1024" alt="FM Renovation λογότυπο">
+          <img class="brand-logo" src="images/logo.png" width="1024" height="1024" alt="FM Renovation λογότυπο" decoding="async">
         </a>
         <span class="brand-tagline"><strong>Ανακαίνιση χώρου</strong></span>
       </div>
@@ -134,7 +147,7 @@
       <div class="footer-brand">
         <div class="brand brand--footer">
           <a href="/" class="logo-link" aria-label="Αρχική σελίδα">
-            <img class="brand-logo" src="images/logo.png" width="1024" height="1024" alt="FM Renovation λογότυπο">
+            <img class="brand-logo" src="images/logo.png" width="1024" height="1024" alt="FM Renovation λογότυπο" loading="lazy" decoding="async">
           </a>
         </div>
         <nav class="footer-links" aria-label="Χρήσιμες σύνδεσμοι">
@@ -180,9 +193,9 @@
     </button>
   </div>
 
-  <script src="assets/app.js" defer></script>
-  <script src="assets/js/lightbox.js" defer></script>
-  <script src="assets/js/erga.js" defer></script>
+  <script src="assets/dist/app.min.js" defer></script>
+  <script src="assets/dist/lightbox.min.js" defer></script>
+  <script src="assets/dist/erga.min.js" defer></script>
   <script type="application/ld+json" id="erga-schema"></script>
 </body>
 </html>
