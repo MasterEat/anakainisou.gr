@@ -1,0 +1,374 @@
+<!-- Cookie Consent Widget Snippet for static HTML (e.g., GitHub Pages) -->
+<!-- Place the entire block near the end of your <body> in index.html -->
+
+<div id="cookie-consent-banner" class="cookie-consent" role="dialog" aria-live="polite" aria-label="Ειδοποίηση cookies">
+  <div class="cookie-consent__text">
+    <strong>Χρησιμοποιούμε cookies</strong>
+    <p>Τα απαραίτητα cookies διασφαλίζουν τη σωστή λειτουργία του ιστότοπου. Με τη συναίνεσή σας ενεργοποιούμε analytics και functional cookies.</p>
+  </div>
+  <div class="cookie-consent__actions">
+    <button class="cc-btn cc-secondary" data-action="reject">Απόρριψη</button>
+    <button class="cc-btn cc-tertiary" data-action="settings">Ρυθμίσεις</button>
+    <button class="cc-btn cc-primary" data-action="accept">Αποδοχή</button>
+  </div>
+</div>
+
+<div id="cookie-settings-panel" class="cookie-panel" role="dialog" aria-modal="true" aria-label="Ρυθμίσεις cookies">
+  <header class="cookie-panel__header">
+    <div>
+      <h2>Ρυθμίσεις Cookies</h2>
+      <p>Ρυθμίστε τις προτιμήσεις σας. Τα απαραίτητα cookies είναι πάντα ενεργά.</p>
+    </div>
+    <button class="cc-btn cc-ghost" data-action="close-settings" aria-label="Κλείσιμο">✕</button>
+  </header>
+  <div class="cookie-panel__body">
+    <div class="cookie-option">
+      <div>
+        <strong>Απαραίτητα</strong>
+        <p>Αναγκαία για βασικές λειτουργίες (ενεργά μόνιμα).</p>
+      </div>
+      <label class="switch disabled">
+        <input type="checkbox" checked disabled aria-checked="true" aria-label="Απαραίτητα cookies" />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="cookie-option">
+      <div>
+        <strong>Analytics</strong>
+        <p>Μας βοηθούν να κατανοούμε τη χρήση του ιστότοπου.</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="cc-analytics" aria-label="Analytics cookies" />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="cookie-option">
+      <div>
+        <strong>Functional</strong>
+        <p>Βελτιώνουν την εμπειρία με επιπλέον λειτουργίες.</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="cc-functional" aria-label="Functional cookies" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+  <footer class="cookie-panel__footer">
+    <button class="cc-btn cc-secondary" data-action="reject">Απόρριψη</button>
+    <button class="cc-btn cc-primary" data-action="save-settings">Αποθήκευση Ρυθμίσεων</button>
+  </footer>
+</div>
+
+<style>
+  :root {
+    --primary: #2b0042;
+    --bg: #ffffff;
+    --text: #333333;
+    --dark-bg: #1e1e1e;
+    --dark-text: #e6e6e6;
+    --radius: 8px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    --transition: 0.24s ease;
+  }
+
+  .cookie-consent, .cookie-panel {
+    position: fixed;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    z-index: 2147483646;
+    transition: opacity var(--transition), transform var(--transition);
+  }
+
+  .cookie-consent {
+    bottom: 24px;
+    left: 24px;
+    width: min(360px, calc(100% - 32px));
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+  }
+
+  .cookie-consent.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .cookie-consent__text p {
+    margin: 6px 0 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+  }
+
+  .cookie-consent__actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .cc-btn {
+    border: none;
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition), transform var(--transition), box-shadow var(--transition);
+    font-size: 0.95rem;
+  }
+
+  .cc-btn:active {
+    transform: translateY(1px);
+  }
+
+  .cc-primary { background: var(--primary); color: #fff; }
+  .cc-primary:hover { filter: brightness(1.05); }
+
+  .cc-secondary { background: rgba(43, 0, 66, 0.08); color: var(--text); }
+  .cc-secondary:hover { background: rgba(43, 0, 66, 0.12); }
+
+  .cc-tertiary { background: transparent; color: var(--primary); border: 1px solid rgba(43, 0, 66, 0.15); }
+  .cc-tertiary:hover { border-color: rgba(43, 0, 66, 0.3); }
+
+  .cc-ghost { background: transparent; color: var(--text); padding: 6px 10px; }
+
+  .cookie-panel {
+    width: min(420px, calc(100% - 32px));
+    left: 50%;
+    transform: translate(-50%, 16px);
+    bottom: 24px;
+    padding: 18px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .cookie-panel.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+
+  .cookie-panel__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: start;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 10px;
+  }
+
+  .cookie-panel__body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 12px 0;
+  }
+
+  .cookie-panel__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 10px;
+  }
+
+  .cookie-option {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .cookie-option p {
+    margin: 4px 0 0;
+    font-size: 0.93rem;
+    line-height: 1.45;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 26px;
+  }
+
+  .switch input { display: none; }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #b4b4b4;
+    transition: var(--transition);
+    border-radius: 26px;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: var(--transition);
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+
+  input:checked + .slider { background-color: var(--primary); }
+  input:checked + .slider:before { transform: translateX(22px); }
+  .switch.disabled .slider { cursor: not-allowed; opacity: 0.75; }
+
+  @media (max-width: 520px) {
+    .cookie-consent { left: 50%; transform: translate(-50%, 10px); bottom: 18px; }
+    .cookie-consent.show { transform: translate(-50%, 0); }
+    .cookie-panel { width: calc(100% - 24px); }
+  }
+
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    .cookie-consent, .cookie-panel {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+    .cookie-panel__header, .cookie-panel__footer {
+      border-color: rgba(255,255,255,0.08);
+    }
+    .cookie-panel__body { color: var(--dark-text); }
+    .cc-secondary { background: rgba(255,255,255,0.08); color: var(--dark-text); }
+    .cc-tertiary { color: #d3b6ff; border-color: rgba(255,255,255,0.2); }
+    .cc-tertiary:hover { border-color: rgba(255,255,255,0.35); }
+    .cc-ghost { color: var(--dark-text); }
+    .slider { background: #555; }
+  }
+</style>
+
+<script>
+  (() => {
+    const banner = document.getElementById('cookie-consent-banner');
+    const panel = document.getElementById('cookie-settings-panel');
+    const analyticsToggle = document.getElementById('cc-analytics');
+    const functionalToggle = document.getElementById('cc-functional');
+
+    const enableAnalytics = () => {
+      // Placeholder: enableAnalyticsScripts();
+    };
+    const disableAnalytics = () => {
+      // Placeholder: disableAnalyticsScripts();
+    };
+    const enableFunctional = () => {
+      // Placeholder: enableFunctionalScripts();
+    };
+    const disableFunctional = () => {
+      // Placeholder: disableFunctionalScripts();
+    };
+
+    const applyPreferences = (prefs = {}) => {
+      const analyticsOn = !!prefs.analytics;
+      const functionalOn = !!prefs.functional;
+
+      analyticsToggle.checked = analyticsOn;
+      functionalToggle.checked = functionalOn;
+
+      analyticsOn ? enableAnalytics() : disableAnalytics();
+      functionalOn ? enableFunctional() : disableFunctional();
+    };
+
+    const setConsent = (status, prefs) => {
+      localStorage.setItem('consentStatus', status);
+      localStorage.setItem('consentPreferences', JSON.stringify({
+        necessary: true,
+        analytics: !!prefs.analytics,
+        functional: !!prefs.functional,
+      }));
+    };
+
+    const closeAll = () => {
+      banner.classList.remove('show');
+      panel.classList.remove('open');
+      setTimeout(() => {
+        banner.style.display = 'none';
+        panel.style.display = 'none';
+      }, 260);
+    };
+
+    const openSettings = () => {
+      panel.style.display = 'block';
+      requestAnimationFrame(() => panel.classList.add('open'));
+    };
+
+    const handleAccept = () => {
+      setConsent('accepted', { analytics: true, functional: true });
+      applyPreferences({ analytics: true, functional: true });
+      closeAll();
+    };
+
+    const handleReject = () => {
+      setConsent('rejected', { analytics: false, functional: false });
+      applyPreferences({ analytics: false, functional: false });
+      closeAll();
+    };
+
+    const handleSaveSettings = () => {
+      const prefs = {
+        analytics: analyticsToggle.checked,
+        functional: functionalToggle.checked,
+      };
+      setConsent('custom', prefs);
+      applyPreferences(prefs);
+      closeAll();
+    };
+
+    const onAction = (event) => {
+      const action = event.target.getAttribute('data-action');
+      if (!action) return;
+
+      switch (action) {
+        case 'accept':
+          handleAccept();
+          break;
+        case 'reject':
+          handleReject();
+          break;
+        case 'settings':
+          openSettings();
+          break;
+        case 'save-settings':
+          handleSaveSettings();
+          break;
+        case 'close-settings':
+          panel.classList.remove('open');
+          setTimeout(() => (panel.style.display = 'none'), 260);
+          break;
+      }
+    };
+
+    // Initialize on load
+    const storedStatus = localStorage.getItem('consentStatus');
+    const storedPrefs = JSON.parse(localStorage.getItem('consentPreferences') || '{}');
+
+    if (storedStatus) {
+      applyPreferences(storedPrefs);
+      banner.style.display = 'none';
+      panel.style.display = 'none';
+    } else {
+      banner.style.display = 'block';
+      requestAnimationFrame(() => banner.classList.add('show'));
+    }
+
+    document.addEventListener('click', onAction);
+  })();
+</script>
+
+<!-- Instructions: Copy everything above (banner + panel + <style> + <script>) and paste it just before the closing </body> tag in index.html (or any page where you need the banner). -->
