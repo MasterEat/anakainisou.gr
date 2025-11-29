@@ -181,7 +181,7 @@ body.nav-open{overflow:hidden}
 .form-status{margin-top:8px;font-size:.95rem}
 .gdpr{display:block;font-size:.95rem}
 .gdpr a{color:var(--accent,#F59E0B);text-decoration:underline}
-.map iframe{width:100%;min-height:360px;border:0;border-radius:14px;box-shadow:var(--shadow)}
+.map iframe{display:block;width:100%;min-height:360px;border:0;border-radius:14px;box-shadow:var(--shadow)}
 
 /* Footer */
 .site-footer{border-top:1px solid #e8edf4;padding:20px 0;background:#fff}
