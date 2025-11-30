@@ -611,6 +611,50 @@
     </button>
   </div>
 
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">
+        Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας.
+        Συνεχίζοντας αποδέχεστε τη χρήση τους.
+        <a href="/privacy-policy/" class="cookie-banner__link">Μάθετε περισσότερα</a>.
+      </p>
+      <div class="cookie-banner__actions">
+        <button type="button" class="cookie-banner__btn cookie-banner__btn--secondary" id="cookieReject">
+          Μόνο τα απαραίτητα
+        </button>
+        <button type="button" class="cookie-banner__btn cookie-banner__btn--primary" id="cookieAccept">
+          Αποδοχή
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    const banner = document.getElementById('cookieBanner');
+    const accept = document.getElementById('cookieAccept');
+    const reject = document.getElementById('cookieReject');
+
+    if (!banner || !accept || !reject) return;
+
+    // Show only if not previously set
+    if (!localStorage.getItem('cookieConsent')) {
+      banner.style.display = 'block';
+    }
+
+    accept.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'accepted');
+      banner.style.display = 'none';
+    });
+
+    reject.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'minimal');
+      banner.style.display = 'none';
+    });
+  })();
+  </script>
+
   <script src="assets/js/lightbox.js" defer></script>
   <script src="assets/app.js" defer></script>
 </body>
