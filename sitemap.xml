@@ -2,27 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://anakainisou.gr/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.anakainisou.gr/terms.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <loc>https://anakainisou.gr/erga.html</loc>
   </url>
   <url>
-    <loc>https://www.anakainisou.gr/privacy-policy.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <loc>https://anakainisou.gr/terms.html</loc>
   </url>
   <url>
-    <loc>https://www.anakainisou.gr/cookie-policy.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <loc>https://anakainisou.gr/privacy-policy.html</loc>
   </url>
   <url>
-    <loc>https://anakainisou.gr/erga</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://anakainisou.gr/cookie-policy.html</loc>
   </url>
 </urlset>
