@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://anakainisou.gr/</loc>
+    <loc>https://www.anakainisou.gr/</loc>
   </url>
+
   <url>
-    <loc>https://anakainisou.gr/erga.html</loc>
+    <loc>https://www.anakainisou.gr/erga.html</loc>
   </url>
+
   <url>
-    <loc>https://anakainisou.gr/terms.html</loc>
+    <loc>https://www.anakainisou.gr/terms.html</loc>
   </url>
+
   <url>
-    <loc>https://anakainisou.gr/privacy-policy.html</loc>
+    <loc>https://www.anakainisou.gr/privacy-policy.html</loc>
   </url>
+
   <url>
-    <loc>https://anakainisou.gr/cookie-policy.html</loc>
+    <loc>https://www.anakainisou.gr/cookie-policy.html</loc>
   </url>
 </urlset>
