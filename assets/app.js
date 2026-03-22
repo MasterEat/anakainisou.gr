@@ -209,10 +209,10 @@ desktopDropdownItems.forEach(function(item){
     if(desktopMedia.matches&&!item.contains(event.relatedTarget)){setExpanded(false);}
   });
   trigger.addEventListener('click',function(event){
-    const isOpen=item.classList.contains('is-open');
-    event.preventDefault();
     if(!desktopMedia.matches){return;}
+    const isOpen=item.classList.contains('is-open');
     if(!isOpen){
+      event.preventDefault();
       desktopDropdownItems.forEach(function(other){
         if(other!==item){
           other.classList.remove('is-open');
@@ -247,8 +247,7 @@ mobileSubmenuItems.forEach(function(item){
   const toggle=item.querySelector('[data-mobile-submenu-toggle]');
   const submenu=item.querySelector('.nav-mobile__submenu');
   if(!toggle||!submenu){return;}
-  toggle.addEventListener('click',function(event){
-    event.preventDefault();
+  toggle.addEventListener('click',function(){
     const isOpen=item.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded',String(isOpen));
     toggle.setAttribute('aria-label',isOpen?'Κλείσιμο υπομενού Ανακαινίσεις':'Άνοιγμα υπομενού Ανακαινίσεις');
