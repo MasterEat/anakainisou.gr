@@ -280,7 +280,7 @@ const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullY
     imgs[i].classList.remove('active');
     i=(i+1)%imgs.length;
     imgs[i].classList.add('active');
-  },4000);
+  },6000);
 })();
 
 // Process interactive description
