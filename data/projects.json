@@ -8,7 +8,7 @@
     "summary": "Ολική ανακαίνιση σε ισόγεια, πολύ παλαιά κατοικία με νέες εγκαταστάσεις, κουζίνα και μπάνιο.",
     "aspect": "4:3",
     "folder": "erga/",
-    "cover": "renovation2*.jpg",
+    "cover": "renovation2*.webp",
     "details": [
       "Αποξηλώθηκαν και απομακρύνθηκαν με κάδους η κουζίνα και το μπάνιο.",
       "Δημιουργήθηκαν εξ ολοκλήρου νέες υδραυλικές και ηλεκτρολογικές εγκαταστάσεις.",
@@ -23,23 +23,23 @@
       {
         "title": "Μετά",
         "images": [
-          "renovation6*.jpg",
-          "renovation2.jpg",
-          "renovation**.jpg",
-          "renovation88.jpg",
-          "renovation4*.jpg",
-          "renovation2*.jpg",
-          "renovation1*.jpg",
-          "renovation8*.jpg"
+          "renovation6*.webp",
+          "renovation2.webp",
+          "renovation**.webp",
+          "renovation88.webp",
+          "renovation4*.webp",
+          "renovation2*.webp",
+          "renovation1*.webp",
+          "renovation8*.webp"
         ]
       },
       {
         "title": "Πριν",
         "images": [
-          "renovation3.jpg",
-          "renovation4.jpg",
-          "renovation5.jpg",
-          "renovation7.jpg"
+          "renovation3.webp",
+          "renovation4.webp",
+          "renovation5.webp",
+          "renovation7.webp"
         ]
       }
     ]
@@ -52,7 +52,7 @@
     "summary": "Ανακαίνιση διαμερίσματος με νέο δεύτερο υπνοδωμάτιο, μικρή κουζίνα εισόδου και πλήρως ανανεωμένο μπάνιο.",
     "aspect": "4:3",
     "folder": "erga/",
-    "cover": "faliro5.jpg",
+    "cover": "faliro5.webp",
     "details": [
       "Στο διαμέρισμα 3ου ορόφου δημιουργήθηκε δεύτερο υπνοδωμάτιο στον χώρο της πρώην κουζίνας.",
       "Κατασκευάστηκε νέα, μικρή κουζίνα στην είσοδο, σύμφωνα με την επιθυμία του πελάτη.",
@@ -64,19 +64,19 @@
       {
         "title": "Gallery",
         "images": [
-          "faliro1.jpg",
-          "faliro2.jpg",
-          "faliro3.jpg",
-          "faliro4.jpg",
-          "faliro5.jpg",
-          "faliro6.jpg",
-          "faliro7.jpg",
-          "faliro8.jpg",
-          "faliro9.jpg",
-          "faliro10.jpg",
-          "faliro11.jpg",
-          "faliro12.jpg",
-          "faliro13.jpg"
+          "faliro1.webp",
+          "faliro2.webp",
+          "faliro3.webp",
+          "faliro4.webp",
+          "faliro5.webp",
+          "faliro6.webp",
+          "faliro7.webp",
+          "faliro8.webp",
+          "faliro9.webp",
+          "faliro10.webp",
+          "faliro11.webp",
+          "faliro12.webp",
+          "faliro13.webp"
         ]
       }
     ]
@@ -89,7 +89,7 @@
     "summary": "Ολική ανακαίνιση υπογείου διαμερίσματος με νέες εγκαταστάσεις, κουζίνα, μπάνιο και ντουλάπες.",
     "aspect": "4:3",
     "folder": "erga/",
-    "cover": "ampelokipoi6.jpg",
+    "cover": "ampelokipoi6.webp",
     "details": [
       "Αποξηλώθηκαν και απομακρύνθηκαν με κάδους η κουζίνα, το μπάνιο, οι εσωτερικές πόρτες και η πόρτα εισόδου.",
       "Δημιουργήθηκαν νέες ηλεκτρολογικές και υδραυλικές εγκαταστάσεις.",
@@ -103,24 +103,24 @@
       {
         "title": "Μετά",
         "images": [
-          "ampelokipoi6.jpg",
-          "ampelokipoi5.jpg",
-          "ampelokipoi8.jpg",
-          "ampelokipoi10.jpg",
-          "ampelokipoi13.jpg",
-          "ampelokipoi14.jpg",
-          "ampelokipoi7.jpg",
-          "ampelokipoi11.jpg",
-          "ampelokipoi9.jpg",
-          "ampelokipoi12.jpg"
+          "ampelokipoi6.webp",
+          "ampelokipoi5.webp",
+          "ampelokipoi8.webp",
+          "ampelokipoi10.webp",
+          "ampelokipoi13.webp",
+          "ampelokipoi14.webp",
+          "ampelokipoi7.webp",
+          "ampelokipoi11.webp",
+          "ampelokipoi9.webp",
+          "ampelokipoi12.webp"
         ]
       },
       {
         "title": "Πριν",
         "images": [
-          "ampelokipoi3.jpg",
-          "ampelokipoi2.jpg",
-          "ampelokipoi1.jpg"
+          "ampelokipoi3.webp",
+          "ampelokipoi2.webp",
+          "ampelokipoi1.webp"
         ]
       }
     ]
@@ -133,7 +133,7 @@
     "summary": "Κουφώματα αλουμινίου - pvc: Συρόμενα ή ανοιγόμενα με ανάκλιση, με σήτα, με ρολό ή παντζούρι, με ιμάντα ή button, τα κουφώματα προσφέρουν θερμομόνωση, ηχομόνωση και ασφάλεια.",
     "aspect": "4:3",
     "folder": "erga/",
-    "cover": "windows1.jpg",
+    "cover": "windows1.webp",
     "details": [
       "Επιλογές σε συρόμενα ή ανοιγόμενα κουφώματα με ανάκλιση ανάλογα με το δωμάτιο.",
       "Ενσωμάτωση σίτας, ρολού ή παντζουριού με χειρισμό ιμάντα ή button.",
@@ -143,12 +143,12 @@
       {
         "title": "Gallery",
         "images": [
-          "windows1.jpg",
-          "windows2.jpg",
-          "windows3.jpg",
-          "windows4.jpg",
-          "windows5.jpg",
-          "windows6.jpg"
+          "windows1.webp",
+          "windows2.webp",
+          "windows3.webp",
+          "windows4.webp",
+          "windows5.webp",
+          "windows6.webp"
         ]
       }
     ]
@@ -223,7 +223,7 @@
     "summary": "Νέα τοποθέτηση, επισκευή ή τρίψιμο σε ξύλινα, laminate και μωσαϊκά δάπεδα. Επαγγελματικό φινίρισμα, ανθεκτικά υλικά και καθαρή παράδοση.",
     "aspect": "4:3",
     "folder": "erga/",
-    "cover": "floor2.jpg",
+    "cover": "floor2.webp",
     "details": [
       "Νέα τοποθέτηση ή αντικατάσταση ξύλινων και laminate δαπέδων με προσοχή στη λεπτομέρεια.",
       "Επισκευές και τριψίματα για ανανέωση μωσαϊκών και ξύλινων επιφανειών.",
@@ -233,8 +233,8 @@
       {
         "title": "Gallery",
         "images": [
-          "floor1.jpg",
-          "floor2.jpg"
+          "floor1.webp",
+          "floor2.webp"
         ]
       }
     ]
@@ -247,7 +247,7 @@
     "summary": "Τα μωσαϊκά δάπεδα τρίφτηκαν με ειδικό μηχάνημα και λουστραρίστηκαν. Το αποτέλεσμα εντυπωσιακό!",
     "aspect": "4:3",
     "folder": "erga/",
-    "cover": "masaiko3.jpg",
+    "cover": "masaiko3.webp",
     "details": [
       "Τα μωσαϊκά δάπεδα τρίφτηκαν προσεκτικά με ειδικό μηχάνημα για να απομακρυνθούν οι φθορές.",
       "Εφαρμόστηκε λουστράρισμα που ανέδειξε τα χρώματα και την υφή του μωσαϊκού.",
@@ -257,10 +257,10 @@
       {
         "title": "Gallery",
         "images": [
-          "masaiko1.jpg",
-          "masaiko2.jpg",
-          "masaiko4.jpg",
-          "renovation2.jpg"
+          "masaiko1.webp",
+          "masaiko2.webp",
+          "masaiko4.webp",
+          "renovation2.webp"
         ]
       }
     ]
@@ -273,7 +273,7 @@
     "summary": "Μόνωση ταράτσας με υγρομονωτικό, fibran 7cm και τελική στρώση ελαφρού τσιμεντοειδούς.",
     "aspect": "4:3",
     "folder": "erga/",
-    "cover": "insulation1.jpg",
+    "cover": "insulation1.webp",
     "details": [
       "Η ταράτσα αρχικά καθαρίστηκε σχολαστικά από τις ενανθρακώσεις.",
       "Τα προβληματικά σημεία αποκαταστάθηκαν με ρητινούχο τσιμεντοειδές.",
@@ -286,9 +286,9 @@
       {
         "title": "Gallery",
         "images": [
-          "insulation3.jpg",
-          "insulation2.jpg",
-          "insulation1.jpg"
+          "insulation3.webp",
+          "insulation2.webp",
+          "insulation1.webp"
         ]
       }
     ]
@@ -301,7 +301,7 @@
     "summary": "Εργασίες αποκατάστασης στηθαίων σε πολυκατοικία μετά την έκδοση των απαραίτητων αδειών.",
     "aspect": "4:3",
     "folder": "erga/",
-    "cover": "guardrailpiraeus1.jpg",
+    "cover": "guardrailpiraeus1.webp",
     "details": [
       "Κατόπιν εκδόσεως των απαραίτητων αδειών από την οικεία ΥΔΟΜ και τον Δήμο, τοποθετήθηκε πιστοποιημένη σκαλωσιά.",
       "Αποξηλώθηκαν οι γυψόπλακες από τα στηθαία και απομακρύνθηκαν με κάδους.",
@@ -312,16 +312,16 @@
       {
         "title": "Gallery",
         "images": [
-          "guardrailpiraeus1.jpg",
-          "guardrailpiraeus2.jpg",
-          "guardrailpiraeus3.jpg",
-          "guardrailpiraeus4.jpg",
-          "guardrailpiraeus5.jpg",
-          "guardrailpiraeus6.jpg",
-          "guardrailpiraeus7.jpg",
-          "guardrailpiraeus8.jpg",
-          "guardrailpiraeus9.jpg",
-          "guardrailpiraeus10.jpg"
+          "guardrailpiraeus1.webp",
+          "guardrailpiraeus2.webp",
+          "guardrailpiraeus3.webp",
+          "guardrailpiraeus4.webp",
+          "guardrailpiraeus5.webp",
+          "guardrailpiraeus6.webp",
+          "guardrailpiraeus7.webp",
+          "guardrailpiraeus8.webp",
+          "guardrailpiraeus9.webp",
+          "guardrailpiraeus10.webp"
         ]
       }
     ]
@@ -334,7 +334,7 @@
     "summary": "Αποκατάσταση στηθαίων και κιόνων σε παραθαλάσσιο συγκρότημα κατοικιών.",
     "aspect": "4:3",
     "folder": "erga/",
-    "cover": "guardrail6.jpg",
+    "cover": "guardrail6.webp",
     "details": [
       "Τοποθετήθηκαν πιστοποιημένα ικριώματα σταδιακά και στα τέσσερα κτίρια του συγκροτήματος.",
       "Απομακρύνθηκαν όλα τα σαθρά υλικά και καθαρίστηκαν οι εκτεθειμένοι οπλισμοί από τη σκουριά.",
@@ -345,12 +345,12 @@
       {
         "title": "Gallery",
         "images": [
-          "guardrail11.jpg",
-          "guardrail10.jpg",
-          "guardrail6.jpg",
-          "guardrail8.jpg",
-          "guardrail9.jpg",
-          "guardrail7.jpg"
+          "guardrail11.webp",
+          "guardrail10.webp",
+          "guardrail6.webp",
+          "guardrail8.webp",
+          "guardrail9.webp",
+          "guardrail7.webp"
         ]
       }
     ]
@@ -363,7 +363,7 @@
     "summary": "Ενδεικτικές μεταλλικές κατασκευές για οικιακά και επαγγελματικά έργα με έμφαση στην αντοχή και την προσαρμογή στις ανάγκες του χώρου.",
     "aspect": "4:3",
     "folder": "erga/",
-    "cover": "metal1.jpg",
+    "cover": "metal1.webp",
     "details": [
       "Κατασκευές κιγκλιδωμάτων, σκελετών και βοηθητικών δομών με ακρίβεια κοπής και συγκόλλησης.",
       "Εφαρμογή αντισκωριακής προστασίας και βαφής για αντοχή σε εξωτερικές συνθήκες.",
@@ -373,10 +373,10 @@
       {
         "title": "Gallery",
         "images": [
-          "metal1.jpg",
-          "metal2.jpg",
-          "metal3.jpg",
-          "metal4.jpg"
+          "metal1.webp",
+          "metal2.webp",
+          "metal3.webp",
+          "metal4.webp"
         ]
       }
     ]
