@@ -149,6 +149,8 @@ body.nav-open{overflow:hidden}
 .hero .btn{border-color:rgba(255,255,255,.35)}
 .hero .btn--ghost{background:rgba(255,255,255,.12);color:#fff}
 .hero-cta{display:flex;gap:16px;margin-top:24px;flex-wrap:wrap}
+.athens-hero .hero-cta{justify-content:center;align-items:center;text-align:center}
+.athens-hero .hero-cta a{text-align:center}
 .hero-cta .btn{animation:none}
 .hero-cta .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 6px 16px rgba(245,158,11,.35);font-weight:700}
 .hero-cta .btn-primary:hover,
