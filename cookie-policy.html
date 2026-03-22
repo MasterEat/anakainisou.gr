@@ -41,6 +41,18 @@
           <li class="nav__item"><a href="#" class="nav__link" data-home rel="home">Αρχική</a></li>
           <li class="nav__item"><a href="/index.html#about" class="nav__link">Σχετικά</a></li>
           <li class="nav__item"><a href="/index.html#process" class="nav__link">Πώς Λειτουργούμε</a></li>
+          <li class="nav__item nav__item--dropdown" data-dropdown>
+            <div class="nav__dropdown-trigger">
+              <a href="anakainiseis-athina.html" class="nav__link">Ανακαινίσεις</a>
+              <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-label="Άνοιγμα υπομενού Ανακαινίσεις" data-dropdown-toggle>
+                <span class="nav__dropdown-caret" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="nav__dropdown-panel" data-dropdown-panel>
+              <a href="anakainisi-spitiou-athina.html" class="nav__dropdown-link">Ολική Ανακαίνιση</a>
+              <a href="anakainisi-kouzinas-athina.html" class="nav__dropdown-link">Ανακαίνιση Κουζίνας</a>
+            </div>
+          </li>
           <li class="nav__item nav__item--projects"><a href="erga.html" class="nav__link">Έργα</a></li>
           <li class="nav__item"><a href="/index.html#gallery" class="nav__link">Gallery</a></li>
           <li class="nav__item nav__item--cta"><a href="/index.html#contact" class="btn btn--sm nav-cta">Ζητήστε Προσφορά</a></li>
@@ -65,14 +77,24 @@
       </div>
       <nav class="nav-mobile" aria-label="Πλοήγηση κινητού">
         <ul class="nav-mobile__list">
-          <li><a class="nav-mobile__link" href="/index.html#hero"><span>Αρχική</span><span aria-hidden="true">→</span></a></li>
-          <li><a class="nav-mobile__link" href="/index.html#about"><span>Σχετικά</span><span aria-hidden="true">→</span></a></li>
-          <li><a class="nav-mobile__link" href="/index.html#process"><span>Πώς Λειτουργούμε</span><span aria-hidden="true">→</span></a></li>
-          <li><a class="nav-mobile__link" href="/index.html#services"><span>Υπηρεσίες</span><span aria-hidden="true">→</span></a></li>
-          <li><a class="nav-mobile__link" href="erga.html"><span>Έργα</span><span aria-hidden="true">→</span></a></li>
-          <li><a class="nav-mobile__link" href="/index.html#gallery"><span>Gallery</span><span aria-hidden="true">→</span></a></li>
-          <li><a class="nav-mobile__link" href="/index.html#faq"><span>FAQ</span><span aria-hidden="true">→</span></a></li>
-          <li><a class="nav-mobile__link" href="contact.html"><span>Επικοινωνία</span><span aria-hidden="true">→</span></a></li>
+          <li class="nav-mobile__item"><a class="nav-mobile__link" href="/index.html#hero"><span>Αρχική</span><span aria-hidden="true">→</span></a></li>
+          <li class="nav-mobile__item"><a class="nav-mobile__link" href="/index.html#about"><span>Σχετικά</span><span aria-hidden="true">→</span></a></li>
+          <li class="nav-mobile__item"><a class="nav-mobile__link" href="/index.html#process"><span>Πώς Λειτουργούμε</span><span aria-hidden="true">→</span></a></li>
+          <li class="nav-mobile__item"><a class="nav-mobile__link" href="/index.html#services"><span>Υπηρεσίες</span><span aria-hidden="true">→</span></a></li>
+          <li class="nav-mobile__item nav-mobile__item--submenu" data-mobile-submenu>
+            <button class="nav-mobile__link nav-mobile__toggle" type="button" aria-expanded="false" aria-label="Άνοιγμα υπομενού Ανακαινίσεις" data-mobile-submenu-toggle>
+              <span>Ανακαινίσεις</span>
+              <span class="nav-mobile__caret" aria-hidden="true"></span>
+            </button>
+            <div class="nav-mobile__submenu" data-mobile-submenu-panel hidden>
+              <a href="anakainisi-spitiou-athina.html" class="nav-mobile__sublink">Ολική Ανακαίνιση</a>
+              <a href="anakainisi-kouzinas-athina.html" class="nav-mobile__sublink">Ανακαίνιση Κουζίνας</a>
+            </div>
+          </li>
+          <li class="nav-mobile__item"><a class="nav-mobile__link" href="erga.html"><span>Έργα</span><span aria-hidden="true">→</span></a></li>
+          <li class="nav-mobile__item"><a class="nav-mobile__link" href="/index.html#gallery"><span>Gallery</span><span aria-hidden="true">→</span></a></li>
+          <li class="nav-mobile__item"><a class="nav-mobile__link" href="/index.html#faq"><span>FAQ</span><span aria-hidden="true">→</span></a></li>
+          <li class="nav-mobile__item"><a class="nav-mobile__link" href="contact.html"><span>Επικοινωνία</span><span aria-hidden="true">→</span></a></li>
         </ul>
       </nav>
       <div class="nav-overlay__social">
