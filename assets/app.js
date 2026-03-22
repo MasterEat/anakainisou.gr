@@ -41,6 +41,17 @@ const desktopMedia=window.matchMedia('(min-width: 768px)');
 const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const focusableSelectors="a[href]:not([tabindex='-1']), button:not([disabled]):not([tabindex='-1']), [tabindex]:not([tabindex='-1'])";
 let menuOpen=false;
+const desktopDropdownItems=Array.from(document.querySelectorAll('[data-nav-dropdown]'));
+const mobileSubmenuItems=Array.from(document.querySelectorAll('[data-mobile-submenu]'));
+
+function normalizeNavPath(path){
+  const normalized=(path||'/').replace(/\/+$/,'');
+  if(normalized.toLowerCase().endsWith('/index.html')){
+    return normalized.slice(0,-11).replace(/\/+$/,'')||'/';
+  }
+  return normalized||'/';
+}
+
 
 function getFocusableElements(){
   if(!navOverlay){return[];}
@@ -102,6 +113,16 @@ function closeMenu(returnFocus){
   if(navOverlay.hidden&&!menuOpen){
     return;
   }
+  mobileSubmenuItems.forEach(function(item){
+    item.classList.remove('is-open');
+    var toggle=item.querySelector('[data-mobile-submenu-toggle]');
+    var submenu=item.querySelector('.nav-mobile__submenu');
+    if(toggle){
+      toggle.setAttribute('aria-expanded','false');
+      toggle.setAttribute('aria-label','Άνοιγμα υπομενού Ανακαινίσεις');
+    }
+    if(submenu){submenu.hidden=true;}
+  });
   menuOpen=false;
   navOverlay.classList.remove('is-active');
   navBackdrop.classList.remove('is-active');
@@ -138,7 +159,7 @@ if(navToggle&&navOverlay&&navBackdrop){
   if(navClose){navClose.addEventListener('click',function(){closeMenu();});}
   navBackdrop.addEventListener('click',function(){closeMenu();});
   if(navOverlay){
-    var overlayLinks=navOverlay.querySelectorAll('a.nav-mobile__link, a.nav-mobile__cta');
+    var overlayLinks=navOverlay.querySelectorAll('a.nav-mobile__link, a.nav-mobile__sublink, a.nav-mobile__cta');
     overlayLinks.forEach(function(link){
       link.addEventListener('click',function(){closeMenu();});
     });
@@ -166,22 +187,90 @@ if(siteHeader){
   window.addEventListener('scroll',updateHeaderShadow,{passive:true});
 }
 
-// Active nav state for services
-const servicesSection=document.getElementById('services');
-const servicesNavLinks=Array.from(document.querySelectorAll('a.nav__link[href="#services"], a.nav-mobile__link[href="#services"]'));
-if('IntersectionObserver'in window&&servicesSection&&servicesNavLinks.length){
-  const toggleActive=function(isActive){
-    servicesNavLinks.forEach(function(link){
-      link.classList.toggle('nav__link--active',isActive);
-    });
+desktopDropdownItems.forEach(function(item){
+  const trigger=item.querySelector('.nav__link--dropdown');
+  if(!trigger){return;}
+
+  const setExpanded=function(isOpen){
+    item.classList.toggle('is-open',isOpen);
+    trigger.setAttribute('aria-expanded',String(isOpen));
   };
-  const observer=new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      toggleActive(entry.isIntersecting&&entry.intersectionRatio>=0.4);
-    });
-  },{threshold:0.4});
-  observer.observe(servicesSection);
-}
+
+  item.addEventListener('mouseenter',function(){
+    if(desktopMedia.matches){setExpanded(true);}
+  });
+  item.addEventListener('mouseleave',function(){
+    if(desktopMedia.matches){setExpanded(false);}
+  });
+  item.addEventListener('focusin',function(){
+    if(desktopMedia.matches){setExpanded(true);}
+  });
+  item.addEventListener('focusout',function(event){
+    if(desktopMedia.matches&&!item.contains(event.relatedTarget)){setExpanded(false);}
+  });
+  trigger.addEventListener('click',function(event){
+    if(!desktopMedia.matches){return;}
+    const isOpen=item.classList.contains('is-open');
+    if(!isOpen){
+      event.preventDefault();
+      desktopDropdownItems.forEach(function(other){
+        if(other!==item){
+          other.classList.remove('is-open');
+          const otherTrigger=other.querySelector('.nav__link--dropdown');
+          if(otherTrigger){otherTrigger.setAttribute('aria-expanded','false');}
+        }
+      });
+    }
+    setExpanded(!isOpen);
+  });
+});
+
+document.addEventListener('click',function(event){
+  desktopDropdownItems.forEach(function(item){
+    if(item.contains(event.target)){return;}
+    item.classList.remove('is-open');
+    const trigger=item.querySelector('.nav__link--dropdown');
+    if(trigger){trigger.setAttribute('aria-expanded','false');}
+  });
+});
+
+document.addEventListener('keydown',function(event){
+  if(event.key!=='Escape'){return;}
+  desktopDropdownItems.forEach(function(item){
+    item.classList.remove('is-open');
+    const trigger=item.querySelector('.nav__link--dropdown');
+    if(trigger){trigger.setAttribute('aria-expanded','false');}
+  });
+});
+
+mobileSubmenuItems.forEach(function(item){
+  const toggle=item.querySelector('[data-mobile-submenu-toggle]');
+  const submenu=item.querySelector('.nav-mobile__submenu');
+  if(!toggle||!submenu){return;}
+  toggle.addEventListener('click',function(){
+    const isOpen=item.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded',String(isOpen));
+    toggle.setAttribute('aria-label',isOpen?'Κλείσιμο υπομενού Ανακαινίσεις':'Άνοιγμα υπομενού Ανακαινίσεις');
+    submenu.hidden=!isOpen;
+  });
+});
+
+const currentPath=normalizeNavPath(location.pathname||'/');
+document.querySelectorAll('.nav__link[href], .nav-dropdown__link[href], .nav-mobile__link[href], .nav-mobile__sublink[href]').forEach(function(link){
+  const href=link.getAttribute('href');
+  if(!href||href.charAt(0)==='#'||href.startsWith('mailto:')||href.startsWith('tel:')||href.startsWith('viber:')){return;}
+  const linkUrl=new URL(href,location.href);
+  if(normalizeNavPath(linkUrl.pathname)===currentPath){
+    link.classList.add('nav__link--active');
+    link.setAttribute('aria-current','page');
+    const dropdownItem=link.closest('[data-nav-dropdown]');
+    const desktopTrigger=dropdownItem?dropdownItem.querySelector('.nav__link--dropdown'):null;
+    if(desktopTrigger){desktopTrigger.classList.add('nav__link--active');}
+    const mobileItem=link.closest('[data-mobile-submenu]');
+    const mobileParent=mobileItem?mobileItem.querySelector('.nav-mobile__link--parent'):null;
+    if(mobileParent){mobileParent.classList.add('nav-mobile__link--active');}
+  }
+});
 
 // Accordion toggle + aria
 document.querySelectorAll('.service-card .service-header').forEach(btn=>{
