@@ -1,4 +1,89 @@
 (function () {
+  const IMAGE_DIMENSIONS = {
+    "ampelokipoi.webp": [600, 600],
+    "ampelokipoi1.webp": [600, 600],
+    "ampelokipoi10.webp": [600, 600],
+    "ampelokipoi11.webp": [600, 600],
+    "ampelokipoi12.webp": [600, 600],
+    "ampelokipoi13.webp": [600, 600],
+    "ampelokipoi14.webp": [600, 600],
+    "ampelokipoi2.webp": [600, 600],
+    "ampelokipoi3.webp": [600, 600],
+    "ampelokipoi4.webp": [600, 600],
+    "ampelokipoi5.webp": [600, 600],
+    "ampelokipoi6.webp": [600, 600],
+    "ampelokipoi7.webp": [600, 600],
+    "ampelokipoi8.webp": [600, 600],
+    "ampelokipoi9.webp": [600, 600],
+    "faliro1.webp": [800, 800],
+    "faliro10.webp": [800, 800],
+    "faliro11.webp": [800, 800],
+    "faliro12.webp": [800, 800],
+    "faliro13.webp": [800, 800],
+    "faliro2.webp": [800, 800],
+    "faliro3.webp": [800, 800],
+    "faliro4.webp": [800, 800],
+    "faliro5.webp": [800, 800],
+    "faliro6.webp": [800, 800],
+    "faliro7.webp": [800, 800],
+    "faliro8.webp": [800, 800],
+    "faliro9.webp": [800, 800],
+    "floor1.webp": [791, 600],
+    "floor2.webp": [600, 600],
+    "guardrail10.webp": [779, 973],
+    "guardrail11.webp": [771, 976],
+    "guardrail5.webp": [1600, 1205],
+    "guardrail6.webp": [3000, 4000],
+    "guardrail7.webp": [3000, 4000],
+    "guardrail8.webp": [3000, 4000],
+    "guardrail9.webp": [3000, 4000],
+    "guardrailpiraeus1.webp": [450, 600],
+    "guardrailpiraeus10.webp": [1600, 1205],
+    "guardrailpiraeus2.webp": [450, 600],
+    "guardrailpiraeus3.webp": [3000, 4000],
+    "guardrailpiraeus4.webp": [3000, 4000],
+    "guardrailpiraeus5.webp": [3000, 4000],
+    "guardrailpiraeus6.webp": [460, 600],
+    "guardrailpiraeus7.webp": [800, 600],
+    "guardrailpiraeus8.webp": [455, 600],
+    "guardrailpiraeus9.webp": [1600, 1205],
+    "insulation1.webp": [600, 600],
+    "insulation2.webp": [600, 600],
+    "insulation3.webp": [600, 600],
+    "masaiko1.webp": [450, 600],
+    "masaiko2.webp": [450, 600],
+    "masaiko3.webp": [450, 600],
+    "masaiko4.webp": [450, 600],
+    "metal1.webp": [670, 512],
+    "metal2.webp": [693, 512],
+    "metal3.webp": [662, 512],
+    "metal4.webp": [677, 512],
+    "renovation**.webp": [600, 600],
+    "renovation1*.webp": [800, 900],
+    "renovation1.webp": [800, 900],
+    "renovation2*.webp": [800, 900],
+    "renovation2.webp": [800, 900],
+    "renovation3*.webp": [800, 900],
+    "renovation3.webp": [800, 900],
+    "renovation4*.webp": [800, 900],
+    "renovation4.webp": [800, 900],
+    "renovation5*.webp": [800, 900],
+    "renovation5.webp": [800, 900],
+    "renovation6*.webp": [800, 900],
+    "renovation6.webp": [800, 900],
+    "renovation7*.webp": [800, 900],
+    "renovation7.webp": [800, 900],
+    "renovation8*.webp": [800, 900],
+    "renovation8.webp": [600, 600],
+    "renovation88.webp": [600, 600],
+    "windows1.webp": [396, 298],
+    "windows2.webp": [396, 298],
+    "windows3.webp": [413, 600],
+    "windows4.webp": [451, 600],
+    "windows5.webp": [451, 600],
+    "windows6.webp": [451, 600]
+  };
+
   const mount = document.getElementById('projects');
   if (!mount) {
     return;
@@ -127,6 +212,8 @@
     const aspect = String(project.aspect || '4:3').trim();
     const folder = typeof project.folder === 'string' ? project.folder : '';
     const cover = toSrcset(folder, project.cover);
+    const coverDimensions = getImageDimensions(project.cover, cover.best);
+    const coverDimensionAttrs = formatDimensionAttributes(coverDimensions);
     const layout = typeof project.layout === 'string' ? project.layout.trim().toLowerCase() : '';
     const isMinimalGrid = layout === 'minimal-grid';
     const cardClasses = ['card'];
@@ -155,6 +242,8 @@
         const imagesMarkup = group.images
           .map((image, imageIndex) => {
             const srcset = toSrcset(folder, image.file);
+            const dimensions = getImageDimensions(image.file, srcset.best);
+            const dimensionAttrs = formatDimensionAttributes(dimensions);
             const thumbAlt = image.alt
               ? image.alt
               : `${project.title || 'Project'}${group.title ? ` – ${group.title}` : ''} – φωτογραφία ${imageIndex + 1}`;
@@ -163,7 +252,7 @@
               ${srcset.webp ? `<source type="image/webp" srcset="${escapeAttr(srcset.webp)}" sizes="140px">` : ''}
               <source type="${escapeAttr(srcset.type || 'image/jpeg')}" srcset="${escapeAttr(srcset.jpg)}" sizes="140px">
               <img src="${escapeAttr(srcset.jpg800)}" srcset="${escapeAttr(srcset.jpg)}" sizes="140px"
-                   alt="${escapeAttr(thumbAlt)}" loading="lazy" decoding="async"
+                   alt="${escapeAttr(thumbAlt)}"${dimensionAttrs} loading="lazy" decoding="async"
                    data-full="${escapeAttr(srcset.best)}" data-lightbox-thumb>
             </picture>`;
           })
@@ -205,7 +294,7 @@
             ${cover.webp ? `<source type="image/webp" srcset="${escapeAttr(cover.webp)}" sizes="(min-width: 980px) 50vw, 100vw">` : ''}
             <source type="${escapeAttr(cover.type || 'image/jpeg')}" srcset="${escapeAttr(cover.jpg)}" sizes="(min-width: 980px) 50vw, 100vw">
             <img src="${escapeAttr(cover.jpg800)}" srcset="${escapeAttr(cover.jpg)}" sizes="(min-width: 980px) 50vw, 100vw"
-                 alt="${escapeAttr(project.title || 'Project cover')}" loading="lazy" decoding="async"
+                 alt="${escapeAttr(project.title || 'Project cover')}"${coverDimensionAttrs} loading="lazy" decoding="async"
                  data-full="${escapeAttr(cover.best)}">
           </picture>
           ${badgeMarkup ? `<div class="badges">${badgeMarkup}</div>` : ''}
@@ -426,6 +515,31 @@
     }
 
     return `${safeFolder}/${safeFile}`;
+  }
+
+  function getImageDimensions(filename, fallbackPath) {
+    const candidates = [filename, fallbackPath]
+      .filter((value) => typeof value === 'string' && value.trim())
+      .map((value) => value.trim().split('/').pop());
+
+    for (const candidate of candidates) {
+      if (candidate && IMAGE_DIMENSIONS[candidate]) {
+        const [width, height] = IMAGE_DIMENSIONS[candidate];
+        if (Number.isFinite(width) && Number.isFinite(height)) {
+          return { width, height };
+        }
+      }
+    }
+
+    return null;
+  }
+
+  function formatDimensionAttributes(dimensions) {
+    if (!dimensions) {
+      return '';
+    }
+
+    return ` width="${escapeAttr(dimensions.width)}" height="${escapeAttr(dimensions.height)}"`;
   }
 
   function normalizeDate(dateString) {
