@@ -197,18 +197,19 @@ body.nav-open{overflow:hidden}
 
 /* Contact section */
 .contact-section{background:#f8f8f8;padding:80px 20px;text-align:center}
-.contact-intro{max-width:720px;margin:0 auto;color:#334155;line-height:1.7}
-.contact-cta-block{max-width:760px;margin:0 auto;padding:40px 32px;background:linear-gradient(145deg,#ffffff 0%,#f8fafc 100%);border:1px solid rgba(15,23,42,.08);border-radius:28px;box-shadow:0 24px 48px rgba(15,23,42,.1);display:grid;gap:20px;justify-items:center}
-.contact-cta-block__eyebrow{display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;border-radius:999px;background:rgba(245,158,11,.12);color:#b45309;font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.contact-cta-block h2{margin:0;font-size:clamp(1.9rem,3vw,2.5rem);color:var(--accent-2)}
-.contact-cta-block__actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-.contact-cta-block__actions .btn{animation:none;min-width:min(100%,260px)}
-
-@media (max-width: 640px){
-  .contact-cta-block{padding:32px 20px;border-radius:22px}
-  .contact-cta-block__actions{flex-direction:column;width:100%}
-  .contact-cta-block__actions .btn{width:100%}
-}
+.contact-intro{max-width:640px;margin:0 auto 32px;color:#333}
+.contact-form{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px;text-align:left;background:#fff;border:1px solid #e8edf4;border-radius:16px;padding:32px;box-shadow:var(--shadow)}
+#contactForm{display:flex;flex-direction:column;gap:16px}
+.contact{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start}
+.form-group label{font-weight:600;margin-bottom:6px;display:block}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 14px;border:1px solid #cfd3d9;border-radius:10px;font:inherit}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--accent,#F59E0B);box-shadow:0 0 0 3px rgba(245,158,11,.2)}
+.btn-submit{background:var(--accent,#F59E0B);color:#fff;border:0;padding:14px 20px;border-radius:10px;font-weight:600;cursor:pointer;transition:.25s}
+.btn-submit:hover{background:#e48e0a;transform:translateY(-1px)}
+.form-status{margin-top:8px;font-size:.95rem}
+.gdpr{display:block;font-size:.95rem}
+.gdpr a{color:var(--accent,#F59E0B);text-decoration:underline}
+.map iframe{display:block;width:100%;min-height:360px;border:0;border-radius:14px;box-shadow:var(--shadow)}
 
 /* Footer */
 .site-footer{border-top:1px solid #e8edf4;padding:20px 0;background:#fff}
